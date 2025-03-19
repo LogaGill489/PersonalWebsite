@@ -7,17 +7,23 @@ body {
     margin-top: 5px;
 }
 
-header {
+/* Header - 685px */
+.header-widescreen {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
+    width: 100%;
 }
 
-h1 {
+
+.header-title-element {
     color: white;
     align-items: left;
     font-size: 35px;
     margin-left: 10px;
+    
 }
 
 .links {
@@ -33,4 +39,22 @@ h1 {
 a {
     color: rgb(224, 221, 221);
     text-decoration: none;
+}
+
+@media (max-width: 685px) {
+    .header-widescreen {
+        display: none;
+    }
+    .header-mobile {
+        display: flex;
+    }
+}
+
+@media (min-width: 685.02px) {
+    .header-widescreen {
+        display: flex;
+    }
+    .header-mobile {
+        display: none;
+    }
 }
