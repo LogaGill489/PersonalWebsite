@@ -6,21 +6,45 @@
     <meta name="author" content="Logan Gillett" />
     <title>Home - Logan Gillett</title>
     <link rel="stylesheet" href="css/index.css" />
-    <script src="jQuery-port.js"></script>
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+      $(function () {
+        $("#header-container").hide().fadeIn(1200);
+        $("#project-header").hide().fadeIn(1200);
+        $("#about-header").hide();
+
+        // Function to check if an element is in the viewport
+        function isInViewport(element) {
+          const rect = element.getBoundingClientRect();
+          return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+          );
+        }
+
+        // Check if the about header is in the viewport on scroll
+        $(window).on("scroll", function () {
+          const aboutHeader = $("#about-header");
+          if (isInViewport(aboutHeader[0]) && !aboutHeader.is(":visible")) aboutHeader.fadeIn(1200);
+        });
+      });
+    </script>
   </head>
   <body>
     <header>
       <!-- Widescreen Header -->
-      <div class="header-container">
+      <div class="header-container" id="header-container">
         <div class="header-widescreen">
           <div class="header-title-element">
             <a href="index.html">Logan Gillett</a>
           </div>
           <div class="links">
             <a href="projects.html">Projects</a>&nbsp;
-            <a href="projects.html">About</a>&nbsp;
-            <a href="projects.html">Career</a>&nbsp;
-            <a href="projects.html">Contact</a>&nbsp;
+            <a href="abouts.html">About</a>&nbsp;
+            <a href="professional.html">Career</a>&nbsp;
+            <a href="contact.html">Contact</a>&nbsp;
           </div>
           <div class="headerImages">
             <figure>
@@ -52,28 +76,30 @@
             <a href="index.html">Logan Gillett</a>
           </div>
         </div>
+        <p style="height: 400px"></p>
       </div>
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </header>
     <main>
       <div class="main-projects">
-        <div class="main-header-element">
+        <div class="main-header-element" id="project-header">
           <br />
           <h2>Projects</h2>
           <br />
         </div>
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       </div>
       <div class="main-about">
-        <div class="main-header-element">
+        <div class="main-header-element" id="about-header">
           <br />
           <h2>About</h2>
           <br />
         </div>
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       </div>
       <p>test</p>
     </main>
-    <footer></footer>
+    <footer>
+        <div class="footer-element">
+
+        </div>
+    </footer>
   </body>
 </html>

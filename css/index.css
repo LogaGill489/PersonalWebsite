@@ -7,9 +7,11 @@ body {
     background-color: rgb(0, 0, 0);
 }
 
+/*
 .header-container {
     animation: fadeIn 1.2s;
 }
+    */
 
 /* Header - 685px */
 .header-widescreen {
@@ -56,6 +58,7 @@ a {
     width: 100%; /* Use viewport width for full screen */
     margin: 0px; /* Remove all margins */
     background-color: white;
+    height: 500px;
 }
 
 .main-about {
@@ -64,6 +67,16 @@ a {
     width: 100%; /* Use viewport width for full screen */
     margin: 0px; /* Remove all margins */
     background-color: rgb(68, 92, 121);
+    height: 500px;
+}
+
+.footer-element {
+    display: flex;
+    justify-content: distance-between;
+    background-color: rgb(41, 29, 20);
+    color: white;
+    font-size: 20px;
+    height: 500px;
 }
 
 @media (max-width: 685px) {
@@ -83,8 +96,3 @@ a {
         display: none;
     }
 }
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
