@@ -19,15 +19,18 @@
           return (
             rect.top >= 0 &&
             rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            rect.bottom <=
+              (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <=
+              (window.innerWidth || document.documentElement.clientWidth)
           );
         }
 
         // Check if the about header is in the viewport on scroll
         $(window).on("scroll", function () {
           const aboutHeader = $("#about-header");
-          if (isInViewport(aboutHeader[0]) && !aboutHeader.is(":visible")) aboutHeader.fadeIn(1200);
+          if (isInViewport(aboutHeader[0]) && !aboutHeader.is(":visible"))
+            aboutHeader.fadeIn(1200);
         });
       });
     </script>
@@ -97,9 +100,23 @@
       <p>test</p>
     </main>
     <footer>
-        <div class="footer-element">
+      <div class="footer-element">
+        <div class="footer-widescreen">
+          <div class="footer-title">
+            <br />
+            <a href="#">Logan Gillett</a>
+          </div>
+          <div class="footer-links">
+            <a href="projects.html">Projects</a>
+            <a href="abouts.html">About</a>
+            <a href="professional.html">Career</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div class="footer-mobile">
 
         </div>
+      </div>
     </footer>
   </body>
 </html>
