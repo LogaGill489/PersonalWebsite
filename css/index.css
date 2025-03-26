@@ -20,6 +20,8 @@ body {
     align-items: center;
     box-sizing: border-box;
     width: 100%;
+
+    animation: fade-in 1.2s;
 }
 
 a {
@@ -69,16 +71,12 @@ a {
 }
 
 .footer-element {
-    display: flex;
+
     justify-content: space-between;
     background-color: rgb(40, 35, 32);
     color: white;
     font-size: 20px;
-    height: 100px;
-}
-
-.footer-widescreen {
-    
+    height: 400px;
 }
 
 .footer-title {
@@ -117,9 +115,19 @@ a {
     }
 
     .footer-widescreen {
-        display: flex;
+
     }
     .footer-mobile {
         display: none;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
