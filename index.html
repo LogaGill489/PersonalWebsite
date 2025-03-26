@@ -16,11 +16,15 @@
         var viewPortSize = $(window).height();
 
         var triggerHeight = viewPortSize - rect.y;
-        console.log(triggerHeight);
-        console.log(newEle);
+        // console.log(triggerHeight);
+        // console.log(newEle);
 
         if (triggerHeight > 0) {
-          $(".elem").eq(newEle++).css("visibility", "visible").hide().fadeIn(5000);
+          $(".elem")
+            .eq(newEle++)
+            .css("visibility", "visible")
+            .hide()
+            .fadeIn(1200);
         }
 
         if (elem.length < newEle + 1) {
@@ -86,7 +90,7 @@
       <div class="main-projects">
         <div class="main-header-element" style="animation: fade-in 2s">
           <br />
-          <h2>Projects</h2>
+          <h2>Skills</h2>
           <br />
         </div>
       </div>
@@ -102,16 +106,48 @@
     <footer>
       <div class="footer-element">
         <div class="footer-widescreen">
-          <div class="elem footer-title">
-            <br />
-            <a href="#">Logan Gillett</a>
+          <div class="footer-flex">
+            <div class="elem footer-title">
+              <br />
+              <a href="#">Logan Gillett</a>
+            </div>
+            <div class="footer-links">
+              <div class="elem footer-item">
+                <a href="projects.html">Projects</a>
+                <a href="about.html">About</a>
+                <figure>
+                  <a
+                    href="https://www.linkedin.com/in/logan-gillett-941797327/"
+                  >
+                    <img
+                      src="resources/linkedin.png"
+                      alt="LinkedIn"
+                      title="LinkedIn"
+                      width="25px"
+                      height="25px"
+                    />
+                  </a>
+                </figure>
+              </div>
+              <div class="elem footer-item">
+                <a href="professional.html">Career</a>
+                <a href="contact.html">Contact</a>
+                <figure>
+                  <a href="https://github.com/LogaGill489">
+                    <img
+                      src="resources/github.png"
+                      alt="GitHub"
+                      title="GitHub"
+                      width="25px"
+                      height="25px"
+                    />
+                  </a>
+                </figure>
+              </div>
+            </div>
           </div>
-          <br><br><br><br><br>
-          <div class="elem footer-links">
-            <a href="projects.html">Projects</a>
-            <a href="about.html">About</a>
-            <a href="professional.html">Career</a>
-            <a href="contact.html">Contact</a>
+          <div class="elem footer-fineprint">
+            <p>&copy; 2025 - Logan Gillett</p>
           </div>
         </div>
         <div class="footer-mobile">
