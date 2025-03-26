@@ -5,11 +5,6 @@
 
 body {
     background-color: rgb(0, 0, 0);
-    background-image: url(resources/bnwElectronicsResize.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
 }
 
 /* Header - 685px */

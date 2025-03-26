@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="css/index.css" />
     <script src="jquery-3.7.1.js"></script>
     <script>
+      //forces the screen to the top of the page upon refresh
+      $(document).ready(function () {
+        //removes scroll restoration seen on most modern search engines
+        if ("scrollRestoration" in history) {
+          history.scrollRestoration = "manual";
+        }
+        $("html, body").scrollTop(0);
+      });
+
       let newEle = 0;
       $(window).scroll(function () {
         //console.log($(window).scrollTop());
@@ -95,6 +104,14 @@
         </div>
       </div>
       <div class="main-about">
+        <style>
+          .main-about {
+            background-image: url(resources/.jpg);
+            background-image: center;
+            background-image: no-repeat;
+            background-size: cover;
+          }
+        </style>
         <div class="main-header-element" style="animation: fade-in 2s">
           <br />
           <h2>About</h2>
