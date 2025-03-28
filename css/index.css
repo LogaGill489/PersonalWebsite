@@ -15,8 +15,6 @@ body {
     align-items: center;
     box-sizing: border-box;
     width: 100%;
-
-    animation: fade-in 1.2s;
 }
 
 a {
