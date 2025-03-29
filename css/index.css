@@ -37,7 +37,7 @@ a {
 
 .main-header-element {
     font-size: 22px;
-    margin-inline-start: 80px;
+    margin-inline-start: 12%;
     font-weight: 3px;
     text-decoration: underline;
 }
@@ -66,12 +66,12 @@ a {
         width: 100%; /* Use viewport width for full screen */
         margin: 0px; /* Remove all margins */
         background-color: rgb(69, 82, 99);
-        height: 800px;
+        height: 900px;
 }
 
 .contact-form {
-    margin-left: 80px;
-    margin-right: 80px;
+    margin-left: 12%;
+    margin-right: 12%;
     margin-top: 50px;
     font-size: 20px;
     color: white;
@@ -97,6 +97,7 @@ label {
 
 textarea {
     opacity: 0.8;
+    min-height: 46px;
     height: 120px;
     font-size: 18px;
     margin-left: 0px;
@@ -193,6 +194,9 @@ button:hover {
     .name-input {
         grid-template-columns: auto;
     }
+    textarea {
+        max-height: 180px;
+    }
 }
 
 @media (min-width: 685.02px) {
@@ -205,6 +209,9 @@ button:hover {
 
     .name-input {
         grid-template-columns: auto auto;
+    }
+    textarea {
+        max-height: 300px;
     }
 }
 
