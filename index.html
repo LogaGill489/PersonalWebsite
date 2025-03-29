@@ -5,6 +5,10 @@
     <meta name="description" content="Homepage for my personal website." />
     <meta name="author" content="Logan Gillett" />
     <title>Home - Logan Gillett</title>
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+    <link rel="stylesheet" href="css/formatting.css" />
     <link rel="stylesheet" href="css/index.css" />
     <script src="jquery-3.7.1.js"></script>
     <script>
@@ -49,7 +53,7 @@
   <body>
     <header>
       <!-- Widescreen Header -->
-      <div class="header-container" id="header-container">
+      <div class="header-container">
         <div class="header-widescreen" style="animation: fade-in 1.2s">
           <div class="header-title-element">
             <a href="index.html">Logan Gillett</a>
@@ -136,7 +140,8 @@
           <br />
           <h2>Contact</h2>
         </div>
-        <div class="main-contact">
+        <form class="main-contact" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="3cffb038-0f16-4caf-9677-ff9d5d4e9976">
           <div class="contact-form">
             <span class="elem">Name</span>
             <span class="info-required">(required)</span>
@@ -195,18 +200,28 @@
                 <label for="Message"
                   >Message <span class="info-required">(required)</span></label
                 ><br />
-                <textarea
-                  name="message"
-                  id="message"
-                  required
-                ></textarea>
+                <textarea name="message" id="message" required></textarea>
               </p>
-          </div>
+            </div>
+          </form>
+          <!-- Honeypot Spam Protection -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
           <div class="submit-button">
             <p class="elem">
               <button>Send</button>
+              <button type="button" onclick="clearFields();">Clear</button>
             </p>
-        </div>
+            <script>
+              clearFields = () => {
+                document.getElementById("first-name").value = "";
+                document.getElementById("last-name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("subject").value = "";
+                document.getElementById("message").value = "";
+              }
+            </script>
+          </div>
+        </form>
       </div>
     </main>
     <!-- Footer -->

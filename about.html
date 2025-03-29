@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Contact page for my personal website." />
+    <meta name="author" content="Logan Gillett" />
+    <title>Contact - Logan Gillett</title>
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+    <link rel="stylesheet" href="css/formatting.css" />
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+      //forces the screen to the top of the page upon refresh
+      var eleArr = [];
+      var eleInc = 0;
+      //checks if the element is in the viewport
+      checkEle = () => {
+        const elem = $(".elem");
+        var viewPortSize = $(window).height();
+
+        for (var i = 0; i < elem.length; i++) {
+          if (eleArr[i] == 1) {
+            var rect = elem[i].getBoundingClientRect();
+            if (viewPortSize - rect.y > 0) {
+              $(".elem").eq(i).css("visibility", "visible").hide().fadeIn(1200);
+              eleArr[i] = 0;
+              eleInc++;
+            }
+          }
+        }
+      };
+      $(document).ready(function () {
+        //adds a 1 to the array for each elemement in the elem class
+        for (var i = 0; i < $(".elem").length; i++) {
+          eleArr.push(1);
+        }
+        checkEle();
+      });
+
+      $(window).scroll(function () {
+        const elem = $(".elem");
+        var viewPortSize = $(window).height();
+        checkEle();
+
+        if (eleInc >= elem.length) {
+          $(this).off("scroll");
+        }
+      });
+    </script>
+  </head>
+<body>
+    <header>
+        <!-- Widescreen Header -->
+        <div class="header-container">
+          <div class="header-widescreen" style="animation: fade-in 1.2s">
+            <div class="header-title-element">
+              <a href="index.html">Logan Gillett</a>
+            </div>
+            <div class="links">
+              <a href="projects.html">Projects</a>&nbsp;
+              <a href="about.html"><u>About</u></a>&nbsp;
+              <a href="professional.html">Career</a>&nbsp;
+              <a href="contact.html">Contact</a>&nbsp;
+            </div>
+            <div class="headerImages">
+              <figure>
+                <a href="https://www.linkedin.com/in/logan-gillett-941797327/">
+                  <img
+                    src="resources/linkedin.png"
+                    alt="LinkedIn"
+                    title="LinkedIn"
+                    width="25px"
+                    height="25px"
+                  />
+                </a>
+                &nbsp;
+                <a href="https://github.com/LogaGill489">
+                  <img
+                    src="resources/github.png"
+                    alt="GitHub"
+                    title="GitHub"
+                    width="25px"
+                    height="25px"
+                  />
+                </a>
+              </figure>
+            </div>
+          </div>
+          <!-- Mobile & Condensed Screen-->
+          <div class="header-mobile">
+            <div class="header-title-element">
+              <a href="index.html">Logan Gillett</a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+
+      </main>
+      <footer>
+        <div class="footer-element">
+          <div class="footer-widescreen">
+            <div class="footer-flex">
+              <div class="elem footer-title">
+                <br />
+                <a href="#">Logan Gillett</a>
+              </div>
+              <div class="footer-links">
+                <div class="elem footer-item" style="margin-top: 20px">
+                  <a href="projects.html">Projects</a>
+                  <a href="about.html">About</a>
+                  <figure>
+                    <a
+                      href="https://www.linkedin.com/in/logan-gillett-941797327/"
+                    >
+                      <img
+                        src="resources/linkedin.png"
+                        alt="LinkedIn"
+                        title="LinkedIn"
+                        width="25px"
+                        height="25px"
+                      />
+                    </a>
+                  </figure>
+                </div>
+                <div class="elem footer-item">
+                  <a href="professional.html">Career</a>
+                  <a href="contact.html">Contact</a>
+                  <figure>
+                    <a href="https://github.com/LogaGill489">
+                      <img
+                        src="resources/github.png"
+                        alt="GitHub"
+                        title="GitHub"
+                        width="25px"
+                        height="25px"
+                      />
+                    </a>
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <div class="elem footer-fineprint">
+              <p>&copy; 2025 - Logan Gillett</p>
+              <address>
+                Conrad Grebel University College, 140 Westmount Rd N, Waterloo, ON
+                N2L 3G6
+              </address>
+            </div>
+          </div>
+        </div>
+      </footer>
+</body>
+</html>

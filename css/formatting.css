@@ -1,0 +1,19 @@
+* {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.main-header-element {
+    font-size: 22px;
+    margin-inline-start: 12%;
+    font-weight: 3px;
+    text-decoration: underline;
+}
