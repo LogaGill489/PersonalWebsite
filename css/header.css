@@ -4,9 +4,8 @@
 }
 
 .header-widescreen {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     box-sizing: border-box;
     width: 100%;
@@ -18,12 +17,21 @@
 }
 
 .links {
-    align-items: center;
+    justify-self: center;
     font-size: 19px;
 }
 
 .headerImages {
     margin-right: 5px;
+    justify-self: end;
+}
+
+.header-central-title {
+    color: rgb(204, 198, 198);
+    font-size: 26px;
+    width: 100%;
+    text-align: center;
+    margin-top: 180px;
 }
 
 @media (max-width: 685px) {
@@ -32,13 +40,13 @@
     }
 
     .header-mobile {
-        display: flex;
+        display: grid;
     }
 }
 
 @media (min-width: 685.02px) {
     .header-widescreen {
-        display: flex;
+        display: grid;
     }
 
     .header-mobile {
