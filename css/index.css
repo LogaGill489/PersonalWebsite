@@ -1,6 +1,5 @@
 * {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin: 4px;
 }
 
 body {
@@ -61,6 +60,82 @@ a {
     height: 500px;
 }
 
+.main-contact {
+        text-decoration: none;
+        color: white;
+        width: 100%; /* Use viewport width for full screen */
+        margin: 0px; /* Remove all margins */
+        background-color: rgb(69, 82, 99);
+        height: 800px;
+}
+
+.contact-form {
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 50px;
+    font-size: 20px;
+    color: white;
+}
+
+.info-required {
+    font-size: 16px;
+    color: rgb(147, 144, 144);
+}
+
+.name-input {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 100%;
+    gap: 10px;
+}
+
+label {
+    font-size: 18px;
+    color: rgb(211, 211, 211);
+    line-height: 10px;
+}
+
+textarea {
+    opacity: 0.8;
+    height: 120px;
+    font-size: 18px;
+    margin-left: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+textarea:hover {
+    opacity: 0.6;
+}
+
+input {
+    opacity: 0.8;
+    height: 46px;
+    font-size: 18px;
+    margin-left: 0px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input:hover {
+    opacity: 0.6;
+}
+
+button {
+    background-color: white;
+    color: rgb(59, 56, 56);
+    font-size: 16px;
+    border: none;
+    width: 100px;
+    height: 40px;
+    opacity: 0.8;
+}
+
+button:hover {
+    opacity: 0.6;
+}
+
 .footer-element {
     margin: 0px;
     background-color: rgb(40, 35, 32);
@@ -74,9 +149,14 @@ a {
     width: 100%;
 }
 
+.footer-flex {
+    display:flex;
+}
+
 .footer-title {
     font-size: 26px;
     color: white;
+    margin-left: 4px;
 }
 
 .footer-links {
@@ -97,7 +177,9 @@ a {
     color: rgb(147, 144, 144);
     font-size: 14px;
     position: absolute;
-    bottom: 0;
+    bottom: 8px;
+    margin-left: 4px;
+    line-height: 8px;
   }
 
 @media (max-width: 685px) {
@@ -108,11 +190,8 @@ a {
         display: flex;
     }
 
-    .footer-flex {
-        display: none;
-    }
-    .footer-mobile {
-        display: flex;
+    .name-input {
+        grid-template-columns: auto;
     }
 }
 
@@ -124,11 +203,8 @@ a {
         display: none;
     }
 
-    .footer-flex {
-        display: flex;
-    }
-    .footer-mobile {
-        display: none;
+    .name-input {
+        grid-template-columns: auto auto;
     }
 }
 
