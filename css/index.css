@@ -9,19 +9,20 @@
 }
 
 .about-text-container {
-    padding-top: 50px;
+    padding-top: 30px;
 }
 
 .main-about {
     text-decoration: none;
-    color: white;
+    color: rgb(41, 40, 40);
     width: 100%; /* Use viewport width for full screen */
     background-color: rgb(68, 92, 121);
-    height: 500px;
+    min-height: 500px;
+    padding: 20px 0;
 }
 
 .about-element {
-    font-size: 22px;
+    font-size: 19px;
     margin-left: 12%;
     margin-right: 40%;
 }
@@ -32,7 +33,7 @@
     width: 100%; /* Use viewport width for full screen */
     margin: 0px; /* Remove all margins */
     background-color: white;
-    min-height: 800px; /* Set a minimum height */
+    min-height: 600px; /* Set a minimum height */
     padding: 20px 0; /* Add padding for spacing */
 }
 
