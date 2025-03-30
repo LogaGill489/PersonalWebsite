@@ -32,7 +32,7 @@
         }
       };
       $(document).ready(function () {
-        //adds a 1 to the array for each elemement in the elem class
+        //adds a 1 to the array for each element in the elem class
         for (var i = 0; i < $(".elem").length; i++) {
           eleArr.push(1);
         }
@@ -40,8 +40,6 @@
       });
 
       $(window).scroll(function () {
-        const elem = $(".elem");
-        var viewPortSize = $(window).height();
         checkEle();
 
         if (eleInc >= elem.length) {
@@ -99,16 +97,103 @@
     <!-- Main Content -->
     <main>
       <style>
-        .main-projects {
+        .main-skills {
           background-image: url(resources/texturedWhite.jpg);
-          background-image: center;
+          background-position: top center;
         }
       </style>
-      <div class="main-projects">
+      <div class="main-skills">
         <div class="elem main-header-element">
           <br />
           <h2>Skills</h2>
           <br />
+        </div>
+        <div class="skills-icons">
+          <div class="skill">
+            <img src="resources/skillsIcons/c++.png" alt="React" title="React" width="40px" height="40px" />
+            <hr class="skill-line">
+            <p>C++</p>
+          </div>
+          <div class="skill">
+            <img src="resources/skillsIcons/js.png" alt="React" title="React" width="40px" height="40px" />
+            <hr class="skill-line">
+            <p>Javascript</p>
+          </div>
+          <div class="skill">
+            <img src="resources/skillsIcons/nodejs.png" alt="React" title="React" width="40px" height="40px" />
+            <hr class="skill-line">
+            <p>Node.js</p>
+          </div>
+          <div class="skill">
+            <img src="resources/skillsIcons/figma.png" alt="React" title="React" width="40px" height="40px" />
+            <hr class="skill-line">
+            <p>Figma</p>
+          </div>
+          <div class="skill">
+            <img src="resources/skillsIcons/python.png" alt="React" title="React" width="40px" height="40px" />
+            <hr class="skill-line">
+            <p>Python</p>
+          </div>
+          <div class="skill">
+            <img src="resources/skillsIcons/react.png" alt="React" title="React" width="40px" height="40px" />
+            <hr class="skill-line">
+            <p>React</p>
+          </div>
+          <div class="skill">
+            <img src="resources/skillsIcons/unity.png" alt="React" title="React" width="40px" height="40px" />
+            <hr class="skill-line">
+            <p>Unity</p>
+          </div>
+          <div class="skill">
+            <img src="resources/skillsIcons/java.png" alt="React" title="React" width="40px" height="40px" />
+            <hr class="skill-line">
+            <p>Java</p>
+          </div>
+          <div class="skill">
+            <img src="resources/skillsIcons/raspberry-pi.png" alt="React" title="React" width="40px" height="40px" />
+            <hr class="skill-line">
+            <p>Raspberry Pi</p>
+          </div>
+          <div class="skill">
+            <img src="resources/skillsIcons/c-sharp.png" alt="React" title="React" width="40px" height="40px" />
+            <hr class="skill-line">
+            <p>C#</p>
+          </div>
+          <div class="skill">
+            <img src="resources/skillsIcons/c.png" alt="React" title="React" width="40px" height="40px" />
+            <hr class="skill-line">
+            <p>C</p>
+          </div>
+          <div class="skill">
+            <img src="resources/skillsIcons/html.png" alt="React" title="React" width="40px" height="40px" />
+            <hr class="skill-line">
+            <p>HTML</p>
+          </div>
+          <div class="skill">
+            <img src="resources/skillsIcons/css.png" alt="React" title="React" width="40px" height="40px" />
+            <hr class="skill-line">
+            <p>CSS</p>
+          </div>
+          <div class="skill">
+            <img src="resources/skillsIcons/jquery.png" alt="React" title="React" width="40px" height="40px" />
+            <hr class="skill-line">
+            <p>JQuery</p>
+          </div>
+          <div class="skill">
+            <img src="resources/skillsIcons/arduino.png" alt="React" title="React" width="40px" height="40px" />
+            <hr class="skill-line">
+            <p>Arduino</p>
+          </div>
+          <div class="skill">
+            <img src="resources/skillsIcons/stm32.png" alt="React" title="React" width="40px" height="40px" />
+            <hr class="skill-line">
+            <p>STM32</p>
+          </div>
+          <div class="skill">
+            <img src="resources/skillsIcons/git.png" alt="React" title="React" width="40px" height="40px" />
+            <hr class="skill-line">
+            <p>Git</p>
+          </div>
         </div>
       </div>
       <!-- about -->
@@ -127,24 +212,24 @@
           <br />
         </div>
       </div>
+      <style>
+        .main-contact {
+          background-image: url(resources/forestFog.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+        }
+      </style>
       <div class="main-contact">
-        <style>
-          .main-contact {
-            background-image: url(resources/norwayGray.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-          }
-        </style>
         <div class="elem main-header-element">
           <br />
           <h2>Contact</h2>
         </div>
-        <form class="main-contact" action="https://api.web3forms.com/submit" method="POST">
+        <form class="main-contact-form" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="3cffb038-0f16-4caf-9677-ff9d5d4e9976">
           <div class="contact-form">
             <span class="elem">Name</span>
-            <span class="info-required">(required)</span>
+            <span class="elem info-required">(required)</span>
             <div class="name-input">
               <p class="elem">
                 <label for="first-name">First Name</label><br />
@@ -247,6 +332,7 @@
                       title="LinkedIn"
                       width="25px"
                       height="25px"
+                      loading="lazy"
                     />
                   </a>
                 </figure>
@@ -262,6 +348,7 @@
                       title="GitHub"
                       width="25px"
                       height="25px"
+                      loading="lazy"
                     />
                   </a>
                 </figure>

@@ -105,18 +105,18 @@
                 background-image: url(resources/norwayGray.jpg);
                 background-repeat: no-repeat;
                 background-size: cover;
-                background-attachment: fixed;
+                background-position: top center;
               }
             </style>
             <div class="elem main-header-element">
               <br />
               <h2>Contact</h2>
             </div>
-            <form class="main-contact" action="https://api.web3forms.com/submit" method="POST">
+            <form class="main-contact-form" action="https://api.web3forms.com/submit" method="POST">
               <input type="hidden" name="access_key" value="3cffb038-0f16-4caf-9677-ff9d5d4e9976">
               <div class="contact-form">
                 <span class="elem">Name</span>
-                <span class="info-required">(required)</span>
+                <span class="elem info-required">(required)</span>
                 <div class="name-input">
                   <p class="elem">
                     <label for="first-name">First Name</label><br />
@@ -218,6 +218,7 @@
                         title="LinkedIn"
                         width="25px"
                         height="25px"
+                        loading="lazy"
                       />
                     </a>
                   </figure>
@@ -233,6 +234,7 @@
                         title="GitHub"
                         width="25px"
                         height="25px"
+                        loading="lazy"
                       />
                     </a>
                   </figure>
