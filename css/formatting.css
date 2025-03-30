@@ -4,6 +4,10 @@
 
 body {
     background-color: rgb(0, 0, 0);
+    overflow-x: hidden;
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    width: 100%; /* Ensure full width */
 }
 
 a {
@@ -16,4 +20,8 @@ a {
     margin-inline-start: 12%;
     font-weight: 3px;
     text-decoration: underline;
+}
+
+.elem {
+    visibility: hidden;
 }

@@ -5,8 +5,25 @@
 .main-header-element {
     font-size: 22px;
     margin-inline-start: 12%;
-    font-weight: 3px;
     text-decoration: underline;
+}
+
+.about-text-container {
+    padding-top: 50px;
+}
+
+.main-about {
+    text-decoration: none;
+    color: white;
+    width: 100%; /* Use viewport width for full screen */
+    background-color: rgb(68, 92, 121);
+    height: 500px;
+}
+
+.about-element {
+    font-size: 22px;
+    margin-left: 12%;
+    margin-right: 40%;
 }
 
 .main-skills {
@@ -51,13 +68,4 @@
     width: 70%;
     opacity: 0.5;
     color: rgba(173, 172, 172);
-}
-
-.main-about {
-    text-decoration: none;
-    color: white;
-    width: 100%; /* Use viewport width for full screen */
-    margin: 0px; /* Remove all margins */
-    background-color: rgb(68, 92, 121);
-    height: 500px;
 }

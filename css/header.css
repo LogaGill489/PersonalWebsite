@@ -22,8 +22,8 @@
 }
 
 .headerImages {
-    margin-right: 5px;
     justify-self: end;
+    padding-top: 4px;
 }
 
 .header-central-title {

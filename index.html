@@ -1,369 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Homepage for my personal website." />
-    <meta name="author" content="Logan Gillett" />
-    <title>Home - Logan Gillett</title>
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/contact.css" />
-    <link rel="stylesheet" href="css/formatting.css" />
-    <link rel="stylesheet" href="css/index.css" />
-    <script src="jquery-3.7.1.js"></script>
-    <script>
-      //forces the screen to the top of the page upon refresh
-      var eleArr = [];
-      var eleInc = 0;
-      //checks if the element is in the viewport
-      checkEle = () => {
-        const elem = $(".elem");
-        var viewPortSize = $(window).height();
 
-        for (var i = 0; i < elem.length; i++) {
-          if (eleArr[i] == 1) {
-            var rect = elem[i].getBoundingClientRect();
-            if (viewPortSize - rect.y > 0) {
-              $(".elem").eq(i).css("visibility", "visible").hide().fadeIn(1200);
-              eleArr[i] = 0;
-              eleInc++;
-            }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Homepage for my personal website." />
+  <meta name="author" content="Logan Gillett" />
+  <title>Home - Logan Gillett</title>
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/formatting.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <script src="jquery-3.7.1.js"></script>
+  <script>
+    //forces the screen to the top of the page upon refresh
+    var eleArr = [];
+    var eleInc = 0;
+    //checks if the element is in the viewport
+    checkEle = () => {
+      const elem = $(".elem");
+      var viewPortSize = $(window).height();
+
+      for (var i = 0; i < elem.length; i++) {
+        if (eleArr[i] == 1) {
+          var rect = elem[i].getBoundingClientRect();
+          if (viewPortSize - rect.y > 0) {
+            $(".elem").eq(i).css("visibility", "visible").hide().fadeIn(1200);
+            eleArr[i] = 0;
+            eleInc++;
           }
         }
-      };
-      $(document).ready(function () {
-        //adds a 1 to the array for each element in the elem class
-        for (var i = 0; i < $(".elem").length; i++) {
-          eleArr.push(1);
-        }
-        checkEle();
-      });
+      }
+    };
+    $(document).ready(function () {
+      //adds a 1 to the array for each element in the elem class
+      for (var i = 0; i < $(".elem").length; i++) {
+        eleArr.push(1);
+      }
+      checkEle();
+    });
 
-      $(window).scroll(function () {
-        checkEle();
+    $(window).scroll(function () {
+      checkEle();
 
-        if (eleInc >= elem.length) {
-          $(this).off("scroll");
-        }
-      });
-    </script>
-  </head>
-  <body>
-    <header>
-      <!-- Widescreen Header -->
-      <div class="header-container">
-        <div class="header-widescreen" style="animation: fade-in 1.2s">
-          <div class="header-title-element">
-            <a href="index.html">Logan Gillett</a>
-          </div>
-          <div class="links">
-            <a href="projects.html">Projects</a>&nbsp;
-            <a href="about.html">About</a>&nbsp;
-            <a href="career.html">Career</a>&nbsp;
-            <a href="contact.html">Contact</a>&nbsp;
-          </div>
-          <div class="headerImages">
-            <figure>
-              <a href="https://www.linkedin.com/in/logan-gillett-941797327/">
-                <img
-                  src="resources/linkedin.png"
-                  alt="LinkedIn"
-                  title="LinkedIn"
-                  width="25px"
-                  height="25px"
-                />
-              </a>
-              &nbsp;
-              <a href="https://github.com/LogaGill489">
-                <img
-                  src="resources/github.png"
-                  alt="GitHub"
-                  title="GitHub"
-                  width="25px"
-                  height="25px"
-                />
-              </a>
-            </figure>
-          </div>
+      if (eleInc >= elem.length) {
+        $(this).off("scroll");
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <!-- Widescreen Header -->
+    <div class="header-container">
+      <div class="header-widescreen" style="animation: fade-in 1.2s">
+        <div class="header-title-element">
+          <a href="index.html">Logan Gillett</a>
         </div>
-        <!-- Mobile & Condensed Screen-->
-        <div class="header-mobile">
-          <div class="header-title-element">
-            <a href="index.html">Logan Gillett</a>
-          </div>
+        <div class="links">
+          <a href="projects.html">Projects</a>&nbsp;
+          <a href="about.html">About</a>&nbsp;
+          <a href="career.html">Career</a>&nbsp;
+          <a href="contact.html">Contact</a>&nbsp;
+        </div>
+        <div class="headerImages">
+          <figure>
+            <a href="https://www.linkedin.com/in/logan-gillett-941797327/" target="_blank">
+              <img src="resources/linkedin.png" alt="LinkedIn" title="LinkedIn" width="25px" height="25px" />
+            </a>
+            &nbsp;
+            <a href="https://github.com/LogaGill489" target="_blank">
+              <img src="resources/github.png" alt="GitHub" title="GitHub" width="25px" height="25px" />
+            </a>
+          </figure>
         </div>
       </div>
-    </header>
-    <!-- Main Content -->
-    <main>
+      <!-- Mobile & Condensed Screen-->
+      <div class="header-mobile">
+        <div class="header-title-element">
+          <a href="index.html">Logan Gillett</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Main Content -->
+  <main>
+    <!-- About Section -->
+    <div class="main-about">
       <style>
-        .main-skills {
-          background-image: url(resources/texturedWhite.jpg);
-          background-position: top center;
-        }
-      </style>
-      <div class="main-skills">
-        <div class="elem main-header-element">
-          <br />
-          <h2>Skills</h2>
-          <br />
-        </div>
-        <div class="skills-icons">
-          <div class="skill">
-            <img src="resources/skillsIcons/c++.png" alt="React" title="React" width="40px" height="40px" />
-            <hr class="skill-line">
-            <p>C++</p>
-          </div>
-          <div class="skill">
-            <img src="resources/skillsIcons/js.png" alt="React" title="React" width="40px" height="40px" />
-            <hr class="skill-line">
-            <p>Javascript</p>
-          </div>
-          <div class="skill">
-            <img src="resources/skillsIcons/nodejs.png" alt="React" title="React" width="40px" height="40px" />
-            <hr class="skill-line">
-            <p>Node.js</p>
-          </div>
-          <div class="skill">
-            <img src="resources/skillsIcons/figma.png" alt="React" title="React" width="40px" height="40px" />
-            <hr class="skill-line">
-            <p>Figma</p>
-          </div>
-          <div class="skill">
-            <img src="resources/skillsIcons/python.png" alt="React" title="React" width="40px" height="40px" />
-            <hr class="skill-line">
-            <p>Python</p>
-          </div>
-          <div class="skill">
-            <img src="resources/skillsIcons/react.png" alt="React" title="React" width="40px" height="40px" />
-            <hr class="skill-line">
-            <p>React</p>
-          </div>
-          <div class="skill">
-            <img src="resources/skillsIcons/unity.png" alt="React" title="React" width="40px" height="40px" />
-            <hr class="skill-line">
-            <p>Unity</p>
-          </div>
-          <div class="skill">
-            <img src="resources/skillsIcons/java.png" alt="React" title="React" width="40px" height="40px" />
-            <hr class="skill-line">
-            <p>Java</p>
-          </div>
-          <div class="skill">
-            <img src="resources/skillsIcons/raspberry-pi.png" alt="React" title="React" width="40px" height="40px" />
-            <hr class="skill-line">
-            <p>Raspberry Pi</p>
-          </div>
-          <div class="skill">
-            <img src="resources/skillsIcons/c-sharp.png" alt="React" title="React" width="40px" height="40px" />
-            <hr class="skill-line">
-            <p>C#</p>
-          </div>
-          <div class="skill">
-            <img src="resources/skillsIcons/c.png" alt="React" title="React" width="40px" height="40px" />
-            <hr class="skill-line">
-            <p>C</p>
-          </div>
-          <div class="skill">
-            <img src="resources/skillsIcons/html.png" alt="React" title="React" width="40px" height="40px" />
-            <hr class="skill-line">
-            <p>HTML</p>
-          </div>
-          <div class="skill">
-            <img src="resources/skillsIcons/css.png" alt="React" title="React" width="40px" height="40px" />
-            <hr class="skill-line">
-            <p>CSS</p>
-          </div>
-          <div class="skill">
-            <img src="resources/skillsIcons/jquery.png" alt="React" title="React" width="40px" height="40px" />
-            <hr class="skill-line">
-            <p>JQuery</p>
-          </div>
-          <div class="skill">
-            <img src="resources/skillsIcons/arduino.png" alt="React" title="React" width="40px" height="40px" />
-            <hr class="skill-line">
-            <p>Arduino</p>
-          </div>
-          <div class="skill">
-            <img src="resources/skillsIcons/stm32.png" alt="React" title="React" width="40px" height="40px" />
-            <hr class="skill-line">
-            <p>STM32</p>
-          </div>
-          <div class="skill">
-            <img src="resources/skillsIcons/git.png" alt="React" title="React" width="40px" height="40px" />
-            <hr class="skill-line">
-            <p>Git</p>
-          </div>
-        </div>
-      </div>
-      <!-- about -->
-      <div class="main-about">
-        <style>
-          .main-about {
-            background-image: url(resources/.jpg);
-            background-image: center;
-            background-image: no-repeat;
-            background-size: cover;
-          }
-        </style>
-        <div class="elem main-header-element">
-          <br />
-          <h2>About</h2>
-          <br />
-        </div>
-      </div>
-      <style>
-        .main-contact {
-          background-image: url(resources/forestFog.jpg);
+        .main-about {
+          background-image: url(resources/blueLake.jpg);
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center;
         }
       </style>
-      <div class="main-contact">
-        <div class="elem main-header-element">
-          <br />
-          <h2>Contact</h2>
+      <div class="about-text-container">
+        <div class="elem about-element">
+          <p style="margin:0;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit quisquam repudiandae
+            excepturi aspernatur nihil alias? Libero facere sapiente assumenda nobis quo consequatur, ipsam sequi sit!
+            Adipisci, totam laboriosam? Aliquid, facere.</p>
         </div>
-        <form class="main-contact-form" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="3cffb038-0f16-4caf-9677-ff9d5d4e9976">
-          <div class="contact-form">
-            <span class="elem">Name</span>
-            <span class="elem info-required">(required)</span>
-            <div class="name-input">
-              <p class="elem">
-                <label for="first-name">First Name</label><br />
-                <input
-                  type="text"
-                  name="first-name"
-                  id="first-name"
-                  autocomplete="on"
-                  required
-                />
-              </p>
-              <p class="elem">
-                <label for="last-name">Last Name</label><br />
-                <input
-                  type="text"
-                  name="last-name"
-                  id="last-name"
-                  autocomplete="on"
-                  required
-                />
-              </p>
-            </div>
-            <div class="email-input">
-              <p class="elem">
-                <label for="Email"
-                  >Email <span class="info-required">(required)</span></label
-                ><br />
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  autocomplete="on"
-                  required
-                />
-              </p>
-            </div>
-            <div class="subject-input">
-              <p class="elem">
-                <label for="Subject"
-                  >Subject <span class="info-required">(required)</span></label
-                ><br />
-                <input
-                  type="subject"
-                  name="subject"
-                  id="subject"
-                  autocomplete="on"
-                  required
-                />
-              </p>
-            </div>
-            <div class="message-input">
-              <p class="elem">
-                <label for="Message"
-                  >Message <span class="info-required">(required)</span></label
-                ><br />
-                <textarea name="message" id="message" required></textarea>
-              </p>
-            </div>
-          </form>
-          <!-- Honeypot Spam Protection -->
-          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-          <div class="submit-button">
+        <div class="elem about-element">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam quibusdam cupiditate fuga officia vel amet
+            expedita in inventore, quis laudantium fugit nisi ratione similique nihil magnam porro incidunt perferendis
+            temporibus?</p>
+        </div>
+        <div class="elem about-element">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias non assumenda corporis deserunt, nostrum
+            ad. Perspiciatis, quae, soluta eum quidem accusamus laborum distinctio voluptatum aut earum laudantium,
+            necessitatibus perferendis voluptates!</p>
+        </div>
+      </div>
+    </div>
+    <!-- Skills Section -->
+    <style>
+      .main-skills {
+        background-image: url(resources/texturedWhite.jpg);
+        background-position: top center;
+      }
+    </style>
+    <div class="main-skills">
+      <div class="elem main-header-element">
+        <br />
+        <h2>Skills</h2>
+        <br />
+      </div>
+      <div class="skills-icons">
+        <div class="elem skill">
+          <img src="resources/skillsIcons/c++.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>C++</p>
+        </div>
+        <div class="elem skill">
+          <img src="resources/skillsIcons/js.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>Javascript</p>
+        </div>
+        <div class="elem skill">
+          <img src="resources/skillsIcons/nodejs.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>Node.js</p>
+        </div>
+        <div class="elem skill">
+          <img src="resources/skillsIcons/figma.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>Figma</p>
+        </div>
+        <div class="elem skill">
+          <img src="resources/skillsIcons/python.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>Python</p>
+        </div>
+        <div class="elem skill">
+          <img src="resources/skillsIcons/react.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>React</p>
+        </div>
+        <div class="elem skill">
+          <img src="resources/skillsIcons/unity.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>Unity</p>
+        </div>
+        <div class="elem skill">
+          <img src="resources/skillsIcons/autocad.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>AutoCAD</p>
+        </div>
+        <div class="elem skill">
+          <img src="resources/skillsIcons/java.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>Java</p>
+        </div>
+        <div class="elem skill">
+          <img src="resources/skillsIcons/raspberry-pi.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>Raspberry Pi</p>
+        </div>
+        <div class="elem skill">
+          <img src="resources/skillsIcons/c-sharp.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>C#</p>
+        </div>
+        <div class="elem skill">
+          <img src="resources/skillsIcons/c.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>C</p>
+        </div>
+        <div class="elem skill">
+          <img src="resources/skillsIcons/html.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>HTML</p>
+        </div>
+        <div class="elem skill">
+          <img src="resources/skillsIcons/css.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>CSS</p>
+        </div>
+        <div class="elem skill">
+          <img src="resources/skillsIcons/jquery.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>JQuery</p>
+        </div>
+        <div class="elem skill">
+          <img src="resources/skillsIcons/arduino.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>Arduino</p>
+        </div>
+        <div class="elem skill">
+          <img src="resources/skillsIcons/stm32.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>STM32</p>
+        </div>
+        <div class="elem skill">
+          <img src="resources/skillsIcons/git.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>Git</p>
+        </div>
+        <div class="elem skill">
+          <img src="resources/skillsIcons/fusion360.png" alt="React" title="React" width="40px" height="40px" />
+          <hr class="skill-line">
+          <p>Fusion 360</p>
+        </div>
+      </div>
+    </div>
+    <!-- Contact Section -->
+    <style>
+      .main-contact {
+        background-image: url(resources/forestFog.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+    <div class="main-contact">
+      <div class="elem main-header-element">
+        <br />
+        <h2>Contact</h2>
+      </div>
+      <form class="main-contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="3cffb038-0f16-4caf-9677-ff9d5d4e9976">
+        <div class="contact-form">
+          <span class="elem">Name</span>
+          <span class="elem info-required">(required)</span>
+          <div class="name-input">
             <p class="elem">
-              <button>Send</button>
-              <button type="button" onclick="clearFields();">Clear</button>
+              <label for="first-name">First Name</label><br />
+              <input type="text" name="first-name" id="first-name" autocomplete="on" required />
             </p>
-            <script>
-              clearFields = () => {
-                document.getElementById("first-name").value = "";
-                document.getElementById("last-name").value = "";
-                document.getElementById("email").value = "";
-                document.getElementById("subject").value = "";
-                document.getElementById("message").value = "";
-              }
-            </script>
+            <p class="elem">
+              <label for="last-name">Last Name</label><br />
+              <input type="text" name="last-name" id="last-name" autocomplete="on" required />
+            </p>
           </div>
-        </form>
+          <div class="email-input">
+            <p class="elem">
+              <label for="Email">Email <span class="info-required">(required)</span></label><br />
+              <input type="email" name="email" id="email" autocomplete="on" required />
+            </p>
+          </div>
+          <div class="subject-input">
+            <p class="elem">
+              <label for="Subject">Subject <span class="info-required">(required)</span></label><br />
+              <input type="subject" name="subject" id="subject" autocomplete="on" required />
+            </p>
+          </div>
+          <div class="message-input">
+            <p class="elem">
+              <label for="Message">Message <span class="info-required">(required)</span></label><br />
+              <textarea name="message" id="message" required></textarea>
+            </p>
+          </div>
+      </form>
+      <!-- Honeypot Spam Protection -->
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+      <div class="submit-button">
+        <p class="elem">
+          <button>Send</button>
+          <button type="button" onclick="clearFields();">Clear</button>
+        </p>
+        <script>
+          clearFields = () => {
+            document.getElementById("first-name").value = "";
+            document.getElementById("last-name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("subject").value = "";
+            document.getElementById("message").value = "";
+          }
+        </script>
       </div>
-    </main>
-    <!-- Footer -->
-    <footer>
-      <div class="footer-element">
-        <div class="footer-widescreen">
-          <div class="footer-flex">
-            <div class="elem footer-title">
-              <br />
-              <a href="#">Logan Gillett</a>
-            </div>
-            <div class="footer-links">
-              <div class="elem footer-item" style="margin-top: 20px">
-                <a href="projects.html">Projects</a>
-                <a href="about.html">About</a>
-                <figure>
-                  <a
-                    href="https://www.linkedin.com/in/logan-gillett-941797327/"
-                  >
-                    <img
-                      src="resources/linkedin.png"
-                      alt="LinkedIn"
-                      title="LinkedIn"
-                      width="25px"
-                      height="25px"
-                      loading="lazy"
-                    />
-                  </a>
-                </figure>
-              </div>
-              <div class="elem footer-item">
-                <a href="career.html">Career</a>
-                <a href="contact.html">Contact</a>
-                <figure>
-                  <a href="https://github.com/LogaGill489">
-                    <img
-                      src="resources/github.png"
-                      alt="GitHub"
-                      title="GitHub"
-                      width="25px"
-                      height="25px"
-                      loading="lazy"
-                    />
-                  </a>
-                </figure>
-              </div>
-            </div>
+      </form>
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-element">
+      <div class="footer-widescreen">
+        <div class="footer-flex">
+          <div class="elem footer-title">
+            <br />
+            <a href="#">Logan Gillett</a>
           </div>
-          <div class="elem footer-fineprint">
-            <p>&copy; 2025 - Logan Gillett</p>
-            <address>
-              Conrad Grebel University College, 140 Westmount Rd N, Waterloo, ON
-              N2L 3G6
-            </address>
+          <div class="footer-links">
+            <div class="elem footer-item" style="margin-top: 20px">
+              <a href="projects.html">Projects</a>
+              <a href="about.html">About</a>
+              <figure>
+                <a href="https://www.linkedin.com/in/logan-gillett-941797327/" target="_blank">
+                  <img src="resources/linkedin.png" alt="LinkedIn" title="LinkedIn" width="25px" height="25px"
+                    loading="lazy" />
+                </a>
+              </figure>
+            </div>
+            <div class="elem footer-item">
+              <a href="career.html">Career</a>
+              <a href="contact.html">Contact</a>
+              <figure>
+                <a href="https://github.com/LogaGill489" target="_blank">
+                  <img src="resources/github.png" alt="GitHub" title="GitHub" width="25px" height="25px"
+                    loading="lazy" />
+                </a>
+              </figure>
+            </div>
           </div>
         </div>
+        <div class="elem footer-fineprint">
+          <p>&copy; 2025 - Logan Gillett</p>
+          <address>
+            Conrad Grebel University College, 140 Westmount Rd N, Waterloo, ON
+            N2L 3G6
+          </address>
+        </div>
       </div>
-    </footer>
-  </body>
+    </div>
+  </footer>
+</body>
+
 </html>
