@@ -39,7 +39,7 @@
 
 .skills-icons {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(116px, 1fr));
     gap: 10px;
     margin-left: 12%;
     margin-right: 12%;
