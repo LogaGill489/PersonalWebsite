@@ -100,6 +100,7 @@
 .projects-hover-class {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     opacity: 1;
+    align-self: center;
 }
 
 .projects-hover-class:hover {
@@ -108,9 +109,28 @@
 }
 
 .projects-text {
-        text-decoration: none;
+    text-decoration: none;
     color: rgb(41, 40, 40);
     font-size: 19px;
+}
+
+.project-skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 3px; /* Add consistent spacing between items */
+    justify-content: center; /* Center the grid items */
+    align-items: center;
+}
+
+.project-skills-elem {
+    color: rgb(78, 76, 76);
+    font-size: 13px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(173, 172, 172, 0.5);
+    border-radius: 10px;
+    margin: 0;
 }
 
 @media (max-width: 685px) {
