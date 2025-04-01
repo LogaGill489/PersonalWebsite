@@ -37,9 +37,20 @@
 
 .footer-fineprint {
     color: rgb(147, 144, 144);
-    font-size: 14px;
     position: absolute;
     bottom: 8px;
     margin-left: 4px;
-    line-height: 8px;
+    line-height: 6px;
 }
+
+@media (max-width: 685px) {
+    .footer-fineprint {
+        font-size: 12px;
+    }
+  }
+  
+  @media (min-width: 685.02px) {
+    .footer-fineprint {
+        font-size: 14px;
+    }
+  }
