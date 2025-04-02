@@ -1,13 +1,3 @@
-.header-container {
-    height: 65px;
-}
-
-.main-header-element {
-    font-size: 22px;
-    margin-inline-start: 12%;
-    text-decoration: underline;
-}
-
 .about-text-container {
     padding: 30px;
     justify-self: center;
