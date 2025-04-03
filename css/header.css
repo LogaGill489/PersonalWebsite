@@ -78,6 +78,16 @@
     display: block;
 }
 
+.header-mobile-images {
+    display: grid;
+    grid-template-columns: auto 49px;
+}
+
+.mobile-header-link {
+    justify-self: end;
+    padding-top: 8px;
+}
+
 @media (max-width: 850px) {
     .header-widescreen {
         display: none;
