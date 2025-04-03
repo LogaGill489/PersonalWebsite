@@ -47,12 +47,13 @@
     background-color: white;
     min-height: 600px;
     padding: 20px 0;
+
+    display: grid;
 }
 
 .skills-icons {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(116px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(114px, 1fr));
     margin-left: 12%;
     margin-right: 12%;
 }
@@ -149,6 +150,7 @@
 @media (max-width: 850px) {
     .projects-image-areas {
         display: block;
+        gap: 0px;
     }
 
     .projects-image {
@@ -165,11 +167,16 @@
         width: 280px;
         height: 280px;
     }
+
+    .main-skills {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (min-width: 850.02px) {
     .projects-image-areas {
         display: grid;
+        gap: 80px;
     }
 
     .projects-image {
@@ -186,6 +193,10 @@
     .about-image {
         width: 400px;
         height: 400px;
+    }
+
+    .main-skills {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
