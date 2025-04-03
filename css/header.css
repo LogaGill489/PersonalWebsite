@@ -34,7 +34,7 @@
     margin-top: 180px;
 }
 
-@media (max-width: 685px) {
+@media (max-width: 850px) {
     .header-widescreen {
         display: none;
     }
@@ -44,7 +44,7 @@
     }
 }
 
-@media (min-width: 685.02px) {
+@media (min-width: 850.02px) {
     .header-widescreen {
         display: grid;
     }
