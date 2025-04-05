@@ -1,6 +1,6 @@
 /* Header - 685px */
 .header-container {
-    height: 500px;
+    height: 600px;
 }
 
 .header-widescreen {
@@ -31,7 +31,7 @@
     font-size: 26px;
     width: 100%;
     text-align: center;
-    margin-top: 180px;
+    margin-top: 230px;
 }
 
 .header-mobile {
