@@ -20,7 +20,7 @@
     text-decoration: none;
     color: rgb(206, 206, 206);
     width: 100%;
-    background-color: rgba(68, 92, 121, 1);
+    background-color: rgb(50, 69, 92);
     min-height: 500px;
     padding-bottom: 20px;
 }
@@ -33,6 +33,12 @@
 .img-border {
     border: 2px solid rgb(211, 206, 206);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.img-border:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
 }
 
 .about-element {

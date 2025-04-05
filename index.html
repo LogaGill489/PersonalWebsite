@@ -1,447 +1,725 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Homepage for my personal website." />
+    <meta name="author" content="Logan Gillett" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home - Logan Gillett</title>
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/formatting.css" />
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+      //forces the screen to the top of the page upon refresh
+      var eleArr = [];
+      var eleInc = 0;
+      //checks if the element is in the viewport
+      checkEle = () => {
+        const elem = $(".elem");
+        var viewPortSize = $(window).height();
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Homepage for my personal website.">
-  <meta name="author" content="Logan Gillett">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home - Logan Gillett</title>
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/contact.css">
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/formatting.css">
-  <script src="jquery-3.7.1.js"></script>
-  <script>
-    //forces the screen to the top of the page upon refresh
-    var eleArr = [];
-    var eleInc = 0;
-    //checks if the element is in the viewport
-    checkEle = () => {
-      const elem = $(".elem");
-      var viewPortSize = $(window).height();
-
-      for (var i = 0; i < elem.length; i++) {
-        if (eleArr[i] == 1) {
-          var rect = elem[i].getBoundingClientRect();
-          if (viewPortSize - rect.y > 0) {
-            $(".elem").eq(i).css("visibility", "visible").hide().fadeIn(1200);
-            eleArr[i] = 0;
-            eleInc++;
+        for (var i = 0; i < elem.length; i++) {
+          if (eleArr[i] == 1) {
+            var rect = elem[i].getBoundingClientRect();
+            if (viewPortSize - rect.y > 0) {
+              $(".elem").eq(i).css("visibility", "visible").hide().fadeIn(1200);
+              eleArr[i] = 0;
+              eleInc++;
+            }
           }
         }
+      };
+      $(document).ready(function () {
+        //adds a 1 to the array for each element in the elem class
+        for (var i = 0; i < $(".elem").length; i++) {
+          eleArr.push(1);
+        }
+        checkEle();
+      });
+
+      $(window).scroll(function () {
+        checkEle();
+
+        if (eleInc >= elem.length) {
+          $(this).off("scroll");
+        }
+      });
+    </script>
+    <style>
+      .header-container {
+        background-image: url(resources/forestFog5.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
       }
-    };
-    $(document).ready(function () {
-      //adds a 1 to the array for each element in the elem class
-      for (var i = 0; i < $(".elem").length; i++) {
-        eleArr.push(1);
+
+      .main-about {
+        background-image: url(resources/texturedBlue.png);
+        background-position: top center;
       }
-      checkEle();
-    });
 
-    $(window).scroll(function () {
-      checkEle();
-
-      if (eleInc >= elem.length) {
-        $(this).off("scroll");
+      .main-skills {
+        background-image: url(resources/texturedWhite.jpg);
+        background-position: top center;
       }
-    });
-  </script>
-      <style>
-        .header-container {
-          background-image: url(resources/forestFog5.jpg);
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center;
-        }
 
-        .main-about {
-          background-image: url(resources/texturedWhite.jpg);
-          background-position: top center;
-          background-blend-mode:color-burn;
-        }
-  
-        .main-skills {
-          background-image: url(resources/texturedWhite.jpg);
-          background-position: top center;
-        }
-  
-        .main-contact {
-          background-image: url(resources/forestFog.jpg);
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center;
-        }
-      </style>
-</head>
+      .main-contact {
+        background-image: url(resources/forestFog.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
 
-<body>
-  <header>
-    <!-- Widescreen Header -->
-    <div class="header-container">
-      <div class="header-widescreen" style="animation: fade-in 1.2s">
-        <div class="header-title-element">
-          <a href="index.html">Logan Gillett</a>
+  <body>
+    <header>
+      <!-- Widescreen Header -->
+      <div class="header-container">
+        <div class="header-widescreen" style="animation: fade-in 1.2s">
+          <div class="header-title-element">
+            <a href="index.html">Logan Gillett</a>
+          </div>
+          <div class="links">
+            <a href="projects.html">Projects</a>&nbsp;
+            <a href="about.html">About</a>&nbsp;
+            <a href="career.html">Career</a>&nbsp;
+            <a href="contact.html">Contact</a>&nbsp;
+          </div>
+          <div class="headerImages">
+            <figure>
+              <a
+                href="https://www.linkedin.com/in/logan-gillett-941797327/"
+                target="_blank"
+              >
+                <img
+                  src="resources/linkedin.png"
+                  alt="LinkedIn"
+                  title="LinkedIn"
+                  width="25"
+                  height="25"
+                />
+              </a>
+              &nbsp;
+              <a href="https://github.com/LogaGill489" target="_blank">
+                <img
+                  src="resources/github.png"
+                  alt="GitHub"
+                  title="GitHub"
+                  width="25"
+                  height="25"
+                />
+              </a>
+            </figure>
+          </div>
         </div>
-        <div class="links">
-          <a href="projects.html">Projects</a>&nbsp;
-          <a href="about.html">About</a>&nbsp;
-          <a href="career.html">Career</a>&nbsp;
-          <a href="contact.html">Contact</a>&nbsp;
-        </div>
-        <div class="headerImages">
-          <figure>
-            <a href="https://www.linkedin.com/in/logan-gillett-941797327/" target="_blank">
-              <img src="resources/linkedin.png" alt="LinkedIn" title="LinkedIn" width="25" height="25">
-            </a>
-            &nbsp;
-            <a href="https://github.com/LogaGill489" target="_blank">
-              <img src="resources/github.png" alt="GitHub" title="GitHub" width="25" height="25">
-            </a>
-          </figure>
-        </div>
-      </div>
-      <!-- Mobile & Condensed Screen-->
-      <div class="header-mobile">
-        <div class="header-title-element">
-          <a href="index.html">Logan Gillett</a>
-        </div>
-        <div class="header-dropbar">
-          <button class="dropbtn"><img src="resources/dropDownImg.png" alt="Links" title="Links" width="25"
-              height="25"></button>
+        <!-- Mobile & Condensed Screen-->
+        <div class="header-mobile" style="animation: fade-in 1.2s">
+          <div class="header-title-element">
+            <a href="index.html">Logan Gillett</a>
+          </div>
+          <div class="header-mobile-images">
+            <div class="mobile-header-link">
+                <a
+                  href="https://www.linkedin.com/in/logan-gillett-941797327/"
+                  target="_blank"
+                >
+                  <img
+                    src="resources/linkedin.png"
+                    alt="LinkedIn"
+                    title="LinkedIn"
+                    width="25"
+                    height="25"
+                  />
+                </a>
+                &nbsp;
+                <a href="https://github.com/LogaGill489" target="_blank">
+                  <img
+                    src="resources/github.png"
+                    alt="GitHub"
+                    title="GitHub"
+                    width="25"
+                    height="25"
+                  />
+                </a>
+            </div>
+            <div class="header-dropbar">
+              <img
+                src="resources/dropDownImg.png"
+                alt="Links"
+                title="Links"
+                width="25"
+                height="25"
+                class="dropDownImg"
+              />
               <div class="dropdown-links">
                 <a href="projects.html">Projects</a>
                 <a href="about.html">About</a>
                 <a href="career.html">Career</a>
                 <a href="contact.html">Contact</a>
               </div>
-        </div>
-      </div>
-      <div class="header-central-title" style="animation: fade-in 2s">
-        <h2 style="color:rgb(231, 230, 230)">Home</h2>
-      </div>
-    </div>
-  </header>
-  <!-- Main Content -->
-  <main>
-    <!-- About Section -->
-    <div class="main-about">
-      <div class="about-grid-box">
-        <div class="about-text-container">
-          <div class="elem main-header-element" style="margin-inline-start: 0%;">
-            <h2>About</h2>
-          </div>
-          <div class="elem about-element">
-            <p style="margin:0;">Hey, I'm Logan, a software developer currently studying Computer
-              Engineering at the University of Waterloo, Canada.
-            </p>
-          </div>
-          <div class="elem about-element">
-            <p>I am passionate about programming projects and learning new skills, often taking on larger projects
-              to learn a new programming language, tool, or creating something meaningful that people can use.
-            </p>
-          </div>
-          <div class="elem about-element">
-            <p>Currently, I'm most experienced in C-based languages, with over 3+ years of experience starting back
-              in November 2021. Between 2022 and 2024, I developed over <em><a
-                  href="https://github.com/LogaGill489?tab=repositories" target="_blank"
-                  style="color: rgb(225, 224, 226); text-decoration: underline;">40 projects</a></em> in C#, as well as
-              programmed
-              for a VEX Robotics team in C++ and experiemented with Python and Java.
-            </p>
-          </div>
-          <div class="elem about-element">
-            <p>
-              Most recently, I've been learning web development,
-              teaching myself HTML, CSS, and Javascript as well as JQuery and
-              <em>React</em> (used for this website!).
-              In my current project, I'm working with Tailwind CSS and NextJS, and also plan on learning
-              Typescript in the near future to futher expand my web-dev skillset and create websites more
-              effectively.
-            </p>
-          </div>
-          <div class="elem about-element">
-            <p>
-              I hope you enjoy my website and portfolio! It was made with only the JQuery library, as I wanted to teach
-              myself
-              pure CSS/HTML.
-            </p>
-          </div>
-        </div>
-        <div class="elem about-image">
-          <img src="resources/reflectionSelfie.jpg" alt="Forest Fog" title="Forest Fog" width="400" height="400"
-            class="about-image img-border">
-        </div>
-      </div>
-    </div>
-    <!-- Work Section -->
-    <div class="main-skills">
-      <div class="recent-projects-container">
-        <div class="elem main-header-element">
-          <h2>Recent Projects</h2>
-        </div>
-        <div class="projects-image-areas">
-          <div class="elem projects-element">
-            <a href="https://github.com/LogaGill489" target="_blank" class="projects-hover-class">
-              <img src="resources/blueLake.jpg" alt="GitHub" title="GitHub" width="300" height="300" class="projects-image">
-            </a>
-            <div class="projects-text">
-              <h3>Front-End Portfolio</h3>
-              <p>A dynamic, self-built portfolio designed with pure HTML/CSS, using Javascript and the JQuery library for interactability (yes, it is this website!). Showcases my projects, skills, and personal development as a software developer thus far.</p>
-            
-              <div class="project-skills">
-                <p class="project-skills-elem">Front-End</p>
-                <p class="project-skills-elem">Javascript</p>
-                <p class="project-skills-elem">HTML</p>
-                <p class="project-skills-elem">CSS</p>
-                <p class="project-skills-elem">JQuery</p>
-                <p class="project-skills-elem">Web-Dev</p>
-                <p class="project-skills-elem">Software</p>
-              </div>
-            </div>
-          </div>
-          <div class="elem projects-element">
-            <a href="https://github.com/LogaGill489" target="_blank" class="projects-hover-class">
-              <img src="resources/blueLake.jpg" alt="GitHub" title="GitHub" width="300" height="300" class="projects-image">
-            </a>
-            <div class="projects-text">
-              <h3>Delivery Guard</h3>
-              <p>A smart, anti-theft device designed to prevent porch piracy. Programmed in C with the STM32CubeIDE, using 3 STM32 microcontrollers to control an electromagnetically locked box and ensure safe storage until the package is retrieved by its owner.</p>
-            
-              <div class="project-skills">
-                <p class="project-skills-elem">STM32</p>
-                <p class="project-skills-elem">C</p>
-                <p class="project-skills-elem">Fusion</p>
-                <p class="project-skills-elem">AutoCAD</p>
-                <p class="project-skills-elem">Git</p>
-                <p class="project-skills-elem">Hardware</p>
-              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="tech-skills-container">
-        <div class="elem main-header-element">
-          <h2>Skills</h2>
-        </div>
-        <div class="skills-icons">
-          <div class="elem skill">
-            <img src="resources/skillsIcons/c++.png" alt="C++" title="C++" width="40" height="40">
-            <hr class="skill-line">
-            <p>C++</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/js.png" alt="Javascript" title="Javascript" width="40" height="40">
-            <hr class="skill-line">
-            <p>Javascript</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/nodejs.png" alt="Node.js" title="Node.js" width="40" height="40">
-            <hr class="skill-line">
-            <p>Node.js</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/jquery.png" alt="JQuery" title="JQuery" width="40" height="40">
-            <hr class="skill-line">
-            <p>JQuery</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/react.png" alt="React" title="React" width="40" height="40">
-            <hr class="skill-line">
-            <p>React</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/unity.png" alt="Unity" title="Unity" width="40" height="40">
-            <hr class="skill-line">
-            <p>Unity</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/python.png" alt="Python" title="Python" width="40" height="40">
-            <hr class="skill-line">
-            <p>Python</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/java.png" alt="Java" title="Java" width="40" height="40">
-            <hr class="skill-line">
-            <p>Java</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/c-sharp.png" alt="C#" title="C#" width="40" height="40">
-            <hr class="skill-line">
-            <p>C#</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/c.png" alt="C" title="C" width="40" height="40">
-            <hr class="skill-line">
-            <p>C</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/html.png" alt="HTML" title="HTML" width="40" height="40">
-            <hr class="skill-line">
-            <p>HTML</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/css.png" alt="CSS" title="CSS" width="40" height="40">
-            <hr class="skill-line">
-            <p>CSS</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/arduino.png" alt="Arduino" title="Arduino" width="40" height="40">
-            <hr class="skill-line">
-            <p>Arduino</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/raspberry-pi.png" alt="Raspberry-Pi" title="Raspberry-Pi" width="40" height="40">
-            <hr class="skill-line">
-            <p>Raspberry Pi</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/stm32.png" alt="STM32" title="STM32" width="40" height="40">
-            <hr class="skill-line">
-            <p>STM32</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/autocad.png" alt="AutoCAD" title="AutoCAD" width="40" height="40">
-            <hr class="skill-line">
-            <p>AutoCAD</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/fusion360.png" alt="Fusion-360" title="Fusion-360" width="40" height="40">
-            <hr class="skill-line">
-            <p>Fusion 360</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/figma.png" alt="Figma" title="Figma" width="40" height="40">
-            <hr class="skill-line">
-            <p>Figma</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/vscode.png" alt="VSCode" title="VSCode" width="40" height="40">
-            <hr class="skill-line">
-            <p style="font-size: 15px;">Visual Studio Code</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/vs2022.png" alt="VS2022" title="VS2022" width="40" height="40">
-            <hr class="skill-line">
-            <p style="font-size: 15px;">Visual Studio 2022</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/git.png" alt="Git" title="Git" width="40" height="40">
-            <hr class="skill-line">
-            <p>Git</p>
-          </div>
-          <div class="elem skill">
-            <img src="resources/skillsIcons/docker.png" alt="Docker" title="Docker" width="40" height="40">
-            <hr class="skill-line">
-            <p style="font-size: 15px;">Docker</p>
-          </div>
+        <div class="header-central-title" style="animation: fade-in 2s">
+          <h2>Home</h2>
         </div>
       </div>
-    </div>
-    <!-- Contact Section -->
-    <div class="main-contact">
-      <div class="elem main-header-element">
-        <br>
-        <h2>Contact</h2>
-      </div>
-      <form class="main-contact-form" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="3cffb038-0f16-4caf-9677-ff9d5d4e9976">
-        <div class="contact-form">
-          <span class="elem">Name</span>
-          <span class="elem info-required">(required)</span>
-          <div class="name-input">
-            <p class="elem">
-              <label for="first-name">First Name</label><br>
-              <input type="text" name="first-name" id="first-name" required>
-            </p>
-            <p class="elem">
-              <label for="last-name">Last Name</label><br>
-              <input type="text" name="last-name" id="last-name" required>
-            </p>
-          </div>
-          <div class="email-input">
-            <p class="elem">
-              <label for="email">Email <span class="info-required">(required)</span></label><br>
-              <input type="email" name="email" id="email" autocomplete="email" required>
-            </p>
-          </div>
-          <div class="subject-input">
-            <p class="elem">
-              <label for="subject">Subject <span class="info-required">(required)</span></label><br>
-              <input type="text" name="subject" id="subject" required>
-            </p>
-          </div>
-          <div class="message-input">
-            <p class="elem">
-              <label for="message">Message <span class="info-required">(required)</span></label><br>
-              <textarea name="message" id="message" required></textarea>
-            </p>
-          </div>
-        </div>
-      <!-- Honeypot Spam Protection -->
-      <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-      <div class="submit-button">
-        <p class="elem">
-          <button>Send</button>
-          <button type="button" onclick="clearFields();" style="margin-left: 0px;">Clear</button>
-        </p>
-        <script>
-          clearFields = () => {
-            document.getElementById("first-name").value = "";
-            document.getElementById("last-name").value = "";
-            document.getElementById("email").value = "";
-            document.getElementById("subject").value = "";
-            document.getElementById("message").value = "";
-          }
-        </script>
-      </div>
-    </form>
-    </div>
-  </main>
-  <!-- Footer -->
-  <footer>
-    <div class="footer-element">
-      <div class="footer-widescreen">
-        <div class="footer-flex">
-          <div class="elem footer-title">
-            <br>
-            <a href="#">Logan Gillett</a>
-          </div>
-          <div class="footer-links">
-            <div class="elem footer-item" style="margin-top: 20px">
-              <a href="projects.html">Projects</a>
-              <a href="about.html">About</a>
-              <figure>
-                <a href="https://www.linkedin.com/in/logan-gillett-941797327/" target="_blank">
-                  <img src="resources/linkedin.png" alt="LinkedIn" title="LinkedIn" width="25" height="25"
-                    loading="lazy">
-                </a>
-              </figure>
+    </header>
+    <!-- Main Content -->
+    <main>
+      <!-- About Section -->
+      <div class="main-about">
+        <div class="about-grid-box">
+          <div class="about-text-container">
+            <div
+              class="elem main-header-element"
+              style="margin-inline-start: 0%"
+            >
+              <h2>About</h2>
             </div>
-            <div class="elem footer-item">
-              <a href="career.html">Career</a>
-              <a href="contact.html">Contact</a>
-              <figure>
-                <a href="https://github.com/LogaGill489" target="_blank">
-                  <img src="resources/github.png" alt="GitHub" title="GitHub" width="25" height="25"
-                    loading="lazy">
-                </a>
-              </figure>
+            <div class="elem about-element">
+              <p style="margin: 0">
+                Hey, I'm Logan, a software developer currently studying Computer
+                Engineering at the University of Waterloo, Canada.
+              </p>
+            </div>
+            <div class="elem about-element">
+              <p>
+                I am passionate about programming projects and learning new
+                skills, often taking on larger projects to learn a new
+                programming language, tool, or creating something meaningful
+                that people can use.
+              </p>
+            </div>
+            <div class="elem about-element">
+              <p>
+                Currently, I'm most experienced in C-based languages, with over
+                3+ years of experience starting back in November 2021. Between
+                2022 and 2024, I developed over
+                <em
+                  ><a
+                    href="https://github.com/LogaGill489?tab=repositories"
+                    target="_blank"
+                    style="
+                      color: rgb(225, 224, 226);
+                      text-decoration: underline;
+                    "
+                    >40 projects</a
+                  ></em
+                >
+                in C#, as well as programmed for a VEX Robotics team in C++ and
+                experiemented with Python and Java.
+              </p>
+            </div>
+            <div class="elem about-element">
+              <p>
+                Most recently, I've been learning web development, teaching
+                myself HTML, CSS, and Javascript as well as JQuery and
+                <em>React</em> (used for this website!). In my current project,
+                I'm working with Tailwind CSS and NextJS, and also plan on
+                learning Typescript in the near future to futher expand my
+                web-dev skillset and create websites more effectively.
+              </p>
+            </div>
+            <div class="elem about-element">
+              <p>
+                I hope you enjoy my website and portfolio! It was made with only
+                the JQuery library, as I wanted to teach myself pure CSS/HTML.
+              </p>
             </div>
           </div>
-        </div>
-        <div class="elem footer-fineprint">
-          <p>&copy; 2025 - Logan Gillett</p>
-          <address style="line-height:15px;">
-            Conrad Grebel University College, 140 Westmount Rd N, Waterloo, ON
-            N2L 3G6
-          </address>
+          <div class="elem about-image">
+            <img
+              src="resources/blackandwhiteSelfie.jpg"
+              alt="Forest Fog"
+              title="Forest Fog"
+              width="400"
+              height="400"
+              class="about-image img-border"
+            />
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
-</body>
+      <!-- Work Section -->
+      <div class="main-skills">
+        <div class="recent-projects-container">
+          <div class="elem main-header-element">
+            <h2>Recent Projects</h2>
+          </div>
+          <div class="projects-image-areas">
+            <div class="elem projects-element">
+              <a
+                href="https://github.com/LogaGill489"
+                target="_blank"
+                class="projects-hover-class"
+              >
+                <img
+                  src="resources/blueLake.jpg"
+                  alt="GitHub"
+                  title="GitHub"
+                  width="300"
+                  height="300"
+                  class="projects-image"
+                />
+              </a>
+              <div class="projects-text">
+                <h3>Front-End Portfolio</h3>
+                <p>
+                  A dynamic, self-built portfolio designed with pure HTML/CSS,
+                  using Javascript and the JQuery library for interactability
+                  (yes, it is this website!). Showcases my projects, skills, and
+                  personal development as a software developer thus far.
+                </p>
 
+                <div class="project-skills">
+                  <p class="project-skills-elem">Front-End</p>
+                  <p class="project-skills-elem">Javascript</p>
+                  <p class="project-skills-elem">HTML</p>
+                  <p class="project-skills-elem">CSS</p>
+                  <p class="project-skills-elem">JQuery</p>
+                  <p class="project-skills-elem">Web-Dev</p>
+                  <p class="project-skills-elem">Software</p>
+                </div>
+              </div>
+            </div>
+            <div class="elem projects-element">
+              <a
+                href="https://github.com/LogaGill489"
+                target="_blank"
+                class="projects-hover-class"
+              >
+                <img
+                  src="resources/blueLake.jpg"
+                  alt="GitHub"
+                  title="GitHub"
+                  width="300"
+                  height="300"
+                  class="projects-image"
+                />
+              </a>
+              <div class="projects-text">
+                <h3>Delivery Guard</h3>
+                <p>
+                  A smart, anti-theft device designed to prevent porch piracy.
+                  Programmed in C with the STM32CubeIDE, using 3 STM32
+                  microcontrollers to control an electromagnetically locked box
+                  and ensure safe storage until the package is retrieved by its
+                  owner.
+                </p>
+
+                <div class="project-skills">
+                  <p class="project-skills-elem">STM32</p>
+                  <p class="project-skills-elem">C</p>
+                  <p class="project-skills-elem">Fusion</p>
+                  <p class="project-skills-elem">AutoCAD</p>
+                  <p class="project-skills-elem">Git</p>
+                  <p class="project-skills-elem">Hardware</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tech-skills-container">
+          <div class="elem main-header-element">
+            <h2>Skills</h2>
+          </div>
+          <div class="skills-icons">
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/c++.png"
+                alt="C++"
+                title="C++"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>C++</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/js.png"
+                alt="Javascript"
+                title="Javascript"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>Javascript</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/nodejs.png"
+                alt="Node.js"
+                title="Node.js"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>Node.js</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/jquery.png"
+                alt="JQuery"
+                title="JQuery"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>JQuery</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/react.png"
+                alt="React"
+                title="React"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>React</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/unity.png"
+                alt="Unity"
+                title="Unity"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>Unity</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/python.png"
+                alt="Python"
+                title="Python"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>Python</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/java.png"
+                alt="Java"
+                title="Java"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>Java</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/c-sharp.png"
+                alt="C#"
+                title="C#"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>C#</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/c.png"
+                alt="C"
+                title="C"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>C</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/html.png"
+                alt="HTML"
+                title="HTML"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>HTML</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/css.png"
+                alt="CSS"
+                title="CSS"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>CSS</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/arduino.png"
+                alt="Arduino"
+                title="Arduino"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>Arduino</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/raspberry-pi.png"
+                alt="Raspberry-Pi"
+                title="Raspberry-Pi"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>Raspberry Pi</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/stm32.png"
+                alt="STM32"
+                title="STM32"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>STM32</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/autocad.png"
+                alt="AutoCAD"
+                title="AutoCAD"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>AutoCAD</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/fusion360.png"
+                alt="Fusion-360"
+                title="Fusion-360"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>Fusion 360</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/figma.png"
+                alt="Figma"
+                title="Figma"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>Figma</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/vscode.png"
+                alt="VSCode"
+                title="VSCode"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p style="font-size: 15px">Visual Studio Code</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/vs2022.png"
+                alt="VS2022"
+                title="VS2022"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p style="font-size: 15px">Visual Studio 2022</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/git.png"
+                alt="Git"
+                title="Git"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p>Git</p>
+            </div>
+            <div class="elem skill">
+              <img
+                src="resources/skillsIcons/docker.png"
+                alt="Docker"
+                title="Docker"
+                width="40"
+                height="40"
+              />
+              <hr class="skill-line" />
+              <p style="font-size: 15px">Docker</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Contact Section -->
+      <div class="main-contact">
+        <div class="elem main-header-element">
+          <br />
+          <h2>Contact</h2>
+        </div>
+        <form
+          class="main-contact-form"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="access_key"
+            value="3cffb038-0f16-4caf-9677-ff9d5d4e9976"
+          />
+          <div class="contact-form">
+            <span class="elem">Name</span>
+            <span class="elem info-required">(required)</span>
+            <div class="name-input">
+              <p class="elem">
+                <label for="first-name">First Name</label><br />
+                <input type="text" name="first-name" id="first-name" required />
+              </p>
+              <p class="elem">
+                <label for="last-name">Last Name</label><br />
+                <input type="text" name="last-name" id="last-name" required />
+              </p>
+            </div>
+            <div class="email-input">
+              <p class="elem">
+                <label for="email"
+                  >Email <span class="info-required">(required)</span></label
+                ><br />
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  autocomplete="email"
+                  required
+                />
+              </p>
+            </div>
+            <div class="subject-input">
+              <p class="elem">
+                <label for="subject"
+                  >Subject <span class="info-required">(required)</span></label
+                ><br />
+                <input type="text" name="subject" id="subject" required />
+              </p>
+            </div>
+            <div class="message-input">
+              <p class="elem">
+                <label for="message"
+                  >Message <span class="info-required">(required)</span></label
+                ><br />
+                <textarea name="message" id="message" required></textarea>
+              </p>
+            </div>
+          </div>
+          <!-- Honeypot Spam Protection -->
+          <input
+            type="checkbox"
+            name="botcheck"
+            class="hidden"
+            style="display: none"
+          />
+          <div class="submit-button">
+            <p class="elem">
+              <button>Send</button>
+              <button
+                type="button"
+                onclick="clearFields();"
+                style="margin-left: 0px"
+              >
+                Clear
+              </button>
+            </p>
+            <script>
+              clearFields = () => {
+                document.getElementById("first-name").value = "";
+                document.getElementById("last-name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("subject").value = "";
+                document.getElementById("message").value = "";
+              };
+            </script>
+          </div>
+        </form>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer>
+      <div class="footer-element">
+        <div class="footer-widescreen">
+          <div class="footer-flex">
+            <div class="elem footer-title">
+              <br />
+              <a href="#">Logan Gillett</a>
+            </div>
+            <div class="footer-links">
+              <div class="elem footer-item" style="margin-top: 20px">
+                <a href="projects.html">Projects</a>
+                <a href="about.html">About</a>
+                <figure>
+                  <a
+                    href="https://www.linkedin.com/in/logan-gillett-941797327/"
+                    target="_blank"
+                  >
+                    <img
+                      src="resources/linkedin.png"
+                      alt="LinkedIn"
+                      title="LinkedIn"
+                      width="25"
+                      height="25"
+                      loading="lazy"
+                    />
+                  </a>
+                </figure>
+              </div>
+              <div class="elem footer-item">
+                <a href="career.html">Career</a>
+                <a href="contact.html">Contact</a>
+                <figure>
+                  <a href="https://github.com/LogaGill489" target="_blank">
+                    <img
+                      src="resources/github.png"
+                      alt="GitHub"
+                      title="GitHub"
+                      width="25"
+                      height="25"
+                      loading="lazy"
+                    />
+                  </a>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="elem footer-fineprint">
+            <p>&copy; 2025 - Logan Gillett</p>
+            <address style="line-height: 15px">
+              Conrad Grebel University College, 140 Westmount Rd N, Waterloo, ON
+              N2L 3G6
+            </address>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
