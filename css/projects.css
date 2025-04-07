@@ -37,22 +37,14 @@
     left: calc(50% - 22px);
 }
 
-.project-circle {
-    position: relative;
-    height: 44px;
-    width: 44px;
-    background-color: rgb(209, 203, 203);
-    border-radius: 50%;
-    display: inline-block;
-    z-index: 2;
-    top: 50%;
-}
-
 .project-logo {
     position: relative;
-    z-index: 3;
-    top: -2px;
-    right: 45.6px;
+    z-index: 2;
+    right: 1px;
+
+    background-color: black;
+    border: 3px solid rgb(209, 203, 203);
+    border-radius: 50%;
 }
 
 .left-hr {
@@ -62,10 +54,10 @@
     z-index: 1;
     margin: 0px;
     border: 0px;
-    background-color: rgb(209, 203, 203);
+    background-color: rgb(245, 240, 240);
     border-radius: 3px;
 
-    top: -27px;
+    bottom: 28px;
     left: 22px;
     transform: translateX(-100%);
 }
@@ -77,10 +69,10 @@
     z-index: 1;
     margin: 0px;
     border: 0px;
-    background-color: rgb(209, 203, 203);
+    background-color: rgb(245, 240, 240);
     border-radius: 3px;
 
-    top: -27px;
+    bottom: 28px;
     left: 22px;
 }
 
