@@ -3,6 +3,29 @@
     color: rgb(206, 206, 206);
     width: 100%;
     background-color: rgb(38, 41, 44);
-    min-height: 500px;
-    padding-bottom: 20px;
+    min-height: 900px;
+    justify-content: center;
+}
+
+
+.hr-vertical-line {
+    width: 3px;
+    height: 90%;
+    background-color: white;
+    margin: 0px auto;
+    color: white;
+    border: 0px;
+}
+
+.hr-horizontal-line {
+    width: 5%;
+    height: 3px;
+    background-color: white;
+    margin: 0px auto;
+    border-radius: 3px;
+    border: 0px;
+}
+
+.vertical-timeline {
+    height: 900px;
 }

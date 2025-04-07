@@ -45,6 +45,12 @@
     font-size: 19px;
 }
 
+.about-icon {
+    padding: 6px;
+    margin-top: 20px;
+    justify-self: center;
+}
+
 .main-skills {
     text-decoration: none;
     color: black;
@@ -206,6 +212,10 @@
     .about-image {
         justify-self: left;
         margin-left: 5vh;
+    }
+
+    .about-icon {
+        margin-left: 10vh;
     }
 
     .about-grid-box {

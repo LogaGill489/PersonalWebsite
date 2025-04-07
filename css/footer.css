@@ -19,6 +19,10 @@
     font-size: 26px;
     color: white;
     margin-left: 4px;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-top: 35px;
+    gap: 20px;
 }
 
 .footer-links {
