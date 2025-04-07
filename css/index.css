@@ -45,6 +45,12 @@
     font-size: 19px;
 }
 
+.about-icon {
+    padding: 6px;
+    margin-top: 20px;
+    justify-self: center;
+}
+
 .main-skills {
     text-decoration: none;
     color: black;
@@ -79,7 +85,7 @@
     background-color: rgba(243, 243, 243, 0.85);
 }
 
-.skill:hover {
+.skill:hover, .projects-element:hover {
     transform: scale(1.02);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -109,11 +115,6 @@
 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.projects-element:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .projects-hover-class {
@@ -201,11 +202,19 @@
         display: block;
         gap: 0px;
     }
+
+    .main-about {
+        padding-bottom: 80px;
+    }
 }
 @media (min-width: 1040.02px) {
     .about-image {
         justify-self: left;
         margin-left: 5vh;
+    }
+
+    .about-icon {
+        margin-left: 10vh;
     }
 
     .about-grid-box {

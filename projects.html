@@ -32,6 +32,7 @@
           }
         }
       };
+
       $(document).ready(function () {
         //adds a 1 to the array for each elemement in the elem class
         for (var i = 0; i < $(".elem").length; i++) {
@@ -50,6 +51,21 @@
         }
       });
     </script>
+      <style>
+        .header-container {
+          background-image: url(resources/flowersBackground.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: top center;
+        }
+
+        .main-website {
+          background-image: url(resources/rocksBackground.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: top center;
+        }
+      </style>
   </head>
 <body>
     <header>
@@ -138,14 +154,34 @@
         </div>
       </div>
           <div class="header-central-title" style="animation: fade-in 2s">
-            <h2>Projects - <em>Coming Soon</em></h2>
+            <h2>Projects</h2>
           </div>
         </div>
       </header>
       <!-- Main Section - Projects -->
       <main>
         <div class="main-website">
-
+          <div class="vertical-timeline" id="vert-timeline">
+            <hr class="hr-horizontal-line"/>
+            <hr class="hr-vertical-line"/>
+            <hr class="hr-horizontal-line"/>
+          </div>
+          <div class="project-left">
+            <span class="project-circle" style="top:800px;"></span>
+            <img class="project-logo" src="resources/github.png" alt="project-img" width="40" height="40" style="top:802px;">
+          </div>
+          <div class="project-right">
+            <span class="project-circle" style="top:1100px;"></span>
+            <img class="project-logo" src="resources/github.png" alt="project-img" width="40" height="40" style="top:1102px;">
+          </div>
+          <div class="project-left">
+            <span class="project-circle" style="top:1400px;"></span>
+            <img class="project-logo" src="resources/github.png" alt="project-img" width="40" height="40" style="top:1402px;">
+          </div>
+          <div class="project-right">
+            <span class="project-circle" style="top:1700px;"></span>
+            <img class="project-logo" src="resources/github.png" alt="project-img" width="40" height="40" style="top:1702px;">
+          </div>
         </div>
       </main>
       <!-- Footer Section -->
@@ -154,8 +190,10 @@
           <div class="footer-widescreen">
             <div class="footer-flex">
               <div class="elem footer-title">
-                <br>
-                <a href="#">Logan Gillett</a>
+                <a href="index.html">Logan Gillett</a>
+                <a href="https://uwaterloo.ca/engineering/" target="_blank">
+                  <img src="resources/waterlooEng.png" alt="UWaterloo-Logo" title="I'm a Computer Engineer at UWaterloo!" width="196" height="30">
+                </a>
               </div>
               <div class="footer-links">
                 <div class="elem footer-item" style="margin-top: 20px">

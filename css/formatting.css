@@ -8,7 +8,6 @@ body {
     margin: 0; /* Remove default margins */
     padding: 0; /* Remove default padding */
     width: 100%; /* Ensure full width */
-    overflow-x: hidden;
 }
 
 a {
