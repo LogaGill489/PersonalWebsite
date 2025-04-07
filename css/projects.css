@@ -3,29 +3,48 @@
     color: rgb(206, 206, 206);
     width: 100%;
     background-color: rgb(38, 41, 44);
-    min-height: 900px;
+    min-height: 100px;
     justify-content: center;
 }
 
 
 .hr-vertical-line {
-    width: 3px;
-    height: 90%;
-    background-color: white;
+    width: 4px;
+    height: 100%;
+    background-color: rgb(209, 203, 203);
     margin: 0px auto;
-    color: white;
     border: 0px;
 }
 
 .hr-horizontal-line {
     width: 5%;
-    height: 3px;
-    background-color: white;
+    height: 4px;
+    background-color: rgb(209, 203, 203);
     margin: 0px auto;
     border-radius: 3px;
     border: 0px;
 }
 
 .vertical-timeline {
-    height: 900px;
+    height: 1250px;
+    background-color: rgba(43, 41, 41, 0.8);
+    padding: 40px 0;
+    position: relative; /* Make this the reference point for absolute positioning */
+}
+
+.project-circle {
+    position: absolute;
+    height: 44px;
+    width: 44px;
+    background-color: rgb(209, 203, 203);
+    border-radius: 50%;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.project-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
