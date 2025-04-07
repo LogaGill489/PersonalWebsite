@@ -26,25 +26,63 @@
 }
 
 .vertical-timeline {
-    height: 1250px;
+    height: 200px;
     background-color: rgba(43, 41, 41, 0.8);
     padding: 40px 0;
     position: relative; /* Make this the reference point for absolute positioning */
 }
 
-.project-circle {
+.project-container {
     position: absolute;
+    left: calc(50% - 22px);
+}
+
+.project-circle {
+    position: relative;
     height: 44px;
     width: 44px;
     background-color: rgb(209, 203, 203);
     border-radius: 50%;
     display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
+    z-index: 2;
+    top: 50%;
 }
 
 .project-logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    z-index: 3;
+    top: -2px;
+    right: 45.6px;
+}
+
+.left-hr {
+    width: 30vw;
+    height: 3px;
+    position:relative;
+    z-index: 1;
+    margin: 0px;
+    border: 0px;
+    background-color: rgb(209, 203, 203);
+    border-radius: 3px;
+
+    top: -27px;
+    left: 22px;
+    transform: translateX(-100%);
+}
+
+.right-hr {
+    width: 30vw;
+    height: 3px;
+    position:relative;
+    z-index: 1;
+    margin: 0px;
+    border: 0px;
+    background-color: rgb(209, 203, 203);
+    border-radius: 3px;
+
+    top: -27px;
+    left: 22px;
+}
+
+.project-left {
 }
