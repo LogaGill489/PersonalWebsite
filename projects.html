@@ -1,260 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Projects page to feature my projects thus far on my personal website."
-    />
-    <meta name="author" content="Logan Gillett" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Contact - Logan Gillett</title>
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/contact.css" />
-    <link rel="stylesheet" href="css/formatting.css" />
-    <link rel="stylesheet" href="css/projects.css" />
-    <script src="jquery-3.7.1.js"></script>
-    <script>
-      //forces the screen to the top of the page upon refresh
-      var eleArr = [];
-      var eleInc = 0;
-      var openTime = 0;
-      //checks if the element is in the viewport
-      checkEle = () => {
-        const elem = $(".elem");
-        var viewPortSize = $(window).height();
 
-        for (var i = 0; i < elem.length; i++) {
-          if (eleArr[i] == 1) {
-            var rect = elem[i].getBoundingClientRect();
-            if (viewPortSize - rect.y > 0) {
-              $(".elem").eq(i).css("visibility", "visible").hide().fadeIn(1200);
-              eleArr[i] = 0;
-              eleInc++;
-            }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Projects page to feature my projects thus far on my personal website." />
+  <meta name="author" content="Logan Gillett" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - Logan Gillett</title>
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/formatting.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+  <script src="jquery-3.7.1.js"></script>
+  <script>
+    //forces the screen to the top of the page upon refresh
+    var eleArr = [];
+    var eleInc = 0;
+    var openTime = 0;
+    //checks if the element is in the viewport
+    checkEle = () => {
+      const elem = $(".elem");
+      var viewPortSize = $(window).height();
+
+      for (var i = 0; i < elem.length; i++) {
+        if (eleArr[i] == 1) {
+          var rect = elem[i].getBoundingClientRect();
+          if (viewPortSize - rect.y > 0) {
+            $(".elem").eq(i).css("visibility", "visible").hide().fadeIn(1200);
+            eleArr[i] = 0;
+            eleInc++;
           }
         }
-      };
-
-      $(document).ready(function () {
-        //adds a 1 to the array for each elemement in the elem class
-        for (var i = 0; i < $(".elem").length; i++) {
-          eleArr.push(1);
-        }
-        checkEle();
-
-        openTime = Date.now();
-        $(".vertical-timeline").animate({ height: "1250" }, 4000);
-      });
-
-      $(window).scroll(function () {
-        const elem = $(".elem");
-        var viewPortSize = $(window).height();
-        checkEle();
-
-        if (eleInc >= elem.length) {
-          if (eleArr[3] != 0) eleInc = 0;
-          else {
-            $(this).off("scroll");
-          }
-        }
-      });
-    </script>
-    <style>
-      .header-container {
-        background-image: url(resources/flowersBackground.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: top center;
       }
+    };
 
-      .main-website {
-        background-image: url(resources/rocksBackground.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: top center;
+    $(document).ready(function () {
+      //adds a 1 to the array for each elemement in the elem class
+      for (var i = 0; i < $(".elem").length; i++) {
+        eleArr.push(1);
       }
-    </style>
-  </head>
-  <body>
-    <header>
-      <!-- Widescreen Header -->
-      <div class="header-container">
-        <div class="header-widescreen" style="animation: fade-in 1.2s">
-          <div class="header-title-element">
+      checkEle();
+
+      openTime = Date.now();
+      $(".vertical-timeline").animate({ height: "1250" }, 4000);
+    });
+
+    $(window).scroll(function () {
+      const elem = $(".elem");
+      var viewPortSize = $(window).height();
+      checkEle();
+
+      if (eleInc >= elem.length) {
+        if (eleArr[3] != 0) eleInc = 0;
+        else {
+          $(this).off("scroll");
+        }
+      }
+    });
+  </script>
+  <style>
+    .header-container {
+      background-image: url(resources/flowersBackground.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: top center;
+    }
+
+    .main-website {
+      background-image: url(resources/rocksBackground.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: top center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <!-- Widescreen Header -->
+    <div class="header-container">
+      <div class="header-widescreen" style="animation: fade-in 1.2s">
+        <div class="header-title-element">
+          <a href="index.html">Logan Gillett</a>
+        </div>
+        <div class="links">
+          <a href="projects.html"><u>Projects</u></a>&nbsp; <a href="about.html">About</a>&nbsp;
+          <a href="career.html">Career</a>&nbsp;
+          <a href="contact.html">Contact</a>&nbsp;
+        </div>
+        <div class="headerImages">
+          <figure>
+            <a href="https://www.linkedin.com/in/logan-gillett-941797327/" target="_blank">
+              <img src="resources/linkedin.png" alt="LinkedIn" title="LinkedIn" width="25" height="25" />
+            </a>
+            &nbsp;
+            <a href="https://github.com/LogaGill489" target="_blank">
+              <img src="resources/github.png" alt="GitHub" title="GitHub" width="25" height="25" />
+            </a>
+          </figure>
+        </div>
+      </div>
+      <!-- Mobile & Condensed Screen-->
+      <div class="header-mobile" style="animation: fade-in 1.2s">
+        <div class="header-title-element">
+          <a href="index.html">Logan Gillett</a>
+        </div>
+        <div class="header-mobile-images">
+          <div class="mobile-header-link">
+            <a href="https://www.linkedin.com/in/logan-gillett-941797327/" target="_blank">
+              <img src="resources/linkedin.png" alt="LinkedIn" title="LinkedIn" width="25" height="25" />
+            </a>
+            &nbsp;
+            <a href="https://github.com/LogaGill489" target="_blank">
+              <img src="resources/github.png" alt="GitHub" title="GitHub" width="25" height="25" />
+            </a>
+          </div>
+          <div class="header-dropbar">
+            <img src="resources/dropDownImg.png" alt="Links" title="Links" width="25" height="25" class="dropDownImg" />
+            <div class="dropdown-links">
+              <a href="projects.html">Projects</a>
+              <a href="about.html">About</a>
+              <a href="career.html">Career</a>
+              <a href="contact.html">Contact</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-central-title" style="animation: fade-in 2s">
+        <h2>Projects</h2>
+      </div>
+    </div>
+  </header>
+  <!-- Main Section - Projects -->
+  <main>
+    <div class="main-website">
+      <div class="vertical-timeline" id="vert-timeline">
+        <hr class="hr-horizontal-line" />
+        <hr class="hr-vertical-line" />
+        <hr class="hr-horizontal-line" />
+      </div>
+      <div class="elem project-container" style="top: 800px">
+        <img class="project-logo" src="resources/github.png" alt="project-img" width="40" height="40" />
+        <hr class="left-hr" />
+        <img class="left-img" src="resources/blueLake.jpg" alt="project-img" />
+        <div class="left-project-text" style="bottom: 350px;">
+          <div class="project-header-container">
+            <span class="project-header">Front-End Portfolio</span>
+            <span class="project-date">Mar 2025 - Apr 2025 | Stratford, ON</span>
+          </div>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
+            deserunt perspiciatis cumque amet repudiandae. Inventore corporis
+            tempora, quis, quas vero ratione, sint voluptatum blanditiis
+            praesentium sunt ab expedita repellat velit!
+          </p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio consequuntur, alias totam atque eum animi necessitatibus, porro veniam sed harum, vero quis doloribus nemo voluptas facilis maxime. Quae, deleniti aperiam.</p>
+        </div>
+      </div>
+
+      <div class="elem project-container" style="top: 1200px">
+        <img class="project-logo" src="resources/github.png" alt="project-img" width="40" height="40" />
+        <hr class="right-hr" />
+        <img class="right-img" src="resources/blueLake.jpg" alt="project-img" />
+        <div class="right-project-text" style="bottom: 350px;">
+          <div class="project-header-container">
+            <span class="project-header">Delivery Guard</span>
+            <span class="project-date">Sept 2024 - Dec 2024 | Stratford, ON</span>
+          </div>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
+            deserunt perspiciatis cumque amet repudiandae. Inventore corporis
+            tempora, quis, quas vero ratione, sint voluptatum blanditiis
+            praesentium sunt ab expedita repellat velit!
+          </p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio consequuntur, alias totam atque eum animi necessitatibus, porro veniam sed harum, vero quis doloribus nemo voluptas facilis maxime. Quae, deleniti aperiam.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-element">
+      <div class="footer-widescreen">
+        <div class="footer-flex">
+          <div class="elem footer-title">
             <a href="index.html">Logan Gillett</a>
+            <a href="https://uwaterloo.ca/engineering/" target="_blank">
+              <img src="resources/waterlooEng.png" alt="UWaterloo-Logo" title="I'm a Computer Engineer at UWaterloo!"
+                width="196" height="30" />
+            </a>
           </div>
-          <div class="links">
-            <a href="projects.html"><u>Projects</u></a
-            >&nbsp; <a href="about.html">About</a>&nbsp;
-            <a href="career.html">Career</a>&nbsp;
-            <a href="contact.html">Contact</a>&nbsp;
-          </div>
-          <div class="headerImages">
-            <figure>
-              <a
-                href="https://www.linkedin.com/in/logan-gillett-941797327/"
-                target="_blank"
-              >
-                <img
-                  src="resources/linkedin.png"
-                  alt="LinkedIn"
-                  title="LinkedIn"
-                  width="25"
-                  height="25"
-                />
-              </a>
-              &nbsp;
-              <a href="https://github.com/LogaGill489" target="_blank">
-                <img
-                  src="resources/github.png"
-                  alt="GitHub"
-                  title="GitHub"
-                  width="25"
-                  height="25"
-                />
-              </a>
-            </figure>
-          </div>
-        </div>
-        <!-- Mobile & Condensed Screen-->
-        <div class="header-mobile" style="animation: fade-in 1.2s">
-          <div class="header-title-element">
-            <a href="index.html">Logan Gillett</a>
-          </div>
-          <div class="header-mobile-images">
-            <div class="mobile-header-link">
-              <a
-                href="https://www.linkedin.com/in/logan-gillett-941797327/"
-                target="_blank"
-              >
-                <img
-                  src="resources/linkedin.png"
-                  alt="LinkedIn"
-                  title="LinkedIn"
-                  width="25"
-                  height="25"
-                />
-              </a>
-              &nbsp;
-              <a href="https://github.com/LogaGill489" target="_blank">
-                <img
-                  src="resources/github.png"
-                  alt="GitHub"
-                  title="GitHub"
-                  width="25"
-                  height="25"
-                />
-              </a>
+          <div class="footer-links">
+            <div class="elem footer-item" style="margin-top: 20px">
+              <a href="projects.html">Projects</a>
+              <a href="about.html">About</a>
+              <figure>
+                <a href="https://www.linkedin.com/in/logan-gillett-941797327/" target="_blank">
+                  <img src="resources/linkedin.png" alt="LinkedIn" title="LinkedIn" width="25" height="25"
+                    loading="lazy" />
+                </a>
+              </figure>
             </div>
-            <div class="header-dropbar">
-              <img
-                src="resources/dropDownImg.png"
-                alt="Links"
-                title="Links"
-                width="25"
-                height="25"
-                class="dropDownImg"
-              />
-              <div class="dropdown-links">
-                <a href="projects.html">Projects</a>
-                <a href="about.html">About</a>
-                <a href="career.html">Career</a>
-                <a href="contact.html">Contact</a>
-              </div>
+            <div class="elem footer-item">
+              <a href="career.html">Career</a>
+              <a href="contact.html">Contact</a>
+              <figure>
+                <a href="https://github.com/LogaGill489" target="_blank">
+                  <img src="resources/github.png" alt="GitHub" title="GitHub" width="25" height="25" loading="lazy" />
+                </a>
+              </figure>
             </div>
           </div>
         </div>
-        <div class="header-central-title" style="animation: fade-in 2s">
-          <h2>Projects</h2>
+        <div class="elem footer-fineprint">
+          <p>&copy; 2025 - Logan Gillett</p>
+          <address>
+            Conrad Grebel University College, 140 Westmount Rd N, Waterloo, ON
+            N2L 3G6
+          </address>
         </div>
       </div>
-    </header>
-    <!-- Main Section - Projects -->
-    <main>
-      <div class="main-website">
-        <div class="vertical-timeline" id="vert-timeline">
-          <hr class="hr-horizontal-line" />
-          <hr class="hr-vertical-line" />
-          <hr class="hr-horizontal-line" />
-        </div>
-        <div class="elem project-container" style="top: 800px">
-          <img
-            class="project-logo"
-            src="resources/github.png"
-            alt="project-img"
-            width="40"
-            height="40"
-          />
-          <hr class="right-hr">
-        </div>
-      </div>
-    </main>
-    <!-- Footer Section -->
-    <footer>
-      <div class="footer-element">
-        <div class="footer-widescreen">
-          <div class="footer-flex">
-            <div class="elem footer-title">
-              <a href="index.html">Logan Gillett</a>
-              <a href="https://uwaterloo.ca/engineering/" target="_blank">
-                <img
-                  src="resources/waterlooEng.png"
-                  alt="UWaterloo-Logo"
-                  title="I'm a Computer Engineer at UWaterloo!"
-                  width="196"
-                  height="30"
-                />
-              </a>
-            </div>
-            <div class="footer-links">
-              <div class="elem footer-item" style="margin-top: 20px">
-                <a href="projects.html">Projects</a>
-                <a href="about.html">About</a>
-                <figure>
-                  <a
-                    href="https://www.linkedin.com/in/logan-gillett-941797327/"
-                    target="_blank"
-                  >
-                    <img
-                      src="resources/linkedin.png"
-                      alt="LinkedIn"
-                      title="LinkedIn"
-                      width="25"
-                      height="25"
-                      loading="lazy"
-                    />
-                  </a>
-                </figure>
-              </div>
-              <div class="elem footer-item">
-                <a href="career.html">Career</a>
-                <a href="contact.html">Contact</a>
-                <figure>
-                  <a href="https://github.com/LogaGill489" target="_blank">
-                    <img
-                      src="resources/github.png"
-                      alt="GitHub"
-                      title="GitHub"
-                      width="25"
-                      height="25"
-                      loading="lazy"
-                    />
-                  </a>
-                </figure>
-              </div>
-            </div>
-          </div>
-          <div class="elem footer-fineprint">
-            <p>&copy; 2025 - Logan Gillett</p>
-            <address>
-              Conrad Grebel University College, 140 Westmount Rd N, Waterloo, ON
-              N2L 3G6
-            </address>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </body>
+    </div>
+  </footer>
+</body>
+
 </html>
