@@ -35,6 +35,7 @@
 .project-container {
     position: absolute;
     left: calc(50% - 22px);
+    visibility:hidden;
 }
 
 .project-logo {
@@ -128,6 +129,14 @@
 .project-date {
     justify-self:end;
     color: rgb(185, 182, 182);
+}
+
+.left-img, .right-img {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.left-img:hover, .right-img:hover {
+    transform: scale(1.02);
 }
 
 @media (max-width: 850px) {
