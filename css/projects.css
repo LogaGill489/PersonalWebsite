@@ -30,12 +30,12 @@
     background-color: rgba(43, 41, 41, 0.8);
     padding: 40px 0;
     position: relative; /* Make this the reference point for absolute positioning */
+    height: 2800px;
 }
 
 .project-container {
     position: absolute;
     left: calc(50% - 22px);
-    visibility:hidden;
 }
 
 .project-logo {
@@ -49,7 +49,7 @@
 }
 
 .left-hr {
-    width: 30vw;
+    width: 0px;
     height: 3px;
     position:relative;
     z-index: 1;
@@ -74,6 +74,7 @@
     height: 200px;
     width: 200px;
     bottom: 137px;
+    opacity: 0;
 }
 
 .left-project-text {
@@ -83,7 +84,7 @@
 }
 
 .right-hr {
-    width: 25vw;
+    width: 0px;
     height: 3px;
     position:relative;
     z-index: 1;
@@ -107,6 +108,7 @@
     height: 200px;
     width: 200px;
     bottom: 137px;
+    opacity: 0;
 }
 
 .right-project-text {
@@ -140,7 +142,7 @@
 }
 
 @media (max-width: 850px) {
-    .left-img, .right-img, .left-hr, .right-hr {
+    .left-hr, .right-hr {
         visibility: hidden;
     }
 
