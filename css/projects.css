@@ -147,20 +147,20 @@
     }
 
     .hr-horizontal-line {
-        margin-left: 40px;
+        margin-left: 30px;
     }
 
     .hr-vertical-line {
-        margin-left: calc(40px + 2.2%);
+        margin-left: calc(30px + 2.2%);
     }
 
     .project-container {
-        left: calc(20px + 2.2%);
+        left: calc(10px + 2.2%);
     }
 
     .left-project-text, .right-project-text {
-        width: 80vw;
-        left: calc(50px + 2.2%);
+        width: 78vw;
+        left: calc(47px + 2.2%);
     }
 }
 
