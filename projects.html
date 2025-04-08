@@ -1,21 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Projects page to feature my projects thus far on my personal website.">
-    <meta name="author" content="Logan Gillett">
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Projects page to feature my projects thus far on my personal website."
+    />
+    <meta name="author" content="Logan Gillett" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Contact - Logan Gillett</title>
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/contact.css">
-    <link rel="stylesheet" href="css/formatting.css">
-    <link rel="stylesheet" href="css/projects.css">
+    <title>Projects - Logan Gillett</title>
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+    <link rel="stylesheet" href="css/formatting.css" />
+    <link rel="stylesheet" href="css/projects.css" />
     <script src="jquery-3.7.1.js"></script>
     <script>
       //forces the screen to the top of the page upon refresh
       var eleArr = [];
       var eleInc = 0;
+
+      var lefthrArr = [];
+      var righthrArr = [];
+      let upper = 1;
+
+      hrFadeLeft = () => {
+        const hrElem = $(".left-hr");
+        var viewPortSize = $(window).height();
+
+        for (let i = 0; i < hrElem.length; i++) {
+          if (lefthrArr[i] == 1) {
+            var rect = hrElem[i].getBoundingClientRect();
+            if (viewPortSize - rect.y > 0) {
+              $(".left-hr").eq(i).animate({ width: "30vw" }, 1300);
+              setTimeout(function () {
+                $(".left-img").eq(i).animate({ opacity: 1 }, 600);
+              }, 400);
+              lefthrArr[i] = 0;
+            }
+          }
+        }
+      };
+
+      hrFadeRight = () => {
+        const hrElem = $(".right-hr");
+        var viewPortSize = $(window).height();
+
+        for (let i = 0; i < hrElem.length; i++) {
+          if (righthrArr[i] == 1) {
+            var rect = hrElem[i].getBoundingClientRect();
+            if (viewPortSize - rect.y > 0) {
+              $(".right-hr").eq(i).animate({ width: "25vw" }, 1300);
+              setTimeout(function () {
+                $(".right-img").eq(i).animate({ opacity: 1 }, 600);
+              }, 400);
+              righthrArr[i] = 0;
+            }
+          }
+        }
+      };
+
       //checks if the element is in the viewport
       checkEle = () => {
         const elem = $(".elem");
@@ -33,85 +77,98 @@
         }
       };
 
+      fadeEffect = () => {
+        let vw = Math.max(document.documentElement.clientWidth);
+        if (vw >= 850) {
+          hrFadeLeft();
+          hrFadeRight();
+
+          if (upper == 0) {
+            for (let i = 0; i < $(".left-img").length; i++) {
+              if (lefthrArr[i] == 0) {
+                $(".left-img").eq(i).css("opacity", "1");
+              }
+            }
+            for (let i = 0; i < $(".right-img").length; i++) {
+              if (righthrArr[i] == 0) {
+                $(".right-img").eq(i).css("opacity", "1");
+              }
+            }
+            upper = 1;
+          }
+        } else {
+          upper = 0;
+          $(".left-img").css("opacity", "0");
+          $(".right-img").css("opacity", "0");
+        }
+      };
+
       $(document).ready(function () {
         //adds a 1 to the array for each elemement in the elem class
         for (var i = 0; i < $(".elem").length; i++) {
           eleArr.push(1);
         }
+        for (var i = 0; i < $(".left-hr").length; i++) {
+          lefthrArr.push(1);
+        }
+        for (var i = 0; i < $(".right-hr").length; i++) {
+          righthrArr.push(1);
+        }
         checkEle();
+        fadeEffect();
+      });
+
+      $(window).on("resize", function () {
+        fadeEffect();
       });
 
       $(window).scroll(function () {
         const elem = $(".elem");
         var viewPortSize = $(window).height();
         checkEle();
+        fadeEffect();
 
         if (eleInc >= elem.length) {
-          $(this).off("scroll");
+          if (eleArr[3] != 0) eleInc = 0;
+          else {
+            $(this).off("scroll");
+          }
         }
       });
     </script>
-      <style>
-        .header-container {
-          background-image: url(resources/flowersBackground.jpg);
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: top center;
-        }
+    <style>
+      .header-container {
+        background-image: url(resources/flowersBackground.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center;
+      }
 
-        .main-website {
-          background-image: url(resources/rocksBackground.jpg);
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: top center;
-        }
-      </style>
+      .main-website {
+        background-image: url(resources/rocksBackground.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center;
+      }
+    </style>
   </head>
-<body>
+
+  <body>
     <header>
-        <!-- Widescreen Header -->
-        <div class="header-container">
-          <div class="header-widescreen" style="animation: fade-in 1.2s">
-            <div class="header-title-element">
-              <a href="index.html">Logan Gillett</a>
-            </div>
-            <div class="links">
-              <a href="projects.html"><u>Projects</u></a>&nbsp;
-              <a href="about.html">About</a>&nbsp;
-              <a href="career.html">Career</a>&nbsp;
-              <a href="contact.html">Contact</a>&nbsp;
-            </div>
-            <div class="headerImages">
-              <figure>
-                <a href="https://www.linkedin.com/in/logan-gillett-941797327/" target="_blank">
-                  <img
-                    src="resources/linkedin.png"
-                    alt="LinkedIn"
-                    title="LinkedIn"
-                    width="25"
-                    height="25"
-                 >
-                </a>
-                &nbsp;
-                <a href="https://github.com/LogaGill489" target="_blank">
-                  <img
-                    src="resources/github.png"
-                    alt="GitHub"
-                    title="GitHub"
-                    width="25"
-                    height="25"
-                 >
-                </a>
-              </figure>
-            </div>
+      <!-- Widescreen Header -->
+      <div class="header-container">
+        <div class="header-widescreen" style="animation: fade-in 1.2s">
+          <div class="header-title-element">
+            <a href="index.html">Logan Gillett</a>
           </div>
-          <!-- Mobile & Condensed Screen-->
-      <div class="header-mobile" style="animation: fade-in 1.2s">
-        <div class="header-title-element">
-          <a href="index.html">Logan Gillett</a>
-        </div>
-        <div class="header-mobile-images">
-          <div class="mobile-header-link">
+          <div class="links">
+            <a href="projects.html"><u>Projects</u></a
+            >&nbsp; <a href="about.html">About</a>&nbsp;
+            <a href="career.html">Career</a>&nbsp;
+            <a href="contact.html">Contact</a>&nbsp;
+          </div>
+          <div class="headerImages">
+            <figure>
               <a
                 href="https://www.linkedin.com/in/logan-gillett-941797327/"
                 target="_blank"
@@ -134,113 +191,386 @@
                   height="25"
                 />
               </a>
+            </figure>
           </div>
-          <div class="header-dropbar">
-            <img
-              src="resources/dropDownImg.png"
-              alt="Links"
-              title="Links"
-              width="25"
-              height="25"
-              class="dropDownImg"
-            />
-            <div class="dropdown-links">
-              <a href="projects.html">Projects</a>
-              <a href="about.html">About</a>
-              <a href="career.html">Career</a>
-              <a href="contact.html">Contact</a>
+        </div>
+        <!-- Mobile & Condensed Screen-->
+        <div class="header-mobile" style="animation: fade-in 1.2s">
+          <div class="header-title-element">
+            <a href="index.html">Logan Gillett</a>
+          </div>
+          <div class="header-mobile-images">
+            <div class="mobile-header-link">
+              <a
+                href="https://www.linkedin.com/in/logan-gillett-941797327/"
+                target="_blank"
+              >
+                <img
+                  src="resources/linkedin.png"
+                  alt="LinkedIn"
+                  title="LinkedIn"
+                  width="25"
+                  height="25"
+                />
+              </a>
+              &nbsp;
+              <a href="https://github.com/LogaGill489" target="_blank">
+                <img
+                  src="resources/github.png"
+                  alt="GitHub"
+                  title="GitHub"
+                  width="25"
+                  height="25"
+                />
+              </a>
             </div>
+            <div class="header-dropbar">
+              <img
+                src="resources/dropDownImg.png"
+                alt="Links"
+                title="Links"
+                width="25"
+                height="25"
+                class="dropDownImg"
+              />
+              <div class="dropdown-links">
+                <a href="projects.html">Projects</a>
+                <a href="about.html">About</a>
+                <a href="career.html">Career</a>
+                <a href="contact.html">Contact</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="header-central-title" style="animation: fade-in 2s">
+          <h2>Projects</h2>
+        </div>
+      </div>
+    </header>
+    <!-- Main Section - Projects -->
+    <main>
+      <div class="main-website">
+        <div class="vertical-timeline" id="vert-timeline">
+          <hr class="hr-horizontal-line" />
+          <hr class="hr-vertical-line" />
+          <hr class="hr-horizontal-line" />
+        </div>
+        <div class="project-container" style="top: 800px">
+          <img
+            class="project-logo"
+            src="resources/github.png"
+            alt="project-img"
+            width="40"
+            height="40"
+          />
+          <hr class="left-hr" />
+          <img
+            class="left-img"
+            src="resources/projectImages/websiteImage.png"
+            alt="project-img"
+          />
+          <div class="left-project-text" style="bottom: 350px">
+            <div class="elem project-header-container">
+              <span class="project-header">Front-End Portfolio</span>
+              <span class="project-date"
+                >Mar 2025 - Apr 2025 | Stratford, ON</span
+              >
+            </div>
+            <p class="elem">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
+              deserunt perspiciatis cumque amet repudiandae. Inventore corporis
+              tempora, quis, quas vero ratione, sint voluptatum blanditiis
+              praesentium sunt ab expedita repellat velit!
+            </p>
+            <p class="elem">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+              consequuntur, alias totam atque eum animi necessitatibus, porro
+              veniam sed harum, vero quis doloribus nemo voluptas facilis
+              maxime. Quae, deleniti aperiam.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-container" style="top: 1200px">
+          <img
+            class="project-logo"
+            src="resources/github.png"
+            alt="project-img"
+            width="40"
+            height="40"
+          />
+          <hr class="right-hr" />
+          <img
+            class="right-img"
+            src="resources/projectImages/delivery-Guard-Box.jpg"
+            alt="project-img"
+          />
+          <div class="right-project-text" style="bottom: 350px">
+            <div class="elem project-header-container">
+              <span class="project-header">Delivery Guard</span>
+              <span class="project-date"
+                >Sept 2024 - Dec 2024 | Waterloo, ON</span
+              >
+            </div>
+            <p class="elem">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
+              deserunt perspiciatis cumque amet repudiandae. Inventore corporis
+              tempora, quis, quas vero ratione, sint voluptatum blanditiis
+              praesentium sunt ab expedita repellat velit!
+            </p>
+            <p class="elem">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+              consequuntur, alias totam atque eum animi necessitatibus, porro
+              veniam sed harum, vero quis doloribus nemo voluptas facilis
+              maxime. Quae, deleniti aperiam.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-container" style="top: 1600px">
+          <img
+            class="project-logo"
+            src="resources/github.png"
+            alt="project-img"
+            width="40"
+            height="40"
+          />
+          <hr class="left-hr" />
+          <img
+            class="left-img"
+            src="resources/projectImages/droneImage.jpg"
+            alt="project-img"
+          />
+          <div class="left-project-text" style="bottom: 350px">
+            <div class="elem project-header-container">
+              <span class="project-header">Arduino Drone</span>
+              <span class="project-date"
+                >Jan 2024 - Jun 2024 | Stratford, ON</span
+              >
+            </div>
+            <p class="elem">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
+              deserunt perspiciatis cumque amet repudiandae. Inventore corporis
+              tempora, quis, quas vero ratione, sint voluptatum blanditiis
+              praesentium sunt ab expedita repellat velit!
+            </p>
+            <p class="elem">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+              consequuntur, alias totam atque eum animi necessitatibus, porro
+              veniam sed harum, vero quis doloribus nemo voluptas facilis
+              maxime. Quae, deleniti aperiam.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-container" style="top: 2000px">
+          <img
+            class="project-logo"
+            src="resources/projectImages/warrenImg.ico"
+            alt="project-img"
+            width="40"
+            height="40"
+          />
+          <hr class="right-hr" />
+          <img
+            class="right-img"
+            src="resources/projectImages/peggleGameImage.png"
+            alt="project-img"
+          />
+          <div class="right-project-text" style="bottom: 350px">
+            <div class="elem project-header-container">
+              <span class="project-header">Peggle</span>
+              <span class="project-date"
+                >May 2024 - July 2024 | Stratford, ON</span
+              >
+            </div>
+            <p class="elem">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
+              deserunt perspiciatis cumque amet repudiandae. Inventore corporis
+              tempora, quis, quas vero ratione, sint voluptatum blanditiis
+              praesentium sunt ab expedita repellat velit!
+            </p>
+            <p class="elem">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+              consequuntur, alias totam atque eum animi necessitatibus, porro
+              veniam sed harum, vero quis doloribus nemo voluptas facilis
+              maxime. Quae, deleniti aperiam.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-container" style="top: 2400px">
+          <img
+            class="project-logo"
+            src="resources/github.png"
+            alt="project-img"
+            width="40"
+            height="40"
+          />
+          <hr class="left-hr" />
+          <img
+            class="left-img"
+            src="resources/projectImages/witnessGameImage.png"
+            alt="project-img"
+          />
+          <div class="left-project-text" style="bottom: 350px">
+            <div class="elem project-header-container">
+              <span class="project-header">The Witness</span>
+              <span class="project-date"
+                >Mar 2024 - May 2024 | Stratford, ON</span
+              >
+            </div>
+            <p class="elem">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
+              deserunt perspiciatis cumque amet repudiandae. Inventore corporis
+              tempora, quis, quas vero ratione, sint voluptatum blanditiis
+              praesentium sunt ab expedita repellat velit!
+            </p>
+            <p class="elem">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+              consequuntur, alias totam atque eum animi necessitatibus, porro
+              veniam sed harum, vero quis doloribus nemo voluptas facilis
+              maxime. Quae, deleniti aperiam.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-container" style="top: 2800px">
+          <img
+            class="project-logo"
+            src="resources/github.png"
+            alt="project-img"
+            width="40"
+            height="40"
+          />
+          <hr class="right-hr" />
+          <img
+            class="right-img"
+            src="resources/projectImages/brickBreakerGame.png"
+            alt="project-img"
+          />
+          <div class="right-project-text" style="bottom: 350px">
+            <div class="elem project-header-container">
+              <span class="project-header">Brick Breaker</span>
+              <span class="project-date"
+                >Apr 2024 - May 2024 | Stratford, ON</span
+              >
+            </div>
+            <p class="elem">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
+              deserunt perspiciatis cumque amet repudiandae. Inventore corporis
+              tempora, quis, quas vero ratione, sint voluptatum blanditiis
+              praesentium sunt ab expedita repellat velit!
+            </p>
+            <p class="elem">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+              consequuntur, alias totam atque eum animi necessitatibus, porro
+              veniam sed harum, vero quis doloribus nemo voluptas facilis
+              maxime. Quae, deleniti aperiam.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-container" style="top: 3200px">
+          <img
+            class="project-logo"
+            src="resources/projectImages/junimoIcon.png"
+            alt="project-img"
+            width="40"
+            height="40"
+          />
+          <hr class="left-hr" />
+          <img
+            class="left-img"
+            src="resources/projectImages/junimoKartGame.png"
+            alt="project-img"
+          />
+          <div class="left-project-text" style="bottom: 350px">
+            <div class="elem project-header-container">
+              <span class="project-header">Junimo Kart</span>
+              <span class="project-date"
+                >May 2023 - July 2023 | Stratford, ON</span
+              >
+            </div>
+            <p class="elem">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
+              deserunt perspiciatis cumque amet repudiandae. Inventore corporis
+              tempora, quis, quas vero ratione, sint voluptatum blanditiis
+              praesentium sunt ab expedita repellat velit!
+            </p>
+            <p class="elem">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+              consequuntur, alias totam atque eum animi necessitatibus, porro
+              veniam sed harum, vero quis doloribus nemo voluptas facilis
+              maxime. Quae, deleniti aperiam.
+            </p>
           </div>
         </div>
       </div>
-          <div class="header-central-title" style="animation: fade-in 2s">
-            <h2>Projects</h2>
-          </div>
-        </div>
-      </header>
-      <!-- Main Section - Projects -->
-      <main>
-        <div class="main-website">
-          <div class="vertical-timeline" id="vert-timeline">
-            <hr class="hr-horizontal-line"/>
-            <hr class="hr-vertical-line"/>
-            <hr class="hr-horizontal-line"/>
-          </div>
-          <div class="project-left">
-            <span class="project-circle" style="top:800px;"></span>
-            <img class="project-logo" src="resources/github.png" alt="project-img" width="40" height="40" style="top:802px;">
-          </div>
-          <div class="project-right">
-            <span class="project-circle" style="top:1100px;"></span>
-            <img class="project-logo" src="resources/github.png" alt="project-img" width="40" height="40" style="top:1102px;">
-          </div>
-          <div class="project-left">
-            <span class="project-circle" style="top:1400px;"></span>
-            <img class="project-logo" src="resources/github.png" alt="project-img" width="40" height="40" style="top:1402px;">
-          </div>
-          <div class="project-right">
-            <span class="project-circle" style="top:1700px;"></span>
-            <img class="project-logo" src="resources/github.png" alt="project-img" width="40" height="40" style="top:1702px;">
-          </div>
-        </div>
-      </main>
-      <!-- Footer Section -->
-      <footer>
-        <div class="footer-element">
-          <div class="footer-widescreen">
-            <div class="footer-flex">
-              <div class="elem footer-title">
-                <a href="index.html">Logan Gillett</a>
-                <a href="https://uwaterloo.ca/engineering/" target="_blank">
-                  <img src="resources/waterlooEng.png" alt="UWaterloo-Logo" title="I'm a Computer Engineer at UWaterloo!" width="196" height="30">
-                </a>
+    </main>
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-element">
+        <div class="footer-widescreen">
+          <div class="footer-flex">
+            <div class="elem footer-title">
+              <a href="index.html">Logan Gillett</a>
+              <a href="https://uwaterloo.ca/engineering/" target="_blank">
+                <img
+                  class="footer-waterloo"
+                  src="resources/waterlooEng.png"
+                  alt="UWaterloo-Logo"
+                  title="I'm a Computer Engineer at UWaterloo!"
+                />
+              </a>
+            </div>
+            <div class="footer-links">
+              <div class="elem footer-item" style="margin-top: 20px">
+                <a href="projects.html">Projects</a>
+                <a href="about.html">About</a>
+                <figure>
+                  <a
+                    href="https://www.linkedin.com/in/logan-gillett-941797327/"
+                    target="_blank"
+                  >
+                    <img
+                      src="resources/linkedin.png"
+                      alt="LinkedIn"
+                      title="LinkedIn"
+                      width="25"
+                      height="25"
+                      loading="lazy"
+                    />
+                  </a>
+                </figure>
               </div>
-              <div class="footer-links">
-                <div class="elem footer-item" style="margin-top: 20px">
-                  <a href="projects.html">Projects</a>
-                  <a href="about.html">About</a>
-                  <figure>
-                    <a
-                      href="https://www.linkedin.com/in/logan-gillett-941797327/" target="_blank"
-                    >
-                      <img
-                        src="resources/linkedin.png"
-                        alt="LinkedIn"
-                        title="LinkedIn"
-                        width="25"
-                        height="25"
-                        loading="lazy"
-                     >
-                    </a>
-                  </figure>
-                </div>
-                <div class="elem footer-item">
-                  <a href="career.html">Career</a>
-                  <a href="contact.html">Contact</a>
-                  <figure>
-                    <a href="https://github.com/LogaGill489" target="_blank">
-                      <img
-                        src="resources/github.png"
-                        alt="GitHub"
-                        title="GitHub"
-                        width="25"
-                        height="25"
-                        loading="lazy"
-                     >
-                    </a>
-                  </figure>
-                </div>
+              <div class="elem footer-item">
+                <a href="career.html">Career</a>
+                <a href="contact.html">Contact</a>
+                <figure>
+                  <a href="https://github.com/LogaGill489" target="_blank">
+                    <img
+                      src="resources/github.png"
+                      alt="GitHub"
+                      title="GitHub"
+                      width="25"
+                      height="25"
+                      loading="lazy"
+                    />
+                  </a>
+                </figure>
               </div>
             </div>
-            <div class="elem footer-fineprint">
-              <p>&copy; 2025 - Logan Gillett</p>
-              <address>
-                Conrad Grebel University College, 140 Westmount Rd N, Waterloo, ON
-                N2L 3G6
-              </address>
-            </div>
+          </div>
+          <div class="elem footer-fineprint">
+            <p>&copy; 2025 - Logan Gillett</p>
+            <address>
+              Conrad Grebel University College, 140 Westmount Rd N, Waterloo, ON
+              N2L 3G6
+            </address>
           </div>
         </div>
-      </footer>
-</body>
+      </div>
+    </footer>
+  </body>
 </html>

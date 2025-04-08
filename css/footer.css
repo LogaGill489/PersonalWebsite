@@ -47,9 +47,19 @@
     line-height: 6px;
 }
 
+.footer-waterloo {
+    width: 196px;
+    height: 30px;
+}
+
 @media (max-width: 685px) {
     .footer-fineprint {
         font-size: 12px;
+    }
+
+    .footer-waterloo {
+        width: 163px;
+        height: 25px;
     }
   }
   
