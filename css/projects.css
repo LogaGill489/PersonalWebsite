@@ -30,7 +30,7 @@
     background-color: rgba(43, 41, 41, 0.8);
     padding: 40px 0;
     position: relative; /* Make this the reference point for absolute positioning */
-    height: 2800px;
+    height: 3500px;
 }
 
 .project-container {
@@ -168,6 +168,12 @@
     background-color: rgba(55, 54, 54, 0.65);
 }
 
+@media (max-width: 1050.02px) {
+    .project-skills-elem {
+        visibility: hidden;
+    }
+ }
+
 @media (max-width: 850px) {
     .left-hr, .right-hr {
         visibility: hidden;
@@ -188,6 +194,14 @@
     .left-project-text, .right-project-text {
         width: 78vw;
         left: calc(47px + 2.2%);
+    }
+
+    .vertical-timeline {
+        height: 3500px;
+    }
+
+    .vertical-timeline {
+        height: 3600px;
     }
 }
 
