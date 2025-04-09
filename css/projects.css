@@ -48,6 +48,12 @@
     border-radius: 50%;
 }
 
+.project-link {
+    text-decoration: underline;
+    color: rgb(216, 216, 216);
+    font-size: 17px;
+}
+
 .left-hr {
     width: 0px;
     height: 3px;
@@ -139,6 +145,27 @@
 
 .left-img:hover, .right-img:hover {
     transform: scale(1.02);
+}
+
+.project-skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 3px; /* Add consistent spacing between items */
+    justify-content: center; /* Center the grid items */
+    align-items: center;
+    width: 87%;
+}
+
+.project-skills-elem {
+    color: rgb(210, 209, 209);
+    font-size: 13px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(173, 172, 172, 0.2);
+    border-radius: 10px;
+    margin: 0;
+    background-color: rgba(55, 54, 54, 0.65);
 }
 
 @media (max-width: 850px) {
