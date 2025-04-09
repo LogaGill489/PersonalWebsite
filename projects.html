@@ -79,7 +79,7 @@
 
       fadeEffect = () => {
         let vw = Math.max(document.documentElement.clientWidth);
-        if (vw >= 850) {
+        if (vw >= 836) {
           hrFadeLeft();
           hrFadeRight();
 
@@ -242,7 +242,11 @@
             </div>
           </div>
         </div>
-        <div class="header-central-title" style="animation: fade-in 2s">
+        <div
+          class="header-central-title"
+          style="animation: fade-in 2s"
+          id="projects-header-title"
+        >
           <h2>Projects</h2>
         </div>
       </div>
@@ -270,7 +274,7 @@
             alt="project-img"
           />
           <div class="left-project-text" style="bottom: 350px">
-            <div class="elem project-header-container">
+            <div class="elem project-header-container" id="portfolio">
               <span class="project-header">Front-End Portfolio</span>
               <span class="project-date"
                 >Mar 2025 - Apr 2025 | Stratford, ON</span
@@ -288,13 +292,23 @@
               veniam sed harum, vero quis doloribus nemo voluptas facilis
               maxime. Quae, deleniti aperiam.
             </p>
+            <div class="elem project-skills">
+              <p class="project-skills-elem">Front-End</p>
+              <p class="project-skills-elem">Javascript</p>
+              <p class="project-skills-elem">HTML</p>
+              <p class="project-skills-elem">CSS</p>
+              <p class="project-skills-elem">JQuery</p>
+              <p class="project-skills-elem">Web-Dev</p>
+              <p class="project-skills-elem">VS Code</p>
+              <p class="project-skills-elem">Software</p>
+            </div>
           </div>
         </div>
 
-        <div class="project-container" style="top: 1200px">
+        <div class="project-container" style="top: 1300px">
           <img
             class="project-logo"
-            src="resources/github.png"
+            src="resources/projectImages/uwaterlooSeal.png"
             alt="project-img"
             width="40"
             height="40"
@@ -306,11 +320,24 @@
             alt="project-img"
           />
           <div class="right-project-text" style="bottom: 350px">
-            <div class="elem project-header-container">
+            <div class="elem project-header-container" id="delivery-Guard">
               <span class="project-header">Delivery Guard</span>
               <span class="project-date"
-                >Sept 2024 - Dec 2024 | Waterloo, ON</span
-              >
+                >Sept 2024 - Dec 2024 |
+                <a
+                  href="https://www.youtube.com/watch?v=UsJfYf0ZKWE"
+                  target="_blank"
+                  class="project-link"
+                  >Demo</a
+                >
+                |
+                <a
+                  href="https://github.com/LogaGill489/Delivery-Guard"
+                  target="_blank"
+                  class="project-link"
+                  >Github</a
+                >
+              </span>
             </div>
             <p class="elem">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
@@ -324,13 +351,22 @@
               veniam sed harum, vero quis doloribus nemo voluptas facilis
               maxime. Quae, deleniti aperiam.
             </p>
+            <div class="elem project-skills">
+              <p class="project-skills-elem">IoT</p>
+              <p class="project-skills-elem">STM32</p>
+              <p class="project-skills-elem">C</p>
+              <p class="project-skills-elem">Fusion</p>
+              <p class="project-skills-elem">AutoCAD</p>
+              <p class="project-skills-elem">Git</p>
+              <p class="project-skills-elem">Hardware</p>
+            </div>
           </div>
         </div>
 
-        <div class="project-container" style="top: 1600px">
+        <div class="project-container" style="top: 1800px">
           <img
             class="project-logo"
-            src="resources/github.png"
+            src="resources/projectImages/stratfordRoboticsLogo.png"
             alt="project-img"
             width="40"
             height="40"
@@ -360,10 +396,19 @@
               veniam sed harum, vero quis doloribus nemo voluptas facilis
               maxime. Quae, deleniti aperiam.
             </p>
+            <div class="elem project-skills">
+              <p class="project-skills-elem">IoT</p>
+              <p class="project-skills-elem">Arduino</p>
+              <p class="project-skills-elem">C++</p>
+              <p class="project-skills-elem">Fusion</p>
+              <p class="project-skills-elem">AutoCAD</p>
+              <p class="project-skills-elem">Soldering</p>
+              <p class="project-skills-elem">Hardware</p>
+            </div>
           </div>
         </div>
 
-        <div class="project-container" style="top: 2000px">
+        <div class="project-container" style="top: 2300px">
           <img
             class="project-logo"
             src="resources/projectImages/warrenImg.ico"
@@ -381,28 +426,61 @@
             <div class="elem project-header-container">
               <span class="project-header">Peggle</span>
               <span class="project-date"
-                >May 2024 - July 2024 | Stratford, ON</span
-              >
+                >May 2024 - July 2024 |
+                <a
+                  href="https://www.youtube.com/watch?v=ifjmpqvJdnQ"
+                  target="_blank"
+                  class="project-link"
+                  >Demo</a
+                >
+                |
+                <a
+                  href="https://github.com/LogaGill489/Peggle"
+                  target="_blank"
+                  class="project-link"
+                  >Github</a
+                >
+              </span>
             </div>
             <p class="elem">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
-              deserunt perspiciatis cumque amet repudiandae. Inventore corporis
-              tempora, quis, quas vero ratione, sint voluptatum blanditiis
-              praesentium sunt ab expedita repellat velit!
+              Peggle is a 2D game developed in C# using Visual Studio 2022 that
+              was inspired by the original 2007 game of the same title. The game
+              features a custom, 2D phyiscs engine created entirely without the
+              use of any external libraries, handling motion, dynamic
+              collisions, and gravity.
             </p>
             <p class="elem">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-              consequuntur, alias totam atque eum animi necessitatibus, porro
-              veniam sed harum, vero quis doloribus nemo voluptas facilis
-              maxime. Quae, deleniti aperiam.
+              The
+              <a
+                href="https://github.com/LogaGill489/Peggle/blob/master/Peggle/Ball.cs"
+                style="text-decoration: underline"
+                >collision algorithm</a
+              >
+              was created using derivative logic, running continuously within
+              the game loop. I also made use of object-oriented programming
+              for the pegs, the ball, and keeping track of the score. This was
+              by far the most technically challenging game I've worked on, as it
+              required recreating physical forces in a simplified, 2D
+              environment. Despite the difficulty, it pushed me to consider how
+              these forces could be realistically approximated, and I'm quite
+              happy with the result.
             </p>
+            <div class="elem project-skills">
+              <p class="project-skills-elem">C#</p>
+              <p class="project-skills-elem">VS 2022</p>
+              <p class="project-skills-elem">Physics Sim</p>
+              <p class="project-skills-elem">OOP</p>
+              <p class="project-skills-elem">Game Dev</p>
+              <p class="project-skills-elem">Git</p>
+              <p class="project-skills-elem">Software</p>
+            </div>
           </div>
         </div>
 
-        <div class="project-container" style="top: 2400px">
+        <div class="project-container" style="top: 2800px">
           <img
             class="project-logo"
-            src="resources/github.png"
+            src="resources/projectImages/witnessIcon.png"
             alt="project-img"
             width="40"
             height="40"
@@ -417,25 +495,51 @@
             <div class="elem project-header-container">
               <span class="project-header">The Witness</span>
               <span class="project-date"
-                >Mar 2024 - May 2024 | Stratford, ON</span
-              >
+                >Mar 2024 - May 2024 |
+                <a
+                  href="https://www.youtube.com/watch?v=R4BL-JBQFpw&t=10s"
+                  target="_blank"
+                  class="project-link"
+                  >Demo</a
+                >
+                |
+                <a
+                  href="https://github.com/LogaGill489/WitnessTest"
+                  target="_blank"
+                  class="project-link"
+                  >Github</a
+                >
+              </span>
             </div>
             <p class="elem">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
-              deserunt perspiciatis cumque amet repudiandae. Inventore corporis
-              tempora, quis, quas vero ratione, sint voluptatum blanditiis
-              praesentium sunt ab expedita repellat velit!
+              The Witness is a short puzzle game inspired by the line-drawing
+              mechanic found in the game with the same title. I developed it in
+              C# using Visual Studio 2022, wanting to challenge myself with a
+              mouse-based system where the player can "free-roam" within the
+              grid boundries.
             </p>
             <p class="elem">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-              consequuntur, alias totam atque eum animi necessitatibus, porro
-              veniam sed harum, vero quis doloribus nemo voluptas facilis
-              maxime. Quae, deleniti aperiam.
+              The game features 12 original, handmade levels with increasing
+              complexity and is played on a class-based grid-layout that leans
+              heavily on object-orientated programming. The focus on modular
+              level design and progression systems helped refine my approach to
+              structuring logic-heavy games, and it remains one of my most
+              rewarding solo builds due to its combination of technical depth
+              and creative problem-solving.
             </p>
+            <div class="elem project-skills">
+              <p class="project-skills-elem">C#</p>
+              <p class="project-skills-elem">VS 2022</p>
+              <p class="project-skills-elem">OOP</p>
+              <p class="project-skills-elem">Game Dev</p>
+              <p class="project-skills-elem">Cursor Logic</p>
+              <p class="project-skills-elem">Git</p>
+              <p class="project-skills-elem">Software</p>
+            </div>
           </div>
         </div>
 
-        <div class="project-container" style="top: 2800px">
+        <div class="project-container" style="top: 3300px">
           <img
             class="project-logo"
             src="resources/github.png"
@@ -452,26 +556,51 @@
           <div class="right-project-text" style="bottom: 350px">
             <div class="elem project-header-container">
               <span class="project-header">Brick Breaker</span>
-              <span class="project-date"
-                >Apr 2024 - May 2024 | Stratford, ON</span
+              <span class="project-date">
+                Mar 2024 - May 2024 |
+                <a
+                  href="https://www.youtube.com/watch?v=gA4uN7lcYRk"
+                  target="_blank"
+                  class="project-link"
+                  >Demo</a
+                >
+                |
+                <a
+                  href="https://github.com/LogaGill489/BrickBreakerTeam2"
+                  target="_blank"
+                  class="project-link"
+                  >Github</a
+                ></span
               >
             </div>
             <p class="elem">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
-              deserunt perspiciatis cumque amet repudiandae. Inventore corporis
-              tempora, quis, quas vero ratione, sint voluptatum blanditiis
-              praesentium sunt ab expedita repellat velit!
+              This Brick Breaker recreation was a collaborative project
+              developed in C# by a team of eight using Visual Studio 2022. I
+              took on the role of repository lead, managing the main GitHub
+              codebase, reviewing pull requests, resolving merge conflicts, and
+              keeping version control organized.
             </p>
             <p class="elem">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-              consequuntur, alias totam atque eum animi necessitatibus, porro
-              veniam sed harum, vero quis doloribus nemo voluptas facilis
-              maxime. Quae, deleniti aperiam.
+              Coordinating a team of this size presented challenges,
+              particularily in aligning coding and individual styles. As such,
+              the final product is probably the least polished of the games I've
+              developed, though it gave me valuable experience in technical
+              leadership and a lot of great insight into managing a codebase
+              with a number of members.
             </p>
+            <div class="elem project-skills">
+              <p class="project-skills-elem">C#</p>
+              <p class="project-skills-elem">VS 2022</p>
+              <p class="project-skills-elem">OOP</p>
+              <p class="project-skills-elem">Game Dev</p>
+              <p class="project-skills-elem">Team-Based</p>
+              <p class="project-skills-elem">Github</p>
+              <p class="project-skills-elem">Software</p>
+            </div>
           </div>
         </div>
 
-        <div class="project-container" style="top: 3200px">
+        <div class="project-container" style="top: 3800px">
           <img
             class="project-logo"
             src="resources/projectImages/junimoIcon.png"
@@ -489,21 +618,45 @@
             <div class="elem project-header-container">
               <span class="project-header">Junimo Kart</span>
               <span class="project-date"
-                >May 2023 - July 2023 | Stratford, ON</span
-              >
+                >May 2023 - July 2023 |
+                <a
+                  href="https://www.youtube.com/watch?v=ceOLBwK83go"
+                  target="_blank"
+                  class="project-link"
+                  >Demo</a
+                >
+                |
+                <a
+                  href="https://github.com/LogaGill489/JunimoKart"
+                  target="_blank"
+                  class="project-link"
+                  >Github</a
+                >
+              </span>
             </div>
             <p class="elem">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
-              deserunt perspiciatis cumque amet repudiandae. Inventore corporis
-              tempora, quis, quas vero ratione, sint voluptatum blanditiis
-              praesentium sunt ab expedita repellat velit!
+              Junimo Kart is a 2D platformer game developed in C# using Visual
+              Studio 2022, built in mid 2023. Inspired by the 2D platformer of
+              the same name in Stardew Valley, this was my first major game
+              development, laying out my foundation for 2D game architecture.
             </p>
             <p class="elem">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-              consequuntur, alias totam atque eum animi necessitatibus, porro
-              veniam sed harum, vero quis doloribus nemo voluptas facilis
-              maxime. Quae, deleniti aperiam.
+              The game features a basic physics engine, with gravity, jumping,
+              and dashing mechanics in an arcade-styled movement. It also
+              features procedural terrain creation (the platforms that appear),
+              increasing in difficulty as the player progresses. Overall, as an
+              intro to game developement, Junimo Kart taught me a lot about
+              object-orientated programming, procederal generation, and C#.
             </p>
+            <div class="elem project-skills">
+              <p class="project-skills-elem">C#</p>
+              <p class="project-skills-elem">VS 2022</p>
+              <p class="project-skills-elem">OOP</p>
+              <p class="project-skills-elem">Game Dev</p>
+              <p class="project-skills-elem">Physics Sim</p>
+              <p class="project-skills-elem">ProcGen</p>
+              <p class="project-skills-elem">Software</p>
+            </div>
           </div>
         </div>
       </div>

@@ -30,7 +30,7 @@
     background-color: rgba(43, 41, 41, 0.8);
     padding: 40px 0;
     position: relative; /* Make this the reference point for absolute positioning */
-    height: 2800px;
+    height: 3500px;
 }
 
 .project-container {
@@ -46,6 +46,12 @@
     background-color: black;
     border: 3px solid rgb(209, 203, 203);
     border-radius: 50%;
+}
+
+.project-link {
+    text-decoration: underline;
+    color: rgb(216, 216, 216);
+    font-size: 17px;
 }
 
 .left-hr {
@@ -141,6 +147,33 @@
     transform: scale(1.02);
 }
 
+.project-skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 3px; /* Add consistent spacing between items */
+    justify-content: center; /* Center the grid items */
+    align-items: center;
+    width: 87%;
+}
+
+.project-skills-elem {
+    color: rgb(210, 209, 209);
+    font-size: 13px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(173, 172, 172, 0.2);
+    border-radius: 10px;
+    margin: 0;
+    background-color: rgba(55, 54, 54, 0.65);
+}
+
+@media (max-width: 1050.02px) {
+    .project-skills-elem {
+        visibility: hidden;
+    }
+ }
+
 @media (max-width: 850px) {
     .left-hr, .right-hr {
         visibility: hidden;
@@ -161,6 +194,14 @@
     .left-project-text, .right-project-text {
         width: 78vw;
         left: calc(47px + 2.2%);
+    }
+
+    .vertical-timeline {
+        height: 3500px;
+    }
+
+    .vertical-timeline {
+        height: 3600px;
     }
 }
 
