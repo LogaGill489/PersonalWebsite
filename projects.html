@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/contact.css" />
     <link rel="stylesheet" href="css/formatting.css" />
     <link rel="stylesheet" href="css/projects.css" />
+    <link rel="icon" href="resources/websiteLogo.jpg" type="image/x-icon" />
     <script src="jquery-3.7.1.js"></script>
     <script>
       //forces the screen to the top of the page upon refresh
@@ -242,19 +243,15 @@
             </div>
           </div>
         </div>
-        <div
-          class="header-central-title"
-          style="animation: fade-in 2s"
-          id="projects-header-title"
-        >
+        <div class="header-central-title" style="animation: fade-in 2s">
           <h2>Projects</h2>
         </div>
       </div>
     </header>
     <!-- Main Section - Projects -->
     <main>
-      <div class="main-website">
-        <div class="vertical-timeline" id="vert-timeline">
+      <div class="main-website" id="main-website">
+        <div class="vertical-timeline">
           <hr class="hr-horizontal-line" />
           <hr class="hr-vertical-line" />
           <hr class="hr-horizontal-line" />
@@ -262,7 +259,7 @@
         <div class="project-container" style="top: 800px">
           <img
             class="project-logo"
-            src="resources/github.png"
+            src="resources/websiteLogo.jpg"
             alt="project-img"
             width="40"
             height="40"
@@ -277,22 +274,33 @@
             <div class="elem project-header-container" id="portfolio">
               <span class="project-header">Front-End Portfolio</span>
               <span class="project-date"
-                >Mar 2025 - Apr 2025 | Stratford, ON</span
-              >
+                >Mar 2025 - Apr 2025 |
+                <a
+                  href="https://github.com/LogaGill489/PersonalWebsite"
+                  target="_blank"
+                  class="project-link"
+                  >Github</a
+                >
+              </span>
             </div>
             <p class="elem">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
-              deserunt perspiciatis cumque amet repudiandae. Inventore corporis
-              tempora, quis, quas vero ratione, sint voluptatum blanditiis
-              praesentium sunt ab expedita repellat velit!
+              This website is a self-built portfolio designed with pure
+              HTML/CSS, and uses Javascript and the JQuery library for
+              transitions and interactive elements. It was designed to showcases
+              my projects, skills, and personal development as a software
+              developer thus far, as well as act as a practical application of
+              "barebones" web development that doesn't rely on templates or
+              frameworks.
             </p>
             <p class="elem">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-              consequuntur, alias totam atque eum animi necessitatibus, porro
-              veniam sed harum, vero quis doloribus nemo voluptas facilis
-              maxime. Quae, deleniti aperiam.
+              Designing this site taught me the fundamentals of front-end web
+              development, including HTML structures, styling, responsive
+              design, and DOM manipulation. It sparked a strong interest in web
+              development for me, and I plan to expanding my skillset by
+              learning tools like React, Tailwind CSS, and Next.js with future
+              projects.
             </p>
-            <div class="elem project-skills">
+            <div class="elem project-skills" id="second-project-link">
               <p class="project-skills-elem">Front-End</p>
               <p class="project-skills-elem">Javascript</p>
               <p class="project-skills-elem">HTML</p>
@@ -340,16 +348,28 @@
               </span>
             </div>
             <p class="elem">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
-              deserunt perspiciatis cumque amet repudiandae. Inventore corporis
-              tempora, quis, quas vero ratione, sint voluptatum blanditiis
-              praesentium sunt ab expedita repellat velit!
+              Delivery Guard is a smart, anti-theft device designed to prevent
+              porch piracy. It was programmed in C with STM32CubeIDE, and uses 3
+              STM32 microcontrollers to control an electromagnet that locks the
+              box, along with controlling the button input, ultrasonic sensor,
+              and system status. When powered, it remains locked until the
+              button is pressed, triggering a motor to open the lid and reset
+              the system and ensuring safe storage until the package is
+              retrieved by its owner.
             </p>
             <p class="elem">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-              consequuntur, alias totam atque eum animi necessitatibus, porro
-              veniam sed harum, vero quis doloribus nemo voluptas facilis
-              maxime. Quae, deleniti aperiam.
+              This project was a great opportunity for me to further design
+              embedded systems in a real-world context and helped me
+              significantly improve my
+              <a
+                href="Delivery Guard - Design Documentation.pdf"
+                style="text-decoration: underline"
+                >technical documentation</a
+              >
+              skills. Overall, it stands out to me as one of the most complete
+              and well-rounded projects I've contributed to, blending teamwork,
+              C programming, and problem-solving into a cohesive, functional
+              prototype.
             </p>
             <div class="elem project-skills">
               <p class="project-skills-elem">IoT</p>
@@ -381,20 +401,35 @@
             <div class="elem project-header-container">
               <span class="project-header">Arduino Drone</span>
               <span class="project-date"
-                >Jan 2024 - Jun 2024 | Stratford, ON</span
-              >
+                >Jan 2024 - Jun 2024 |
+                <a
+                  href="https://github.com/LogaGill489/arduinoDrone"
+                  target="_blank"
+                  class="project-link"
+                  >Github</a
+                >
+              </span>
             </div>
             <p class="elem">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
-              deserunt perspiciatis cumque amet repudiandae. Inventore corporis
-              tempora, quis, quas vero ratione, sint voluptatum blanditiis
-              praesentium sunt ab expedita repellat velit!
+              This drone was my first Internet of Things (IoT) project and was
+              designed with my friend Saahil to take aerial photos of my high
+              school. Built around a quadcopter frame powered with an Arduino
+              microcontroller, it uses four brushless DC motors that are
+              controlled by ESCs and is powered by a 9V battery unit. The
+              drone's frame was designed in Fusion 360 and uses lightweight, 3D
+              materials.
             </p>
             <p class="elem">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-              consequuntur, alias totam atque eum animi necessitatibus, porro
-              veniam sed harum, vero quis doloribus nemo voluptas facilis
-              maxime. Quae, deleniti aperiam.
+              This project was a great deep dive into real-time systems and
+              embedded programming for me, and it acted nicely as a real-world
+              application of the reality of working with timelines on a limited
+              budget. It also pushed me to improve my
+              <a
+                href="Saahil & Logan - Drone Project Documentation.pdf"
+                style="text-decoration: underline"
+                >technical documentation</a
+              >, with the resulting structure being much more organized than
+              some of my previous projects.
             </p>
             <div class="elem project-skills">
               <p class="project-skills-elem">IoT</p>
@@ -411,7 +446,7 @@
         <div class="project-container" style="top: 2300px">
           <img
             class="project-logo"
-            src="resources/projectImages/warrenImg.ico"
+            src="resources/projectImages/peggleIcon.png"
             alt="project-img"
             width="40"
             height="40"
@@ -457,9 +492,9 @@
                 >collision algorithm</a
               >
               was created using derivative logic, running continuously within
-              the game loop. I also made use of object-oriented programming
-              for the pegs, the ball, and keeping track of the score. This was
-              by far the most technically challenging game I've worked on, as it
+              the game loop. I also made use of object-oriented programming for
+              the pegs, the ball, and keeping track of the score. This was by
+              far the most technically challenging game I've worked on, as it
               required recreating physical forces in a simplified, 2D
               environment. Despite the difficulty, it pushed me to consider how
               these forces could be realistically approximated, and I'm quite
@@ -470,7 +505,7 @@
               <p class="project-skills-elem">VS 2022</p>
               <p class="project-skills-elem">Physics Sim</p>
               <p class="project-skills-elem">OOP</p>
-              <p class="project-skills-elem">Game Dev</p>
+              <p class="project-skills-elem">Game-Dev</p>
               <p class="project-skills-elem">Git</p>
               <p class="project-skills-elem">Software</p>
             </div>
@@ -531,7 +566,7 @@
               <p class="project-skills-elem">C#</p>
               <p class="project-skills-elem">VS 2022</p>
               <p class="project-skills-elem">OOP</p>
-              <p class="project-skills-elem">Game Dev</p>
+              <p class="project-skills-elem">Game-Dev</p>
               <p class="project-skills-elem">Cursor Logic</p>
               <p class="project-skills-elem">Git</p>
               <p class="project-skills-elem">Software</p>
@@ -592,7 +627,7 @@
               <p class="project-skills-elem">C#</p>
               <p class="project-skills-elem">VS 2022</p>
               <p class="project-skills-elem">OOP</p>
-              <p class="project-skills-elem">Game Dev</p>
+              <p class="project-skills-elem">Game-Dev</p>
               <p class="project-skills-elem">Team-Based</p>
               <p class="project-skills-elem">Github</p>
               <p class="project-skills-elem">Software</p>
@@ -652,7 +687,7 @@
               <p class="project-skills-elem">C#</p>
               <p class="project-skills-elem">VS 2022</p>
               <p class="project-skills-elem">OOP</p>
-              <p class="project-skills-elem">Game Dev</p>
+              <p class="project-skills-elem">Game-Dev</p>
               <p class="project-skills-elem">Physics Sim</p>
               <p class="project-skills-elem">ProcGen</p>
               <p class="project-skills-elem">Software</p>
