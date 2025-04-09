@@ -5,6 +5,7 @@
     <meta name="description" content="Contact page for my personal website.">
     <meta name="author" content="Logan Gillett">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Cache-control" content="public">
     <title>Career - Logan Gillett</title>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
@@ -17,36 +18,39 @@
       var eleArr = [];
       var eleInc = 0;
       //checks if the element is in the viewport
-      checkEle = () => {
+      function checkEle(i) {
         const elem = $(".elem");
         var viewPortSize = $(window).height();
-
-        for (var i = 0; i < elem.length; i++) {
           if (eleArr[i] == 1) {
             var rect = elem[i].getBoundingClientRect();
-            if (viewPortSize - rect.y > 0) {
-              $(".elem").eq(i).css("visibility", "visible").hide().fadeIn(1200);
-              eleArr[i] = 0;
-              eleInc++;
+            if (viewPortSize - rect.y > -50) {
+              $(".elem").eq(i).animate({ opacity: 1 }, 1200);
+                for (eleInc; eleInc < i; eleInc++) {
+                  $(".elem").eq(eleInc).animate({ opacity: 1 }, 1200);
+                  eleArr[eleInc] = 0;
+                }
             }
-          }
         }
       };
       $(document).ready(function () {
         //adds a 1 to the array for each elemement in the elem class
         for (var i = 0; i < $(".elem").length; i++) {
           eleArr.push(1);
+          checkEle(i);
         }
-        checkEle();
       });
 
       $(window).scroll(function () {
         const elem = $(".elem");
         var viewPortSize = $(window).height();
-        checkEle();
+          checkEle(eleInc, 0);
 
+        for (var i = eleInc; i < $(".elem").length; i++) {
+          checkEle(i);
+        }
+        
         if (eleInc >= elem.length) {
-          $(this).off("scroll");
+          $(window).off("scroll");
         }
       });
     </script>
@@ -155,6 +159,7 @@
                 src="resources/waterlooEng.png"
                 alt="UWaterloo-Logo"
                 title="I'm a Computer Engineer at UWaterloo!"
+                loading="lazy"
               />
               </a>
             </div>

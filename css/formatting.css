@@ -22,5 +22,5 @@ a {
 }
 
 .elem {
-    visibility: hidden;
+    opacity: 0;
 }
