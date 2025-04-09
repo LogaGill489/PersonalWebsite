@@ -8,12 +8,15 @@
     />
     <meta name="author" content="Logan Gillett" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Cache-control" content="public">
     <title>Projects - Logan Gillett</title>
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/contact.css" />
     <link rel="stylesheet" href="css/formatting.css" />
     <link rel="stylesheet" href="css/projects.css" />
+    <link rel="preload" href="resources/flowersBackground.jpg" as="image">
+    <link rel="preload" href="resources/rocksBackground.jpg" as="image">
     <link rel="icon" href="resources/websiteLogo.jpg" type="image/x-icon" />
     <script src="jquery-3.7.1.js"></script>
     <script>
@@ -62,21 +65,49 @@
       };
 
       //checks if the element is in the viewport
-      checkEle = () => {
+      function checkEle(i) {
         const elem = $(".elem");
         var viewPortSize = $(window).height();
-
-        for (var i = 0; i < elem.length; i++) {
           if (eleArr[i] == 1) {
             var rect = elem[i].getBoundingClientRect();
-            if (viewPortSize - rect.y > 0) {
-              $(".elem").eq(i).css("visibility", "visible").hide().fadeIn(1200);
-              eleArr[i] = 0;
-              eleInc++;
+            if (viewPortSize - rect.y > -50) {
+              $(".elem").eq(i).animate({ opacity: 1 }, 1200);
+                for (eleInc; eleInc < i; eleInc++) {
+                  $(".elem").eq(eleInc).animate({ opacity: 1 }, 1200);
+                  eleArr[eleInc] = 0;
+                }
             }
-          }
         }
       };
+      $(document).ready(function () {
+        //adds a 1 to the array for each elemement in the elem class
+        for (var i = 0; i < $(".elem").length; i++) {
+          eleArr.push(1);
+          checkEle(i);
+        }
+        for (var i = 0; i < $(".left-hr").length; i++) {
+          lefthrArr.push(1);
+        }
+        for (var i = 0; i < $(".right-hr").length; i++) {
+          righthrArr.push(1);
+        }
+        fadeEffect();
+      });
+
+      $(window).scroll(function () {
+        const elem = $(".elem");
+        var viewPortSize = $(window).height();
+          checkEle(eleInc, 0);
+
+        for (var i = eleInc; i < $(".elem").length; i++) {
+          checkEle(i);
+        }
+        fadeEffect();
+        
+        if (eleInc >= elem.length) {
+          $(window).off("scroll");
+        }
+      });
 
       fadeEffect = () => {
         let vw = Math.max(document.documentElement.clientWidth);
@@ -104,37 +135,8 @@
         }
       };
 
-      $(document).ready(function () {
-        //adds a 1 to the array for each elemement in the elem class
-        for (var i = 0; i < $(".elem").length; i++) {
-          eleArr.push(1);
-        }
-        for (var i = 0; i < $(".left-hr").length; i++) {
-          lefthrArr.push(1);
-        }
-        for (var i = 0; i < $(".right-hr").length; i++) {
-          righthrArr.push(1);
-        }
-        checkEle();
-        fadeEffect();
-      });
-
       $(window).on("resize", function () {
         fadeEffect();
-      });
-
-      $(window).scroll(function () {
-        const elem = $(".elem");
-        var viewPortSize = $(window).height();
-        checkEle();
-        fadeEffect();
-
-        if (eleInc >= elem.length) {
-          if (eleArr[3] != 0) eleInc = 0;
-          else {
-            $(this).off("scroll");
-          }
-        }
       });
     </script>
     <style>
@@ -263,12 +265,14 @@
             alt="project-img"
             width="40"
             height="40"
+            loading="lazy"
           />
           <hr class="left-hr" />
           <img
             class="left-img"
             src="resources/projectImages/websiteImage.png"
             alt="project-img"
+            loading="lazy"
           />
           <div class="left-project-text" style="bottom: 350px">
             <div class="elem project-header-container" id="portfolio">
@@ -320,12 +324,14 @@
             alt="project-img"
             width="40"
             height="40"
+            loading="lazy"
           />
           <hr class="right-hr" />
           <img
             class="right-img"
             src="resources/projectImages/delivery-Guard-Box.jpg"
             alt="project-img"
+            loading="lazy"
           />
           <div class="right-project-text" style="bottom: 350px">
             <div class="elem project-header-container" id="delivery-Guard">
@@ -390,12 +396,14 @@
             alt="project-img"
             width="40"
             height="40"
+            loading="lazy"
           />
           <hr class="left-hr" />
           <img
             class="left-img"
             src="resources/projectImages/droneImage.jpg"
             alt="project-img"
+            loading="lazy"
           />
           <div class="left-project-text" style="bottom: 350px">
             <div class="elem project-header-container">
@@ -450,12 +458,14 @@
             alt="project-img"
             width="40"
             height="40"
+            loading="lazy"
           />
           <hr class="right-hr" />
           <img
             class="right-img"
             src="resources/projectImages/peggleGameImage.png"
             alt="project-img"
+            loading="lazy"
           />
           <div class="right-project-text" style="bottom: 350px">
             <div class="elem project-header-container">
@@ -519,12 +529,14 @@
             alt="project-img"
             width="40"
             height="40"
+            loading="lazy"
           />
           <hr class="left-hr" />
           <img
             class="left-img"
             src="resources/projectImages/witnessGameImage.png"
             alt="project-img"
+            loading="lazy"
           />
           <div class="left-project-text" style="bottom: 350px">
             <div class="elem project-header-container">
@@ -581,12 +593,14 @@
             alt="project-img"
             width="40"
             height="40"
+            loading="lazy"
           />
           <hr class="right-hr" />
           <img
             class="right-img"
             src="resources/projectImages/brickBreakerGame.png"
             alt="project-img"
+            loading="lazy"
           />
           <div class="right-project-text" style="bottom: 350px">
             <div class="elem project-header-container">
@@ -642,12 +656,14 @@
             alt="project-img"
             width="40"
             height="40"
+            loading="lazy"
           />
           <hr class="left-hr" />
           <img
             class="left-img"
             src="resources/projectImages/junimoKartGame.png"
             alt="project-img"
+            loading="lazy"
           />
           <div class="left-project-text" style="bottom: 350px">
             <div class="elem project-header-container">
@@ -709,6 +725,7 @@
                   src="resources/waterlooEng.png"
                   alt="UWaterloo-Logo"
                   title="I'm a Computer Engineer at UWaterloo!"
+                  loading="lazy"
                 />
               </a>
             </div>
