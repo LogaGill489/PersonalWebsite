@@ -8,12 +8,12 @@
 }
 
 .about-grid-box {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    width: 80%;
-
     align-self: center;
     justify-self: center;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    width: 90%;
 }
 
 .main-about {
@@ -90,8 +90,8 @@
         margin-left: 10vh;
     }
 
-    .projects-image-areas {
-        display: grid;
+    .about-grid-box {
+        padding-left: 8vw;
         gap: 80px;
     }
 }
