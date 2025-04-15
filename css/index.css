@@ -132,8 +132,8 @@
     }
 }
 @media (min-width: 1040.02px) {
-    .about-grid-box {
-        padding-left: 40px;
+    .projects-image-areas {
+        display: grid;
         gap: 80px;
     }
 }
