@@ -85,8 +85,9 @@
 
 .left-project-text {
     position: relative;
-    width: 40vw;
+    width: 35vw;
     bottom: calc(300px + (1/50vw));
+    max-width: 800px;
 }
 
 .right-hr {
@@ -119,9 +120,10 @@
 
 .right-project-text {
     position: relative;
-    width: 40vw;
+    width: 35vw;
     right: 102%;
     bottom: calc(300px + (1/50vw));
+    max-width: 800px;
 }
 
 .project-header-container {
