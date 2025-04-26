@@ -1,7 +1,3 @@
-:root {
-    --textWidth: 35vw;
-  }
-
 * {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -29,18 +25,8 @@ a {
     opacity: 0;
 }
   
-  #wrap {
+#wrap {
   max-width: 1875px;
    margin-left: auto;
    margin-right: auto;
-  }
-  
-  .right-project-text {
-    width: var(--textWidth);
-    max-width: 800px;
-  }
-
-  .left-project-text {
-    width: var(--textWidth);
-    max-width: 800px;
-  }
+}
