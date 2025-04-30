@@ -30,7 +30,6 @@
     background-color: rgba(43, 41, 41, 0.8);
     padding: 40px 0;
     position: relative; /* Make this the reference point for absolute positioning */
-    height: 3500px;
 }
 
 .project-container {

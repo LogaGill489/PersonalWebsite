@@ -92,6 +92,17 @@
           righthrArr.push(1);
         }
         fadeEffect();
+
+        //code to calculate projects position
+        const projCount = 8;
+        document.getElementById("vertical-timeline-id").style.height =
+          projCount * 500 + "px";
+        for (let i = 0; i < projCount; i++) {
+          let calc = 800 + i * 500;
+          $(".project-container")
+            .eq(i)
+            .css("top", calc + "px");
+        }
       });
 
       $(window).scroll(function () {
@@ -263,12 +274,79 @@
         <!-- Main Section - Projects -->
         <main>
           <div class="main-website" id="main-website">
-            <div class="vertical-timeline">
+            <div class="vertical-timeline" id="vertical-timeline-id">
               <hr class="hr-horizontal-line" />
               <hr class="hr-vertical-line" />
               <hr class="hr-horizontal-line" />
             </div>
-            <div class="project-container" style="top: 800px">
+            <div class="project-container">
+              <img
+                class="project-logo"
+                src="resources/projectImages/popcorn.png"
+                alt="project-img"
+                width="40"
+                height="40"
+                loading="lazy"
+              />
+              <hr class="right-hr" />
+              <img
+                class="right-img"
+                src="resources/projectImages/movie-search.png"
+                alt="project-img"
+                loading="lazy"
+              />
+              <div class="right-project-text" style="bottom: 350px">
+                <div class="elem project-header-container" id="delivery-Guard">
+                  <span class="project-header">Movie Search</span>
+                  <span class="project-date"
+                    >Apr 2025 - Apr 2025 |
+                    <a
+                      href="https://lgillett-movie-search.vercel.app/"
+                      target="_blank"
+                      class="project-link"
+                      >Deploy</a
+                    >
+                    |
+                    <a
+                      href="https://github.com/LogaGill489/Delivery-Guard"
+                      target="_blank"
+                      class="project-link"
+                      >Github</a
+                    >
+                  </span>
+                </div>
+                <p class="elem">
+                  Movie Search is a React-based web app that lets users browse
+                  trending movies, search for specific titles, and save their
+                  favourites for later. It was built over the course of a week
+                  as a hands-on way for me to explore working with React
+                  fundamentals while applying them to a clean, user-facing
+                  project. The app pulls real-time data from an external movie
+                  API and offers a responsive interface that allows users to
+                  interact with and personalize their movie list.
+                </p>
+                <p class="elem">
+                  I wanted to cover a wide range of React concepts in one
+                  project, so Movie Search includes hooks, React context,
+                  conditional rendering, localStorage (for favouriting), and
+                  working with JSX for dynamic UI design. On top of this, it
+                  also gave great practical experience with component-based
+                  design, managing state, and switching between screens in
+                  React.
+                </p>
+                <div class="elem project-skills">
+                  <p class="project-skills-elem">Front-End</p>
+                  <p class="project-skills-elem">React</p>
+                  <p class="project-skills-elem">API</p>
+                  <p class="project-skills-elem">HTML/CSS</p>
+                  <p class="project-skills-elem">Javascript</p>
+                  <p class="project-skills-elem">Web-Dev</p>
+                  <p class="project-skills-elem">Software</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-container">
               <img
                 class="project-logo"
                 src="resources/websiteLogo.jpg"
@@ -310,9 +388,9 @@
                   Designing this site taught me the fundamentals of front-end
                   web development, including HTML structures, styling,
                   responsive design, and DOM manipulation. It sparked a strong
-                  interest in web development for me, and I plan to expanding my
-                  skillset by learning tools like React, Tailwind CSS, and
-                  Next.js with future projects.
+                  interest in web development for me, and helped me look forward
+                  to expand my skillset by learning tools like React, Tailwind
+                  CSS, and Next.js.
                 </p>
                 <div class="elem project-skills" id="second-project-link">
                   <p class="project-skills-elem">Front-End</p>
@@ -327,7 +405,7 @@
               </div>
             </div>
 
-            <div class="project-container" style="top: 1300px">
+            <div class="project-container">
               <img
                 class="project-logo"
                 src="resources/projectImages/uwaterlooSeal.png"
@@ -400,7 +478,7 @@
               </div>
             </div>
 
-            <div class="project-container" style="top: 1800px">
+            <div class="project-container">
               <img
                 class="project-logo"
                 src="resources/projectImages/stratfordRoboticsLogo.png"
@@ -462,7 +540,7 @@
               </div>
             </div>
 
-            <div class="project-container" style="top: 2300px">
+            <div class="project-container">
               <img
                 class="project-logo"
                 src="resources/projectImages/peggleIcon.png"
@@ -533,7 +611,7 @@
               </div>
             </div>
 
-            <div class="project-container" style="top: 2800px">
+            <div class="project-container">
               <img
                 class="project-logo"
                 src="resources/projectImages/witnessIcon.png"
@@ -597,7 +675,7 @@
               </div>
             </div>
 
-            <div class="project-container" style="top: 3300px">
+            <div class="project-container">
               <img
                 class="project-logo"
                 src="resources/github.png"
@@ -660,7 +738,7 @@
               </div>
             </div>
 
-            <div class="project-container" style="top: 3800px">
+            <div class="project-container">
               <img
                 class="project-logo"
                 src="resources/projectImages/junimoIcon.png"
