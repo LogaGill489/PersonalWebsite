@@ -125,3 +125,8 @@
         opacity: 1;
     }
 }
+
+/* Active link styling */
+.nav-link.active {
+    text-decoration: underline;
+}

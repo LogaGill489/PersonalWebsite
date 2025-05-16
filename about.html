@@ -14,47 +14,7 @@
     <link rel="stylesheet" href="css/about.css" />
     <link rel="icon" href="resources/websiteLogo.jpg" type="image/x-icon" />
     <script src="jquery-3.7.1.js"></script>
-    <script>
-      //forces the screen to the top of the page upon refresh
-      var eleArr = [];
-      var eleInc = 0;
-      //checks if the element is in the viewport
-      function checkEle(i) {
-        const elem = $(".elem");
-        var viewPortSize = $(window).height();
-        if (eleArr[i] == 1) {
-          var rect = elem[i].getBoundingClientRect();
-          if (viewPortSize - rect.y > -50) {
-            $(".elem").eq(i).animate({ opacity: 1 }, 1200);
-            for (eleInc; eleInc < i; eleInc++) {
-              $(".elem").eq(eleInc).animate({ opacity: 1 }, 1200);
-              eleArr[eleInc] = 0;
-            }
-          }
-        }
-      }
-      $(document).ready(function () {
-        //adds a 1 to the array for each elemement in the elem class
-        for (var i = 0; i < $(".elem").length; i++) {
-          eleArr.push(1);
-          checkEle(i);
-        }
-      });
-
-      $(window).scroll(function () {
-        const elem = $(".elem");
-        var viewPortSize = $(window).height();
-        checkEle(eleInc, 0);
-
-        for (var i = eleInc; i < $(".elem").length; i++) {
-          checkEle(i);
-        }
-
-        if (eleInc >= elem.length) {
-          $(window).off("scroll");
-        }
-      });
-    </script>
+    <script src="js/common.js"></script>
     <style>
       .header-container {
         background-image: url(resources/ontario.jpg);
@@ -81,104 +41,11 @@
   <body>
     <div id="background-img">
       <div id="wrap">
-        <header>
-          <!-- Widescreen Header -->
-          <div class="header-container">
-            <div
-              class="background-fade"
-              style="height: 600px; background-color: rgba(0, 0, 0, 0.3)"
-            >
-              <div class="header-widescreen" style="animation: fade-in 1.2s">
-                <div class="header-title-element">
-                  <a href="index.html">Logan Gillett</a>
-                </div>
-                <div class="links">
-                  <a href="projects.html">Projects</a>&nbsp;
-                  <a href="about.html"><u>About</u></a
-                  >&nbsp; <a href="career.html">Career</a>&nbsp;
-                  <a href="contact.html">Contact</a>&nbsp;
-                </div>
-                <div class="headerImages">
-                  <figure>
-                    <a
-                      href="https://www.linkedin.com/in/logan-gillett-941797327/"
-                      target="_blank"
-                    >
-                      <img
-                        src="resources/linkedin.png"
-                        alt="LinkedIn"
-                        title="LinkedIn"
-                        width="25"
-                        height="25"
-                      />
-                    </a>
-                    &nbsp;
-                    <a href="https://github.com/LogaGill489" target="_blank">
-                      <img
-                        src="resources/github.png"
-                        alt="GitHub"
-                        title="GitHub"
-                        width="25"
-                        height="25"
-                      />
-                    </a>
-                  </figure>
-                </div>
-              </div>
-              <!-- Mobile & Condensed Screen-->
-              <div class="header-mobile" style="animation: fade-in 1.2s">
-                <div class="header-title-element">
-                  <a href="index.html">Logan Gillett</a>
-                </div>
-                <div class="header-mobile-images">
-                  <div class="mobile-header-link">
-                    <a
-                      href="https://www.linkedin.com/in/logan-gillett-941797327/"
-                      target="_blank"
-                    >
-                      <img
-                        src="resources/linkedin.png"
-                        alt="LinkedIn"
-                        title="LinkedIn"
-                        width="25"
-                        height="25"
-                      />
-                    </a>
-                    &nbsp;
-                    <a href="https://github.com/LogaGill489" target="_blank">
-                      <img
-                        src="resources/github.png"
-                        alt="GitHub"
-                        title="GitHub"
-                        width="25"
-                        height="25"
-                      />
-                    </a>
-                  </div>
-                  <div class="header-dropbar">
-                    <img
-                      src="resources/dropDownImg.png"
-                      alt="Links"
-                      title="Links"
-                      width="25"
-                      height="25"
-                      class="dropDownImg"
-                    />
-                    <div class="dropdown-links">
-                      <a href="projects.html">Projects</a>
-                      <a href="about.html">About</a>
-                      <a href="career.html">Career</a>
-                      <a href="contact.html">Contact</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="header-central-title" style="animation: fade-in 2s">
-                <h2>About</h2>
-              </div>
-            </div>
-          </div>
+        <header id="header-placeholder">
+          <!-- Header will be loaded here -->
         </header>
+
+        <!-- Main Content -->
         <main>
           <!-- About Section -->
           <div class="main-about">
@@ -267,70 +134,17 @@
             </div>
           </div>
         </main>
-        <footer>
-          <div class="footer-element">
-            <div class="footer-widescreen">
-              <div class="footer-flex">
-                <div class="elem footer-title">
-                  <a href="index.html">Logan Gillett</a>
-                  <a href="https://uwaterloo.ca/engineering/" target="_blank">
-                    <img
-                      class="footer-waterloo"
-                      src="resources/waterlooEng.png"
-                      alt="UWaterloo-Logo"
-                      title="I'm a Computer Engineer at UWaterloo!"
-                    />
-                  </a>
-                </div>
-                <div class="footer-links">
-                  <div class="elem footer-item" style="margin-top: 20px">
-                    <a href="projects.html">Projects</a>
-                    <a href="about.html">About</a>
-                    <figure>
-                      <a
-                        href="https://www.linkedin.com/in/logan-gillett-941797327/"
-                        target="_blank"
-                      >
-                        <img
-                          src="resources/linkedin.png"
-                          alt="LinkedIn"
-                          title="LinkedIn"
-                          width="25"
-                          height="25"
-                          loading="lazy"
-                        />
-                      </a>
-                    </figure>
-                  </div>
-                  <div class="elem footer-item">
-                    <a href="career.html">Career</a>
-                    <a href="contact.html">Contact</a>
-                    <figure>
-                      <a href="https://github.com/LogaGill489" target="_blank">
-                        <img
-                          src="resources/github.png"
-                          alt="GitHub"
-                          title="GitHub"
-                          width="25"
-                          height="25"
-                          loading="lazy"
-                        />
-                      </a>
-                    </figure>
-                  </div>
-                </div>
-              </div>
-              <div class="elem footer-fineprint">
-                <p>&copy; 2025 - Logan Gillett</p>
-                <address>
-                  Conrad Grebel University College, 140 Westmount Rd N,
-                  Waterloo, ON N2L 3G6
-                </address>
-              </div>
-            </div>
-          </div>
+
+        <!-- Footer -->
+        <footer id="footer-placeholder">
+          <!-- Footer will be loaded here -->
         </footer>
       </div>
     </div>
+
+    <script>
+      // Initialize the page with title and page name
+      initPage("About", "about.html");
+    </script>
   </body>
 </html>

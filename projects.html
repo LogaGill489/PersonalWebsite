@@ -19,15 +19,14 @@
     <link rel="preload" href="resources/rocksBackground.jpg" as="image" />
     <link rel="icon" href="resources/websiteLogo.jpg" type="image/x-icon" />
     <script src="jquery-3.7.1.js"></script>
+    <script src="js/common.js"></script>
     <script>
-      //forces the screen to the top of the page upon refresh
-      var eleArr = [];
-      var eleInc = 0;
-
+      // Projects-specific animation variables
       var lefthrArr = [];
       var righthrArr = [];
       let upper = 1;
 
+      // Projects-specific animation functions
       hrFadeLeft = () => {
         const hrElem = $(".left-hr");
         var viewPortSize = $(window).height();
@@ -64,62 +63,6 @@
         }
       };
 
-      //checks if the element is in the viewport
-      function checkEle(i) {
-        const elem = $(".elem");
-        var viewPortSize = $(window).height();
-        if (eleArr[i] == 1) {
-          var rect = elem[i].getBoundingClientRect();
-          if (viewPortSize - rect.y > -50) {
-            $(".elem").eq(i).animate({ opacity: 1 }, 1200);
-            for (eleInc; eleInc < i; eleInc++) {
-              $(".elem").eq(eleInc).animate({ opacity: 1 }, 1200);
-              eleArr[eleInc] = 0;
-            }
-          }
-        }
-      }
-      $(document).ready(function () {
-        //adds a 1 to the array for each elemement in the elem class
-        for (var i = 0; i < $(".elem").length; i++) {
-          eleArr.push(1);
-          checkEle(i);
-        }
-        for (var i = 0; i < $(".left-hr").length; i++) {
-          lefthrArr.push(1);
-        }
-        for (var i = 0; i < $(".right-hr").length; i++) {
-          righthrArr.push(1);
-        }
-        fadeEffect();
-
-        //code to calculate projects position
-        const projCount = 8;
-        document.getElementById("vertical-timeline-id").style.height =
-          projCount * 500 + "px";
-        for (let i = 0; i < projCount; i++) {
-          let calc = 800 + i * 500;
-          $(".project-container")
-            .eq(i)
-            .css("top", calc + "px");
-        }
-      });
-
-      $(window).scroll(function () {
-        const elem = $(".elem");
-        var viewPortSize = $(window).height();
-        checkEle(eleInc, 0);
-
-        for (var i = eleInc; i < $(".elem").length; i++) {
-          checkEle(i);
-        }
-        fadeEffect();
-
-        if (eleInc >= elem.length) {
-          $(window).off("scroll");
-        }
-      });
-
       fadeEffect = () => {
         let vw = Math.max(document.documentElement.clientWidth);
         if (vw >= 836) {
@@ -146,9 +89,38 @@
         }
       };
 
-      $(window).on("resize", function () {
+      // Initialize projects-specific animations
+      function initProjectsAnimations() {
+        for (var i = 0; i < $(".left-hr").length; i++) {
+          lefthrArr.push(1);
+        }
+        for (var i = 0; i < $(".right-hr").length; i++) {
+          righthrArr.push(1);
+        }
         fadeEffect();
-      });
+
+        // Calculate projects position
+        const projCount = 8;
+        document.getElementById("vertical-timeline-id").style.height = projCount * 500 + "px";
+        for (let i = 0; i < projCount; i++) {
+          let calc = 800 + i * 500;
+          $(".project-container").eq(i).css("top", calc + "px");
+        }
+      }
+
+      // Override the common scroll handler to include projects-specific animations
+      const originalHandleScroll = handleScroll;
+      handleScroll = function() {
+        originalHandleScroll();
+        fadeEffect();
+      };
+
+      // Initialize projects page
+      function initProjectsPage() {
+        initPage("Projects", "projects.html");
+        initProjectsAnimations();
+        $(window).on("resize", fadeEffect);
+      }
     </script>
     <style>
       .header-container {
@@ -178,99 +150,10 @@
   <body>
     <div id="background-img">
       <div id="wrap">
-        <header>
-          <!-- Widescreen Header -->
-          <div class="header-container">
-            <div class="header-widescreen" style="animation: fade-in 1.2s">
-              <div class="header-title-element">
-                <a href="index.html">Logan Gillett</a>
-              </div>
-              <div class="links">
-                <a href="projects.html"><u>Projects</u></a
-                >&nbsp; <a href="about.html">About</a>&nbsp;
-                <a href="career.html">Career</a>&nbsp;
-                <a href="contact.html">Contact</a>&nbsp;
-              </div>
-              <div class="headerImages">
-                <figure>
-                  <a
-                    href="https://www.linkedin.com/in/logan-gillett-941797327/"
-                    target="_blank"
-                  >
-                    <img
-                      src="resources/linkedin.png"
-                      alt="LinkedIn"
-                      title="LinkedIn"
-                      width="25"
-                      height="25"
-                    />
-                  </a>
-                  &nbsp;
-                  <a href="https://github.com/LogaGill489" target="_blank">
-                    <img
-                      src="resources/github.png"
-                      alt="GitHub"
-                      title="GitHub"
-                      width="25"
-                      height="25"
-                    />
-                  </a>
-                </figure>
-              </div>
-            </div>
-            <!-- Mobile & Condensed Screen-->
-            <div class="header-mobile" style="animation: fade-in 1.2s">
-              <div class="header-title-element">
-                <a href="index.html">Logan Gillett</a>
-              </div>
-              <div class="header-mobile-images">
-                <div class="mobile-header-link">
-                  <a
-                    href="https://www.linkedin.com/in/logan-gillett-941797327/"
-                    target="_blank"
-                  >
-                    <img
-                      src="resources/linkedin.png"
-                      alt="LinkedIn"
-                      title="LinkedIn"
-                      width="25"
-                      height="25"
-                    />
-                  </a>
-                  &nbsp;
-                  <a href="https://github.com/LogaGill489" target="_blank">
-                    <img
-                      src="resources/github.png"
-                      alt="GitHub"
-                      title="GitHub"
-                      width="25"
-                      height="25"
-                    />
-                  </a>
-                </div>
-                <div class="header-dropbar">
-                  <img
-                    src="resources/dropDownImg.png"
-                    alt="Links"
-                    title="Links"
-                    width="25"
-                    height="25"
-                    class="dropDownImg"
-                  />
-                  <div class="dropdown-links">
-                    <a href="projects.html">Projects</a>
-                    <a href="about.html">About</a>
-                    <a href="career.html">Career</a>
-                    <a href="contact.html">Contact</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="header-central-title" style="animation: fade-in 2s">
-              <h2>Projects</h2>
-            </div>
-          </div>
+        <header id="header-placeholder">
+          <!-- Header will be loaded here -->
         </header>
+
         <!-- Main Section - Projects -->
         <main>
           <div class="main-website" id="main-website">
@@ -804,71 +687,15 @@
           </div>
         </main>
         <!-- Footer Section -->
-        <footer>
-          <div class="footer-element">
-            <div class="footer-widescreen">
-              <div class="footer-flex">
-                <div class="elem footer-title">
-                  <a href="index.html">Logan Gillett</a>
-                  <a href="https://uwaterloo.ca/engineering/" target="_blank">
-                    <img
-                      class="footer-waterloo"
-                      src="resources/waterlooEng.png"
-                      alt="UWaterloo-Logo"
-                      title="I'm a Computer Engineer at UWaterloo!"
-                      loading="lazy"
-                    />
-                  </a>
-                </div>
-                <div class="footer-links">
-                  <div class="elem footer-item" style="margin-top: 20px">
-                    <a href="projects.html">Projects</a>
-                    <a href="about.html">About</a>
-                    <figure>
-                      <a
-                        href="https://www.linkedin.com/in/logan-gillett-941797327/"
-                        target="_blank"
-                      >
-                        <img
-                          src="resources/linkedin.png"
-                          alt="LinkedIn"
-                          title="LinkedIn"
-                          width="25"
-                          height="25"
-                          loading="lazy"
-                        />
-                      </a>
-                    </figure>
-                  </div>
-                  <div class="elem footer-item">
-                    <a href="career.html">Career</a>
-                    <a href="contact.html">Contact</a>
-                    <figure>
-                      <a href="https://github.com/LogaGill489" target="_blank">
-                        <img
-                          src="resources/github.png"
-                          alt="GitHub"
-                          title="GitHub"
-                          width="25"
-                          height="25"
-                          loading="lazy"
-                        />
-                      </a>
-                    </figure>
-                  </div>
-                </div>
-              </div>
-              <div class="elem footer-fineprint">
-                <p>&copy; 2025 - Logan Gillett</p>
-                <address>
-                  Conrad Grebel University College, 140 Westmount Rd N,
-                  Waterloo, ON N2L 3G6
-                </address>
-              </div>
-            </div>
-          </div>
+        <footer id="footer-placeholder">
+          <!-- Footer will be loaded here -->
         </footer>
       </div>
     </div>
+
+    <script>
+      // Initialize the projects page
+      initProjectsPage();
+    </script>
   </body>
 </html>
