@@ -1,874 +1,689 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Projects page to feature my projects thus far on my personal website."
-    />
-    <meta name="author" content="Logan Gillett" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="Cache-control" content="public" />
-    <title>Projects - Logan Gillett</title>
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/contact.css" />
-    <link rel="stylesheet" href="css/formatting.css" />
-    <link rel="stylesheet" href="css/projects.css" />
-    <link rel="preload" href="resources/flowersBackground.jpg" as="image" />
-    <link rel="preload" href="resources/rocksBackground.jpg" as="image" />
-    <link rel="icon" href="resources/websiteLogo.jpg" type="image/x-icon" />
-    <script src="jquery-3.7.1.js"></script>
-    <script>
-      //forces the screen to the top of the page upon refresh
-      var eleArr = [];
-      var eleInc = 0;
 
-      var lefthrArr = [];
-      var righthrArr = [];
-      let upper = 1;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Projects page to feature my projects thus far on my personal website." />
+  <meta name="author" content="Logan Gillett" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-control" content="public" />
+  <title>Projects - Logan Gillett</title>
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/formatting.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+  <link rel="preload" href="resources/flowersBackground.jpg" as="image" />
+  <link rel="preload" href="resources/rocksBackground.jpg" as="image" />
+  <link rel="icon" href="resources/websiteLogo.jpg" type="image/x-icon" />
+  <script src="jquery-3.7.1.js"></script>
+  <script>
+    //forces the screen to the top of the page upon refresh
+    var eleArr = [];
+    var eleInc = 0;
 
-      hrFadeLeft = () => {
-        const hrElem = $(".left-hr");
-        var viewPortSize = $(window).height();
+    var lefthrArr = [];
+    var righthrArr = [];
+    let upper = 1;
 
-        for (let i = 0; i < hrElem.length; i++) {
-          if (lefthrArr[i] == 1) {
-            var rect = hrElem[i].getBoundingClientRect();
-            if (viewPortSize - rect.y > 0) {
-              $(".left-hr").eq(i).animate({ width: "25vw" }, 1300);
-              setTimeout(function () {
-                $(".left-img").eq(i).animate({ opacity: 1 }, 600);
-              }, 400);
-              lefthrArr[i] = 0;
-            }
-          }
-        }
-      };
+    hrFadeLeft = () => {
+      const hrElem = $(".left-hr");
+      var viewPortSize = $(window).height();
 
-      hrFadeRight = () => {
-        const hrElem = $(".right-hr");
-        var viewPortSize = $(window).height();
-
-        for (let i = 0; i < hrElem.length; i++) {
-          if (righthrArr[i] == 1) {
-            var rect = hrElem[i].getBoundingClientRect();
-            if (viewPortSize - rect.y > 0) {
-              $(".right-hr").eq(i).animate({ width: "25vw" }, 1300);
-              setTimeout(function () {
-                $(".right-img").eq(i).animate({ opacity: 1 }, 600);
-              }, 400);
-              righthrArr[i] = 0;
-            }
-          }
-        }
-      };
-
-      //checks if the element is in the viewport
-      function checkEle(i) {
-        const elem = $(".elem");
-        var viewPortSize = $(window).height();
-        if (eleArr[i] == 1) {
-          var rect = elem[i].getBoundingClientRect();
-          if (viewPortSize - rect.y > -50) {
-            $(".elem").eq(i).animate({ opacity: 1 }, 1200);
-            for (eleInc; eleInc < i; eleInc++) {
-              $(".elem").eq(eleInc).animate({ opacity: 1 }, 1200);
-              eleArr[eleInc] = 0;
-            }
+      for (let i = 0; i < hrElem.length; i++) {
+        if (lefthrArr[i] == 1) {
+          var rect = hrElem[i].getBoundingClientRect();
+          if (viewPortSize - rect.y > 0) {
+            $(".left-hr").eq(i).animate({ width: "25vw" }, 1300);
+            setTimeout(function () {
+              $(".left-img").eq(i).animate({ opacity: 1 }, 600);
+            }, 400);
+            lefthrArr[i] = 0;
           }
         }
       }
-      $(document).ready(function () {
-        //adds a 1 to the array for each elemement in the elem class
-        for (var i = 0; i < $(".elem").length; i++) {
-          eleArr.push(1);
-          checkEle(i);
-        }
-        for (var i = 0; i < $(".left-hr").length; i++) {
-          lefthrArr.push(1);
-        }
-        for (var i = 0; i < $(".right-hr").length; i++) {
-          righthrArr.push(1);
-        }
-        fadeEffect();
+    };
 
-        //code to calculate projects position
-        const projCount = 8;
-        document.getElementById("vertical-timeline-id").style.height =
-          projCount * 500 + "px";
-        for (let i = 0; i < projCount; i++) {
-          let calc = 800 + i * 500;
-          $(".project-container")
-            .eq(i)
-            .css("top", calc + "px");
-        }
-      });
+    hrFadeRight = () => {
+      const hrElem = $(".right-hr");
+      var viewPortSize = $(window).height();
 
-      $(window).scroll(function () {
-        const elem = $(".elem");
-        var viewPortSize = $(window).height();
-        checkEle(eleInc, 0);
-
-        for (var i = eleInc; i < $(".elem").length; i++) {
-          checkEle(i);
-        }
-        fadeEffect();
-
-        if (eleInc >= elem.length) {
-          $(window).off("scroll");
-        }
-      });
-
-      fadeEffect = () => {
-        let vw = Math.max(document.documentElement.clientWidth);
-        if (vw >= 836) {
-          hrFadeLeft();
-          hrFadeRight();
-
-          if (upper == 0) {
-            for (let i = 0; i < $(".left-img").length; i++) {
-              if (lefthrArr[i] == 0) {
-                $(".left-img").eq(i).css("opacity", "1");
-              }
-            }
-            for (let i = 0; i < $(".right-img").length; i++) {
-              if (righthrArr[i] == 0) {
-                $(".right-img").eq(i).css("opacity", "1");
-              }
-            }
-            upper = 1;
+      for (let i = 0; i < hrElem.length; i++) {
+        if (righthrArr[i] == 1) {
+          var rect = hrElem[i].getBoundingClientRect();
+          if (viewPortSize - rect.y > 0) {
+            $(".right-hr").eq(i).animate({ width: "25vw" }, 1300);
+            setTimeout(function () {
+              $(".right-img").eq(i).animate({ opacity: 1 }, 600);
+            }, 400);
+            righthrArr[i] = 0;
           }
-        } else {
-          upper = 0;
-          $(".left-img").css("opacity", "0");
-          $(".right-img").css("opacity", "0");
         }
-      };
-
-      $(window).on("resize", function () {
-        fadeEffect();
-      });
-    </script>
-    <style>
-      .header-container {
-        background-image: url(resources/flowersBackground.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: top center;
       }
+    };
 
-      .main-website {
-        background-image: url(resources/rocksBackground.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: top center;
+    //checks if the element is in the viewport
+    function checkEle(i) {
+      const elem = $(".elem");
+      var viewPortSize = $(window).height();
+      if (eleArr[i] == 1) {
+        var rect = elem[i].getBoundingClientRect();
+        if (viewPortSize - rect.y > -50) {
+          $(".elem").eq(i).animate({ opacity: 1 }, 1200);
+          for (eleInc; eleInc < i; eleInc++) {
+            $(".elem").eq(eleInc).animate({ opacity: 1 }, 1200);
+            eleArr[eleInc] = 0;
+          }
+        }
       }
-
-      body {
-        background-image: url(resources/back.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: top center;
-        background-attachment: fixed;
+    }
+    $(document).ready(function () {
+      //adds a 1 to the array for each elemement in the elem class
+      for (var i = 0; i < $(".elem").length; i++) {
+        eleArr.push(1);
+        checkEle(i);
       }
-    </style>
-  </head>
+      for (var i = 0; i < $(".left-hr").length; i++) {
+        lefthrArr.push(1);
+      }
+      for (var i = 0; i < $(".right-hr").length; i++) {
+        righthrArr.push(1);
+      }
+      fadeEffect();
 
-  <body>
-    <div id="background-img">
-      <div id="wrap">
-        <header>
-          <!-- Widescreen Header -->
-          <div class="header-container">
-            <div class="header-widescreen" style="animation: fade-in 1.2s">
-              <div class="header-title-element">
+      //code to calculate projects position
+      const projCount = 9;
+      document.getElementById("vertical-timeline-id").style.height =
+        projCount * 500 + "px";
+      for (let i = 0; i < projCount; i++) {
+        let calc = 800 + i * 500;
+        $(".project-container")
+          .eq(i)
+          .css("top", calc + "px");
+      }
+    });
+
+    $(window).scroll(function () {
+      const elem = $(".elem");
+      var viewPortSize = $(window).height();
+      checkEle(eleInc, 0);
+
+      for (var i = eleInc; i < $(".elem").length; i++) {
+        checkEle(i);
+      }
+      fadeEffect();
+
+      if (eleInc >= elem.length) {
+        $(window).off("scroll");
+      }
+    });
+
+    fadeEffect = () => {
+      let vw = Math.max(document.documentElement.clientWidth);
+      if (vw >= 836) {
+        hrFadeLeft();
+        hrFadeRight();
+
+        if (upper == 0) {
+          for (let i = 0; i < $(".left-img").length; i++) {
+            if (lefthrArr[i] == 0) {
+              $(".left-img").eq(i).css("opacity", "1");
+            }
+          }
+          for (let i = 0; i < $(".right-img").length; i++) {
+            if (righthrArr[i] == 0) {
+              $(".right-img").eq(i).css("opacity", "1");
+            }
+          }
+          upper = 1;
+        }
+      } else {
+        upper = 0;
+        $(".left-img").css("opacity", "0");
+        $(".right-img").css("opacity", "0");
+      }
+    };
+
+    $(window).on("resize", function () {
+      fadeEffect();
+    });
+  </script>
+  <style>
+    .header-container {
+      background-image: url(resources/flowersBackground.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: top center;
+    }
+
+    .main-website {
+      background-image: url(resources/rocksBackground.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: top center;
+    }
+
+    body {
+      background-image: url(resources/back.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: top center;
+      background-attachment: fixed;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="background-img">
+    <div id="wrap">
+      <header>
+        <!-- Widescreen Header -->
+        <div class="header-container">
+          <div class="header-widescreen" style="animation: fade-in 1.2s">
+            <div class="header-title-element">
+              <a href="index.html">Logan Gillett</a>
+            </div>
+            <div class="links">
+              <a href="projects.html"><u>Projects</u></a>&nbsp; <a href="about.html">About</a>&nbsp;
+              <a href="career.html">Career</a>&nbsp;
+              <a href="contact.html">Contact</a>&nbsp;
+            </div>
+            <div class="headerImages">
+              <figure>
+                <a href="https://www.linkedin.com/in/logan-gillett-941797327/" target="_blank">
+                  <img src="resources/linkedin.png" alt="LinkedIn" title="LinkedIn" width="25" height="25" />
+                </a>
+                &nbsp;
+                <a href="https://github.com/LogaGill489" target="_blank">
+                  <img src="resources/github.png" alt="GitHub" title="GitHub" width="25" height="25" />
+                </a>
+              </figure>
+            </div>
+          </div>
+          <!-- Mobile & Condensed Screen-->
+          <div class="header-mobile" style="animation: fade-in 1.2s">
+            <div class="header-title-element">
+              <a href="index.html">Logan Gillett</a>
+            </div>
+            <div class="header-mobile-images">
+              <div class="mobile-header-link">
+                <a href="https://www.linkedin.com/in/logan-gillett-941797327/" target="_blank">
+                  <img src="resources/linkedin.png" alt="LinkedIn" title="LinkedIn" width="25" height="25" />
+                </a>
+                &nbsp;
+                <a href="https://github.com/LogaGill489" target="_blank">
+                  <img src="resources/github.png" alt="GitHub" title="GitHub" width="25" height="25" />
+                </a>
+              </div>
+              <div class="header-dropbar">
+                <img src="resources/dropDownImg.png" alt="Links" title="Links" width="25" height="25"
+                  class="dropDownImg" />
+                <div class="dropdown-links">
+                  <a href="projects.html">Projects</a>
+                  <a href="about.html">About</a>
+                  <a href="career.html">Career</a>
+                  <a href="contact.html">Contact</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="header-central-title" style="animation: fade-in 2s">
+            <h2>Projects</h2>
+          </div>
+        </div>
+      </header>
+      <!-- Main Section - Projects -->
+      <main>
+        <div class="main-website" id="main-website">
+          <div class="vertical-timeline" id="vertical-timeline-id">
+            <hr class="hr-horizontal-line" />
+            <hr class="hr-vertical-line" />
+            <hr class="hr-horizontal-line" />
+          </div>
+          <div class="project-container">
+            <img class="project-logo" src="resources/websiteLogo.jpg" alt="project-img" width="40" height="40"
+              loading="lazy" />
+            <hr class="left-hr" />
+            <img class="left-img" src="resources/projectImages/Cadavle-Example.jpg" alt="project-img" loading="lazy" />
+            <div class="left-project-text" style="bottom: 350px">
+              <div class="elem project-header-container" id="delivery-Guard">
+                <span class="project-header">Cadavle</span>
+                <span class="project-date">Jul 2025 - Jul 2025 |
+                  <a href="https://www.cadavle.com/" target="_blank" class="project-link">Deploy</a>
+                  |
+                  <a href="https://github.com/LogaGill489/Cadavle" target="_blank" class="project-link">Github</a>
+                </span>
+              </div>
+              <p class="elem">
+                Cadavle was made originally for friends to test their anatomy knowledge of bones in a fun way; inspired
+                by something we all play as a somewhat daily tradition: Wordle.
+                The general premise of the game is simple, the player has 6 attempts to guess the correct bone (or bone
+                group in some cases), and is given hints from their guess based on if it is the same type, the
+                direction, the length, and the number of bones that guess touches. After each guess, colours indicate
+                weather the guess is incorrect, (red), correct (green), too high (orange), or too low (blue), which will
+                help the player with future guessing.
+
+              </p>
+              <p class="elem">
+                I made the game for a friend and as a good challenge for myself to use Javascript. Up until this point,
+                I wanted to make a project that was more interactive and dynamic as well as a Wordle-inspired game, 
+                and Cadavle was a great way to do that. I learned a lot about Javascript and DOM manipulation, as well as
+                how to make a fun, interactive game that is easy to use and understand.
+              </p>
+              <div class="elem project-skills"  id="second-project-link">
+                <p class="project-skills-elem">Javascript</p>
+                <p class="project-skills-elem">HTML</p>
+                <p class="project-skills-elem">CSS</p>
+                <p class="project-skills-elem">Web-Dev</p>
+                <p class="project-skills-elem">Web Game</p>
+                <p class="project-skills-elem">Front-End</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-container">
+            <img class="project-logo" src="resources/projectImages/popcorn.png" alt="project-img" width="40" height="40"
+              loading="lazy" />
+            <hr class="right-hr" />
+            <img class="right-img" src="resources/projectImages/movie-search.png" alt="project-img" loading="lazy" />
+            <div class="right-project-text" style="bottom: 350px">
+              <div class="elem project-header-container" id="delivery-Guard">
+                <span class="project-header">Movie Search</span>
+                <span class="project-date">Apr 2025 - Apr 2025 |
+                  <a href="https://lgillett-movie-search.vercel.app/" target="_blank" class="project-link">Deploy</a>
+                  |
+                  <a href="https://github.com/LogaGill489/movieSearch" target="_blank" class="project-link">Github</a>
+                </span>
+              </div>
+              <p class="elem">
+                Movie Search is a React-based web app that lets users browse
+                trending movies, search for specific titles, and save their
+                favourites for later. It was built over the course of a week
+                as a hands-on way for me to explore working with React
+                fundamentals while applying them to a clean, user-facing
+                project. The app pulls real-time data from an external movie
+                API and offers a responsive interface that allows users to
+                interact with and personalize their movie list.
+              </p>
+              <p class="elem">
+                I wanted to cover a wide range of React concepts in one
+                project, so Movie Search includes hooks, React context,
+                conditional rendering, localStorage (for favouriting), and
+                working with JSX for dynamic UI design. On top of this, it
+                also gave great practical experience with component-based
+                design, managing state, and switching between screens in
+                React.
+              </p>
+              <div class="elem project-skills">
+                <p class="project-skills-elem">Front-End</p>
+                <p class="project-skills-elem">React</p>
+                <p class="project-skills-elem">API</p>
+                <p class="project-skills-elem">HTML</p>
+                <p class="project-skills-elem">CSS</p>
+                <p class="project-skills-elem">Javascript</p>
+                <p class="project-skills-elem">Web-Dev</p>
+                <p class="project-skills-elem">Software</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-container">
+            <img class="project-logo" src="resources/websiteLogo.jpg" alt="project-img" width="40" height="40"
+              loading="lazy" />
+            <hr class="left-hr" />
+            <img class="left-img" src="resources/projectImages/websiteImage.png" alt="project-img" loading="lazy" />
+            <div class="left-project-text" style="bottom: 350px">
+              <div class="elem project-header-container" id="portfolio">
+                <span class="project-header">Front-End Portfolio</span>
+                <span class="project-date">Mar 2025 - Apr 2025 |
+                  <a href="https://github.com/LogaGill489/PersonalWebsite" target="_blank"
+                    class="project-link">Github</a>
+                </span>
+              </div>
+              <p class="elem">
+                This website is a self-built portfolio designed with pure
+                HTML/CSS, and uses Javascript and the JQuery library for
+                transitions and interactive elements. It was designed to
+                showcases my projects, skills, and personal development as a
+                software developer thus far, as well as act as a practical
+                application of "barebones" web development that doesn't rely
+                on templates or frameworks.
+              </p>
+              <p class="elem">
+                Designing this site taught me the fundamentals of front-end
+                web development, including HTML structures, styling,
+                responsive design, and DOM manipulation. It sparked a strong
+                interest in web development for me, and helped me look forward
+                to expand my skillset by learning tools like React, Tailwind
+                CSS, and Next.js.
+              </p>
+              <div class="elem project-skills">
+                <p class="project-skills-elem">Front-End</p>
+                <p class="project-skills-elem">Javascript</p>
+                <p class="project-skills-elem">HTML</p>
+                <p class="project-skills-elem">CSS</p>
+                <p class="project-skills-elem">JQuery</p>
+                <p class="project-skills-elem">Web-Dev</p>
+                <p class="project-skills-elem">VS Code</p>
+                <p class="project-skills-elem">Software</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-container">
+            <img class="project-logo" src="resources/projectImages/uwaterlooSeal.png" alt="project-img" width="40"
+              height="40" loading="lazy" />
+            <hr class="right-hr" />
+            <img class="right-img" src="resources/projectImages/delivery-Guard-Box.jpg" alt="project-img"
+              loading="lazy" />
+            <div class="right-project-text" style="bottom: 350px">
+              <div class="elem project-header-container" id="delivery-Guard">
+                <span class="project-header">Delivery Guard</span>
+                <span class="project-date">Sept 2024 - Dec 2024 |
+                  <a href="https://www.youtube.com/watch?v=UsJfYf0ZKWE" target="_blank" class="project-link">Demo</a>
+                  |
+                  <a href="https://github.com/LogaGill489/Delivery-Guard" target="_blank"
+                    class="project-link">Github</a>
+                </span>
+              </div>
+              <p class="elem">
+                Delivery Guard is a smart, anti-theft device designed to
+                prevent porch piracy. It was programmed in C with
+                STM32CubeIDE, and uses 3 STM32 microcontrollers to control an
+                electromagnet that locks the box, along with controlling the
+                button input, ultrasonic sensor, and system status. When
+                powered, it remains locked until the button is pressed,
+                triggering a motor to open the lid and reset the system and
+                ensuring safe storage until the package is retrieved by its
+                owner.
+              </p>
+              <p class="elem">
+                This project was a great opportunity for me to further design
+                embedded systems in a real-world context and helped me
+                significantly improve my
+                <a href="Delivery Guard - Design Documentation.pdf" style="text-decoration: underline">technical
+                  documentation</a>
+                skills. Overall, it stands out to me as one of the most
+                complete and well-rounded projects I've contributed to,
+                blending teamwork, C programming, and problem-solving into a
+                cohesive, functional prototype.
+              </p>
+              <div class="elem project-skills">
+                <p class="project-skills-elem">IoT</p>
+                <p class="project-skills-elem">STM32</p>
+                <p class="project-skills-elem">C</p>
+                <p class="project-skills-elem">Fusion</p>
+                <p class="project-skills-elem">AutoCAD</p>
+                <p class="project-skills-elem">Git</p>
+                <p class="project-skills-elem">Hardware</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-container">
+            <img class="project-logo" src="resources/projectImages/stratfordRoboticsLogo.png" alt="project-img"
+              width="40" height="40" loading="lazy" />
+            <hr class="left-hr" />
+            <img class="left-img" src="resources/projectImages/droneImage.jpg" alt="project-img" loading="lazy" />
+            <div class="left-project-text" style="bottom: 350px">
+              <div class="elem project-header-container">
+                <span class="project-header">Arduino Drone</span>
+                <span class="project-date">Jan 2024 - Jun 2024 |
+                  <a href="https://github.com/LogaGill489/arduinoDrone" target="_blank" class="project-link">Github</a>
+                </span>
+              </div>
+              <p class="elem">
+                This drone was my first Internet of Things (IoT) project and
+                was designed with my friend Saahil to take aerial photos of my
+                high school. Built around a quadcopter frame powered with an
+                Arduino microcontroller, it uses four brushless DC motors that
+                are controlled by ESCs and is powered by a 9V battery unit.
+                The drone's frame was designed in Fusion 360 and uses
+                lightweight, 3D materials.
+              </p>
+              <p class="elem">
+                This project was a great deep dive into real-time systems and
+                embedded programming for me, and it acted nicely as a
+                real-world application of the reality of working with
+                timelines on a limited budget. It also pushed me to improve my
+                <a href="Saahil & Logan - Drone Project Documentation.pdf" style="text-decoration: underline">technical
+                  documentation</a>, with the resulting structure being much more organized than
+                some of my previous projects.
+              </p>
+              <div class="elem project-skills">
+                <p class="project-skills-elem">IoT</p>
+                <p class="project-skills-elem">Arduino</p>
+                <p class="project-skills-elem">C++</p>
+                <p class="project-skills-elem">Fusion</p>
+                <p class="project-skills-elem">AutoCAD</p>
+                <p class="project-skills-elem">Soldering</p>
+                <p class="project-skills-elem">Hardware</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-container">
+            <img class="project-logo" src="resources/projectImages/peggleIcon.png" alt="project-img" width="40"
+              height="40" loading="lazy" />
+            <hr class="right-hr" />
+            <img class="right-img" src="resources/projectImages/peggleGameImage.png" alt="project-img" loading="lazy" />
+            <div class="right-project-text" style="bottom: 350px">
+              <div class="elem project-header-container">
+                <span class="project-header">Peggle</span>
+                <span class="project-date">May 2024 - July 2024 |
+                  <a href="https://www.youtube.com/watch?v=ifjmpqvJdnQ" target="_blank" class="project-link">Demo</a>
+                  |
+                  <a href="https://github.com/LogaGill489/Peggle" target="_blank" class="project-link">Github</a>
+                </span>
+              </div>
+              <p class="elem">
+                Peggle is a 2D game developed in C# using Visual Studio 2022
+                that was inspired by the original 2007 game of the same title.
+                The game features a custom, 2D phyiscs engine created entirely
+                without the use of any external libraries, handling motion,
+                dynamic collisions, and gravity.
+              </p>
+              <p class="elem">
+                The
+                <a href="https://github.com/LogaGill489/Peggle/blob/master/Peggle/Ball.cs"
+                  style="text-decoration: underline">collision algorithm</a>
+                was created using derivative logic, running continuously
+                within the game loop. I also made use of object-oriented
+                programming for the pegs, the ball, and keeping track of the
+                score. This was by far the most technically challenging game
+                I've worked on, as it required recreating physical forces in a
+                simplified, 2D environment. Despite the difficulty, it pushed
+                me to consider how these forces could be realistically
+                approximated, and I'm quite happy with the result.
+              </p>
+              <div class="elem project-skills">
+                <p class="project-skills-elem">C#</p>
+                <p class="project-skills-elem">VS 2022</p>
+                <p class="project-skills-elem">Physics Sim</p>
+                <p class="project-skills-elem">OOP</p>
+                <p class="project-skills-elem">Game-Dev</p>
+                <p class="project-skills-elem">Git</p>
+                <p class="project-skills-elem">Software</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-container">
+            <img class="project-logo" src="resources/projectImages/witnessIcon.png" alt="project-img" width="40"
+              height="40" loading="lazy" />
+            <hr class="left-hr" />
+            <img class="left-img" src="resources/projectImages/witnessGameImage.png" alt="project-img" loading="lazy" />
+            <div class="left-project-text" style="bottom: 350px">
+              <div class="elem project-header-container">
+                <span class="project-header">The Witness</span>
+                <span class="project-date">Mar 2024 - May 2024 |
+                  <a href="https://www.youtube.com/watch?v=R4BL-JBQFpw&t=10s" target="_blank"
+                    class="project-link">Demo</a>
+                  |
+                  <a href="https://github.com/LogaGill489/WitnessTest" target="_blank" class="project-link">Github</a>
+                </span>
+              </div>
+              <p class="elem">
+                The Witness is a short puzzle game inspired by the
+                line-drawing mechanic found in the game with the same title. I
+                developed it in C# using Visual Studio 2022, wanting to
+                challenge myself with a mouse-based system where the player
+                can "free-roam" within the grid boundries.
+              </p>
+              <p class="elem">
+                The game features 12 original, handmade levels with increasing
+                complexity and is played on a class-based grid-layout that
+                leans heavily on object-orientated programming. The focus on
+                modular level design and progression systems helped refine my
+                approach to structuring logic-heavy games, and it remains one
+                of my most rewarding solo builds due to its combination of
+                technical depth and creative problem-solving.
+              </p>
+              <div class="elem project-skills">
+                <p class="project-skills-elem">C#</p>
+                <p class="project-skills-elem">VS 2022</p>
+                <p class="project-skills-elem">OOP</p>
+                <p class="project-skills-elem">Game-Dev</p>
+                <p class="project-skills-elem">Cursor Logic</p>
+                <p class="project-skills-elem">Git</p>
+                <p class="project-skills-elem">Software</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-container">
+            <img class="project-logo" src="resources/github.png" alt="project-img" width="40" height="40"
+              loading="lazy" />
+            <hr class="right-hr" />
+            <img class="right-img" src="resources/projectImages/brickBreakerGame.png" alt="project-img"
+              loading="lazy" />
+            <div class="right-project-text" style="bottom: 350px">
+              <div class="elem project-header-container">
+                <span class="project-header">Brick Breaker</span>
+                <span class="project-date">
+                  Mar 2024 - May 2024 |
+                  <a href="https://www.youtube.com/watch?v=gA4uN7lcYRk" target="_blank" class="project-link">Demo</a>
+                  |
+                  <a href="https://github.com/LogaGill489/BrickBreakerTeam2" target="_blank"
+                    class="project-link">Github</a></span>
+              </div>
+              <p class="elem">
+                This Brick Breaker recreation was a collaborative project
+                developed in C# by a team of eight using Visual Studio 2022. I
+                took on the role of repository lead, managing the main GitHub
+                codebase, reviewing pull requests, resolving merge conflicts,
+                and keeping version control organized.
+              </p>
+              <p class="elem">
+                Coordinating a team of this size presented challenges,
+                particularily in aligning coding and individual styles. As
+                such, the final product is probably the least polished of the
+                games I've developed, though it gave me valuable experience in
+                technical leadership and a lot of great insight into managing
+                a codebase with a number of members.
+              </p>
+              <div class="elem project-skills">
+                <p class="project-skills-elem">C#</p>
+                <p class="project-skills-elem">VS 2022</p>
+                <p class="project-skills-elem">OOP</p>
+                <p class="project-skills-elem">Game-Dev</p>
+                <p class="project-skills-elem">Team-Based</p>
+                <p class="project-skills-elem">Github</p>
+                <p class="project-skills-elem">Software</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-container">
+            <img class="project-logo" src="resources/projectImages/junimoIcon.png" alt="project-img" width="40"
+              height="40" loading="lazy" />
+            <hr class="left-hr" />
+            <img class="left-img" src="resources/projectImages/junimoKartGame.png" alt="project-img" loading="lazy" />
+            <div class="left-project-text" style="bottom: 350px">
+              <div class="elem project-header-container">
+                <span class="project-header">Junimo Kart</span>
+                <span class="project-date">May 2023 - July 2023 |
+                  <a href="https://www.youtube.com/watch?v=ceOLBwK83go" target="_blank" class="project-link">Demo</a>
+                  |
+                  <a href="https://github.com/LogaGill489/JunimoKart" target="_blank" class="project-link">Github</a>
+                </span>
+              </div>
+              <p class="elem">
+                Junimo Kart is a 2D platformer game developed in C# using
+                Visual Studio 2022, built in mid 2023. Inspired by the 2D
+                platformer of the same name in Stardew Valley, this was my
+                first major game development, laying out my foundation for 2D
+                game architecture.
+              </p>
+              <p class="elem">
+                The game features a basic physics engine, with gravity,
+                jumping, and dashing mechanics in an arcade-styled movement.
+                It also features procedural terrain creation (the platforms
+                that appear), increasing in difficulty as the player
+                progresses. Overall, as an intro to game developement, Junimo
+                Kart taught me a lot about object-orientated programming,
+                procederal generation, and C#.
+              </p>
+              <div class="elem project-skills">
+                <p class="project-skills-elem">C#</p>
+                <p class="project-skills-elem">VS 2022</p>
+                <p class="project-skills-elem">OOP</p>
+                <p class="project-skills-elem">Game-Dev</p>
+                <p class="project-skills-elem">Physics Sim</p>
+                <p class="project-skills-elem">ProcGen</p>
+                <p class="project-skills-elem">Software</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- Footer Section -->
+      <footer>
+        <div class="footer-element">
+          <div class="footer-widescreen">
+            <div class="footer-flex">
+              <div class="elem footer-title">
                 <a href="index.html">Logan Gillett</a>
+                <a href="https://uwaterloo.ca/engineering/" target="_blank">
+                  <img class="footer-waterloo" src="resources/waterlooEng.png" alt="UWaterloo-Logo"
+                    title="I'm a Computer Engineer at UWaterloo!" loading="lazy" />
+                </a>
               </div>
-              <div class="links">
-                <a href="projects.html"><u>Projects</u></a
-                >&nbsp; <a href="about.html">About</a>&nbsp;
-                <a href="career.html">Career</a>&nbsp;
-                <a href="contact.html">Contact</a>&nbsp;
-              </div>
-              <div class="headerImages">
-                <figure>
-                  <a
-                    href="https://www.linkedin.com/in/logan-gillett-941797327/"
-                    target="_blank"
-                  >
-                    <img
-                      src="resources/linkedin.png"
-                      alt="LinkedIn"
-                      title="LinkedIn"
-                      width="25"
-                      height="25"
-                    />
-                  </a>
-                  &nbsp;
-                  <a href="https://github.com/LogaGill489" target="_blank">
-                    <img
-                      src="resources/github.png"
-                      alt="GitHub"
-                      title="GitHub"
-                      width="25"
-                      height="25"
-                    />
-                  </a>
-                </figure>
-              </div>
-            </div>
-            <!-- Mobile & Condensed Screen-->
-            <div class="header-mobile" style="animation: fade-in 1.2s">
-              <div class="header-title-element">
-                <a href="index.html">Logan Gillett</a>
-              </div>
-              <div class="header-mobile-images">
-                <div class="mobile-header-link">
-                  <a
-                    href="https://www.linkedin.com/in/logan-gillett-941797327/"
-                    target="_blank"
-                  >
-                    <img
-                      src="resources/linkedin.png"
-                      alt="LinkedIn"
-                      title="LinkedIn"
-                      width="25"
-                      height="25"
-                    />
-                  </a>
-                  &nbsp;
-                  <a href="https://github.com/LogaGill489" target="_blank">
-                    <img
-                      src="resources/github.png"
-                      alt="GitHub"
-                      title="GitHub"
-                      width="25"
-                      height="25"
-                    />
-                  </a>
+              <div class="footer-links">
+                <div class="elem footer-item" style="margin-top: 20px">
+                  <a href="projects.html">Projects</a>
+                  <a href="about.html">About</a>
+                  <figure>
+                    <a href="https://www.linkedin.com/in/logan-gillett-941797327/" target="_blank">
+                      <img src="resources/linkedin.png" alt="LinkedIn" title="LinkedIn" width="25" height="25"
+                        loading="lazy" />
+                    </a>
+                  </figure>
                 </div>
-                <div class="header-dropbar">
-                  <img
-                    src="resources/dropDownImg.png"
-                    alt="Links"
-                    title="Links"
-                    width="25"
-                    height="25"
-                    class="dropDownImg"
-                  />
-                  <div class="dropdown-links">
-                    <a href="projects.html">Projects</a>
-                    <a href="about.html">About</a>
-                    <a href="career.html">Career</a>
-                    <a href="contact.html">Contact</a>
-                  </div>
+                <div class="elem footer-item">
+                  <a href="career.html">Career</a>
+                  <a href="contact.html">Contact</a>
+                  <figure>
+                    <a href="https://github.com/LogaGill489" target="_blank">
+                      <img src="resources/github.png" alt="GitHub" title="GitHub" width="25" height="25"
+                        loading="lazy" />
+                    </a>
+                  </figure>
                 </div>
               </div>
             </div>
-            <div class="header-central-title" style="animation: fade-in 2s">
-              <h2>Projects</h2>
+            <div class="elem footer-fineprint">
+              <p>&copy; 2025 - Logan Gillett</p>
+              <address>
+                Conrad Grebel University College, 140 Westmount Rd N,
+                Waterloo, ON N2L 3G6
+              </address>
             </div>
           </div>
-        </header>
-        <!-- Main Section - Projects -->
-        <main>
-          <div class="main-website" id="main-website">
-            <div class="vertical-timeline" id="vertical-timeline-id">
-              <hr class="hr-horizontal-line" />
-              <hr class="hr-vertical-line" />
-              <hr class="hr-horizontal-line" />
-            </div>
-            <div class="project-container">
-              <img
-                class="project-logo"
-                src="resources/projectImages/popcorn.png"
-                alt="project-img"
-                width="40"
-                height="40"
-                loading="lazy"
-              />
-              <hr class="right-hr" />
-              <img
-                class="right-img"
-                src="resources/projectImages/movie-search.png"
-                alt="project-img"
-                loading="lazy"
-              />
-              <div class="right-project-text" style="bottom: 350px">
-                <div class="elem project-header-container" id="delivery-Guard">
-                  <span class="project-header">Movie Search</span>
-                  <span class="project-date"
-                    >Apr 2025 - Apr 2025 |
-                    <a
-                      href="https://lgillett-movie-search.vercel.app/"
-                      target="_blank"
-                      class="project-link"
-                      >Deploy</a
-                    >
-                    |
-                    <a
-                      href="https://github.com/LogaGill489/movieSearch"
-                      target="_blank"
-                      class="project-link"
-                      >Github</a
-                    >
-                  </span>
-                </div>
-                <p class="elem">
-                  Movie Search is a React-based web app that lets users browse
-                  trending movies, search for specific titles, and save their
-                  favourites for later. It was built over the course of a week
-                  as a hands-on way for me to explore working with React
-                  fundamentals while applying them to a clean, user-facing
-                  project. The app pulls real-time data from an external movie
-                  API and offers a responsive interface that allows users to
-                  interact with and personalize their movie list.
-                </p>
-                <p class="elem">
-                  I wanted to cover a wide range of React concepts in one
-                  project, so Movie Search includes hooks, React context,
-                  conditional rendering, localStorage (for favouriting), and
-                  working with JSX for dynamic UI design. On top of this, it
-                  also gave great practical experience with component-based
-                  design, managing state, and switching between screens in
-                  React.
-                </p>
-                <div class="elem project-skills">
-                  <p class="project-skills-elem">Front-End</p>
-                  <p class="project-skills-elem">React</p>
-                  <p class="project-skills-elem">API</p>
-                  <p class="project-skills-elem">HTML/CSS</p>
-                  <p class="project-skills-elem">Javascript</p>
-                  <p class="project-skills-elem">Web-Dev</p>
-                  <p class="project-skills-elem">Software</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="project-container">
-              <img
-                class="project-logo"
-                src="resources/websiteLogo.jpg"
-                alt="project-img"
-                width="40"
-                height="40"
-                loading="lazy"
-              />
-              <hr class="left-hr" />
-              <img
-                class="left-img"
-                src="resources/projectImages/websiteImage.png"
-                alt="project-img"
-                loading="lazy"
-              />
-              <div class="left-project-text" style="bottom: 350px">
-                <div class="elem project-header-container" id="portfolio">
-                  <span class="project-header">Front-End Portfolio</span>
-                  <span class="project-date"
-                    >Mar 2025 - Apr 2025 |
-                    <a
-                      href="https://github.com/LogaGill489/PersonalWebsite"
-                      target="_blank"
-                      class="project-link"
-                      >Github</a
-                    >
-                  </span>
-                </div>
-                <p class="elem">
-                  This website is a self-built portfolio designed with pure
-                  HTML/CSS, and uses Javascript and the JQuery library for
-                  transitions and interactive elements. It was designed to
-                  showcases my projects, skills, and personal development as a
-                  software developer thus far, as well as act as a practical
-                  application of "barebones" web development that doesn't rely
-                  on templates or frameworks.
-                </p>
-                <p class="elem">
-                  Designing this site taught me the fundamentals of front-end
-                  web development, including HTML structures, styling,
-                  responsive design, and DOM manipulation. It sparked a strong
-                  interest in web development for me, and helped me look forward
-                  to expand my skillset by learning tools like React, Tailwind
-                  CSS, and Next.js.
-                </p>
-                <div class="elem project-skills" id="second-project-link">
-                  <p class="project-skills-elem">Front-End</p>
-                  <p class="project-skills-elem">Javascript</p>
-                  <p class="project-skills-elem">HTML</p>
-                  <p class="project-skills-elem">CSS</p>
-                  <p class="project-skills-elem">JQuery</p>
-                  <p class="project-skills-elem">Web-Dev</p>
-                  <p class="project-skills-elem">VS Code</p>
-                  <p class="project-skills-elem">Software</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="project-container">
-              <img
-                class="project-logo"
-                src="resources/projectImages/uwaterlooSeal.png"
-                alt="project-img"
-                width="40"
-                height="40"
-                loading="lazy"
-              />
-              <hr class="right-hr" />
-              <img
-                class="right-img"
-                src="resources/projectImages/delivery-Guard-Box.jpg"
-                alt="project-img"
-                loading="lazy"
-              />
-              <div class="right-project-text" style="bottom: 350px">
-                <div class="elem project-header-container" id="delivery-Guard">
-                  <span class="project-header">Delivery Guard</span>
-                  <span class="project-date"
-                    >Sept 2024 - Dec 2024 |
-                    <a
-                      href="https://www.youtube.com/watch?v=UsJfYf0ZKWE"
-                      target="_blank"
-                      class="project-link"
-                      >Demo</a
-                    >
-                    |
-                    <a
-                      href="https://github.com/LogaGill489/Delivery-Guard"
-                      target="_blank"
-                      class="project-link"
-                      >Github</a
-                    >
-                  </span>
-                </div>
-                <p class="elem">
-                  Delivery Guard is a smart, anti-theft device designed to
-                  prevent porch piracy. It was programmed in C with
-                  STM32CubeIDE, and uses 3 STM32 microcontrollers to control an
-                  electromagnet that locks the box, along with controlling the
-                  button input, ultrasonic sensor, and system status. When
-                  powered, it remains locked until the button is pressed,
-                  triggering a motor to open the lid and reset the system and
-                  ensuring safe storage until the package is retrieved by its
-                  owner.
-                </p>
-                <p class="elem">
-                  This project was a great opportunity for me to further design
-                  embedded systems in a real-world context and helped me
-                  significantly improve my
-                  <a
-                    href="Delivery Guard - Design Documentation.pdf"
-                    style="text-decoration: underline"
-                    >technical documentation</a
-                  >
-                  skills. Overall, it stands out to me as one of the most
-                  complete and well-rounded projects I've contributed to,
-                  blending teamwork, C programming, and problem-solving into a
-                  cohesive, functional prototype.
-                </p>
-                <div class="elem project-skills">
-                  <p class="project-skills-elem">IoT</p>
-                  <p class="project-skills-elem">STM32</p>
-                  <p class="project-skills-elem">C</p>
-                  <p class="project-skills-elem">Fusion</p>
-                  <p class="project-skills-elem">AutoCAD</p>
-                  <p class="project-skills-elem">Git</p>
-                  <p class="project-skills-elem">Hardware</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="project-container">
-              <img
-                class="project-logo"
-                src="resources/projectImages/stratfordRoboticsLogo.png"
-                alt="project-img"
-                width="40"
-                height="40"
-                loading="lazy"
-              />
-              <hr class="left-hr" />
-              <img
-                class="left-img"
-                src="resources/projectImages/droneImage.jpg"
-                alt="project-img"
-                loading="lazy"
-              />
-              <div class="left-project-text" style="bottom: 350px">
-                <div class="elem project-header-container">
-                  <span class="project-header">Arduino Drone</span>
-                  <span class="project-date"
-                    >Jan 2024 - Jun 2024 |
-                    <a
-                      href="https://github.com/LogaGill489/arduinoDrone"
-                      target="_blank"
-                      class="project-link"
-                      >Github</a
-                    >
-                  </span>
-                </div>
-                <p class="elem">
-                  This drone was my first Internet of Things (IoT) project and
-                  was designed with my friend Saahil to take aerial photos of my
-                  high school. Built around a quadcopter frame powered with an
-                  Arduino microcontroller, it uses four brushless DC motors that
-                  are controlled by ESCs and is powered by a 9V battery unit.
-                  The drone's frame was designed in Fusion 360 and uses
-                  lightweight, 3D materials.
-                </p>
-                <p class="elem">
-                  This project was a great deep dive into real-time systems and
-                  embedded programming for me, and it acted nicely as a
-                  real-world application of the reality of working with
-                  timelines on a limited budget. It also pushed me to improve my
-                  <a
-                    href="Saahil & Logan - Drone Project Documentation.pdf"
-                    style="text-decoration: underline"
-                    >technical documentation</a
-                  >, with the resulting structure being much more organized than
-                  some of my previous projects.
-                </p>
-                <div class="elem project-skills">
-                  <p class="project-skills-elem">IoT</p>
-                  <p class="project-skills-elem">Arduino</p>
-                  <p class="project-skills-elem">C++</p>
-                  <p class="project-skills-elem">Fusion</p>
-                  <p class="project-skills-elem">AutoCAD</p>
-                  <p class="project-skills-elem">Soldering</p>
-                  <p class="project-skills-elem">Hardware</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="project-container">
-              <img
-                class="project-logo"
-                src="resources/projectImages/peggleIcon.png"
-                alt="project-img"
-                width="40"
-                height="40"
-                loading="lazy"
-              />
-              <hr class="right-hr" />
-              <img
-                class="right-img"
-                src="resources/projectImages/peggleGameImage.png"
-                alt="project-img"
-                loading="lazy"
-              />
-              <div class="right-project-text" style="bottom: 350px">
-                <div class="elem project-header-container">
-                  <span class="project-header">Peggle</span>
-                  <span class="project-date"
-                    >May 2024 - July 2024 |
-                    <a
-                      href="https://www.youtube.com/watch?v=ifjmpqvJdnQ"
-                      target="_blank"
-                      class="project-link"
-                      >Demo</a
-                    >
-                    |
-                    <a
-                      href="https://github.com/LogaGill489/Peggle"
-                      target="_blank"
-                      class="project-link"
-                      >Github</a
-                    >
-                  </span>
-                </div>
-                <p class="elem">
-                  Peggle is a 2D game developed in C# using Visual Studio 2022
-                  that was inspired by the original 2007 game of the same title.
-                  The game features a custom, 2D phyiscs engine created entirely
-                  without the use of any external libraries, handling motion,
-                  dynamic collisions, and gravity.
-                </p>
-                <p class="elem">
-                  The
-                  <a
-                    href="https://github.com/LogaGill489/Peggle/blob/master/Peggle/Ball.cs"
-                    style="text-decoration: underline"
-                    >collision algorithm</a
-                  >
-                  was created using derivative logic, running continuously
-                  within the game loop. I also made use of object-oriented
-                  programming for the pegs, the ball, and keeping track of the
-                  score. This was by far the most technically challenging game
-                  I've worked on, as it required recreating physical forces in a
-                  simplified, 2D environment. Despite the difficulty, it pushed
-                  me to consider how these forces could be realistically
-                  approximated, and I'm quite happy with the result.
-                </p>
-                <div class="elem project-skills">
-                  <p class="project-skills-elem">C#</p>
-                  <p class="project-skills-elem">VS 2022</p>
-                  <p class="project-skills-elem">Physics Sim</p>
-                  <p class="project-skills-elem">OOP</p>
-                  <p class="project-skills-elem">Game-Dev</p>
-                  <p class="project-skills-elem">Git</p>
-                  <p class="project-skills-elem">Software</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="project-container">
-              <img
-                class="project-logo"
-                src="resources/projectImages/witnessIcon.png"
-                alt="project-img"
-                width="40"
-                height="40"
-                loading="lazy"
-              />
-              <hr class="left-hr" />
-              <img
-                class="left-img"
-                src="resources/projectImages/witnessGameImage.png"
-                alt="project-img"
-                loading="lazy"
-              />
-              <div class="left-project-text" style="bottom: 350px">
-                <div class="elem project-header-container">
-                  <span class="project-header">The Witness</span>
-                  <span class="project-date"
-                    >Mar 2024 - May 2024 |
-                    <a
-                      href="https://www.youtube.com/watch?v=R4BL-JBQFpw&t=10s"
-                      target="_blank"
-                      class="project-link"
-                      >Demo</a
-                    >
-                    |
-                    <a
-                      href="https://github.com/LogaGill489/WitnessTest"
-                      target="_blank"
-                      class="project-link"
-                      >Github</a
-                    >
-                  </span>
-                </div>
-                <p class="elem">
-                  The Witness is a short puzzle game inspired by the
-                  line-drawing mechanic found in the game with the same title. I
-                  developed it in C# using Visual Studio 2022, wanting to
-                  challenge myself with a mouse-based system where the player
-                  can "free-roam" within the grid boundries.
-                </p>
-                <p class="elem">
-                  The game features 12 original, handmade levels with increasing
-                  complexity and is played on a class-based grid-layout that
-                  leans heavily on object-orientated programming. The focus on
-                  modular level design and progression systems helped refine my
-                  approach to structuring logic-heavy games, and it remains one
-                  of my most rewarding solo builds due to its combination of
-                  technical depth and creative problem-solving.
-                </p>
-                <div class="elem project-skills">
-                  <p class="project-skills-elem">C#</p>
-                  <p class="project-skills-elem">VS 2022</p>
-                  <p class="project-skills-elem">OOP</p>
-                  <p class="project-skills-elem">Game-Dev</p>
-                  <p class="project-skills-elem">Cursor Logic</p>
-                  <p class="project-skills-elem">Git</p>
-                  <p class="project-skills-elem">Software</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="project-container">
-              <img
-                class="project-logo"
-                src="resources/github.png"
-                alt="project-img"
-                width="40"
-                height="40"
-                loading="lazy"
-              />
-              <hr class="right-hr" />
-              <img
-                class="right-img"
-                src="resources/projectImages/brickBreakerGame.png"
-                alt="project-img"
-                loading="lazy"
-              />
-              <div class="right-project-text" style="bottom: 350px">
-                <div class="elem project-header-container">
-                  <span class="project-header">Brick Breaker</span>
-                  <span class="project-date">
-                    Mar 2024 - May 2024 |
-                    <a
-                      href="https://www.youtube.com/watch?v=gA4uN7lcYRk"
-                      target="_blank"
-                      class="project-link"
-                      >Demo</a
-                    >
-                    |
-                    <a
-                      href="https://github.com/LogaGill489/BrickBreakerTeam2"
-                      target="_blank"
-                      class="project-link"
-                      >Github</a
-                    ></span
-                  >
-                </div>
-                <p class="elem">
-                  This Brick Breaker recreation was a collaborative project
-                  developed in C# by a team of eight using Visual Studio 2022. I
-                  took on the role of repository lead, managing the main GitHub
-                  codebase, reviewing pull requests, resolving merge conflicts,
-                  and keeping version control organized.
-                </p>
-                <p class="elem">
-                  Coordinating a team of this size presented challenges,
-                  particularily in aligning coding and individual styles. As
-                  such, the final product is probably the least polished of the
-                  games I've developed, though it gave me valuable experience in
-                  technical leadership and a lot of great insight into managing
-                  a codebase with a number of members.
-                </p>
-                <div class="elem project-skills">
-                  <p class="project-skills-elem">C#</p>
-                  <p class="project-skills-elem">VS 2022</p>
-                  <p class="project-skills-elem">OOP</p>
-                  <p class="project-skills-elem">Game-Dev</p>
-                  <p class="project-skills-elem">Team-Based</p>
-                  <p class="project-skills-elem">Github</p>
-                  <p class="project-skills-elem">Software</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="project-container">
-              <img
-                class="project-logo"
-                src="resources/projectImages/junimoIcon.png"
-                alt="project-img"
-                width="40"
-                height="40"
-                loading="lazy"
-              />
-              <hr class="left-hr" />
-              <img
-                class="left-img"
-                src="resources/projectImages/junimoKartGame.png"
-                alt="project-img"
-                loading="lazy"
-              />
-              <div class="left-project-text" style="bottom: 350px">
-                <div class="elem project-header-container">
-                  <span class="project-header">Junimo Kart</span>
-                  <span class="project-date"
-                    >May 2023 - July 2023 |
-                    <a
-                      href="https://www.youtube.com/watch?v=ceOLBwK83go"
-                      target="_blank"
-                      class="project-link"
-                      >Demo</a
-                    >
-                    |
-                    <a
-                      href="https://github.com/LogaGill489/JunimoKart"
-                      target="_blank"
-                      class="project-link"
-                      >Github</a
-                    >
-                  </span>
-                </div>
-                <p class="elem">
-                  Junimo Kart is a 2D platformer game developed in C# using
-                  Visual Studio 2022, built in mid 2023. Inspired by the 2D
-                  platformer of the same name in Stardew Valley, this was my
-                  first major game development, laying out my foundation for 2D
-                  game architecture.
-                </p>
-                <p class="elem">
-                  The game features a basic physics engine, with gravity,
-                  jumping, and dashing mechanics in an arcade-styled movement.
-                  It also features procedural terrain creation (the platforms
-                  that appear), increasing in difficulty as the player
-                  progresses. Overall, as an intro to game developement, Junimo
-                  Kart taught me a lot about object-orientated programming,
-                  procederal generation, and C#.
-                </p>
-                <div class="elem project-skills">
-                  <p class="project-skills-elem">C#</p>
-                  <p class="project-skills-elem">VS 2022</p>
-                  <p class="project-skills-elem">OOP</p>
-                  <p class="project-skills-elem">Game-Dev</p>
-                  <p class="project-skills-elem">Physics Sim</p>
-                  <p class="project-skills-elem">ProcGen</p>
-                  <p class="project-skills-elem">Software</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </main>
-        <!-- Footer Section -->
-        <footer>
-          <div class="footer-element">
-            <div class="footer-widescreen">
-              <div class="footer-flex">
-                <div class="elem footer-title">
-                  <a href="index.html">Logan Gillett</a>
-                  <a href="https://uwaterloo.ca/engineering/" target="_blank">
-                    <img
-                      class="footer-waterloo"
-                      src="resources/waterlooEng.png"
-                      alt="UWaterloo-Logo"
-                      title="I'm a Computer Engineer at UWaterloo!"
-                      loading="lazy"
-                    />
-                  </a>
-                </div>
-                <div class="footer-links">
-                  <div class="elem footer-item" style="margin-top: 20px">
-                    <a href="projects.html">Projects</a>
-                    <a href="about.html">About</a>
-                    <figure>
-                      <a
-                        href="https://www.linkedin.com/in/logan-gillett-941797327/"
-                        target="_blank"
-                      >
-                        <img
-                          src="resources/linkedin.png"
-                          alt="LinkedIn"
-                          title="LinkedIn"
-                          width="25"
-                          height="25"
-                          loading="lazy"
-                        />
-                      </a>
-                    </figure>
-                  </div>
-                  <div class="elem footer-item">
-                    <a href="career.html">Career</a>
-                    <a href="contact.html">Contact</a>
-                    <figure>
-                      <a href="https://github.com/LogaGill489" target="_blank">
-                        <img
-                          src="resources/github.png"
-                          alt="GitHub"
-                          title="GitHub"
-                          width="25"
-                          height="25"
-                          loading="lazy"
-                        />
-                      </a>
-                    </figure>
-                  </div>
-                </div>
-              </div>
-              <div class="elem footer-fineprint">
-                <p>&copy; 2025 - Logan Gillett</p>
-                <address>
-                  Conrad Grebel University College, 140 Westmount Rd N,
-                  Waterloo, ON N2L 3G6
-                </address>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </div>
+        </div>
+      </footer>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
