@@ -1,86 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Contact page for my personal website." />
-    <meta name="author" content="Logan Gillett" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="Cache-control" content="public" />
-    <title>Contact - Logan Gillett</title>
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/contact.css" />
-    <link rel="stylesheet" href="css/formatting.css" />
-    <link rel="icon" href="resources/websiteLogo.jpg" type="image/x-icon" />
-    <script src="jquery-3.7.1.js"></script>
-    <script>
-      //forces the screen to the top of the page upon refresh
-      var eleArr = [];
-      var eleInc = 0;
-      //checks if the element is in the viewport
-      function checkEle(i) {
-        const elem = $(".elem");
-        var viewPortSize = $(window).height();
-        if (eleArr[i] == 1) {
-          var rect = elem[i].getBoundingClientRect();
-          if (viewPortSize - rect.y > -50) {
-            $(".elem").eq(i).animate({ opacity: 1 }, 1200);
-            for (eleInc; eleInc < i; eleInc++) {
-              $(".elem").eq(eleInc).animate({ opacity: 1 }, 1200);
-              eleArr[eleInc] = 0;
-            }
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Contact page for my personal website." />
+  <meta name="author" content="Logan Gillett" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-control" content="public" />
+  <title>Contact - Logan Gillett</title>
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/formatting.css" />
+  <link rel="icon" href="resources/websiteLogo.jpg" type="image/x-icon" />
+  <script src="jquery-3.7.1.js"></script>
+  <script>
+    //forces the screen to the top of the page upon refresh
+    var eleArr = [];
+    var eleInc = 0;
+    //checks if the element is in the viewport
+    function checkEle(i) {
+      const elem = $(".elem");
+      var viewPortSize = $(window).height();
+      if (eleArr[i] == 1) {
+        var rect = elem[i].getBoundingClientRect();
+        if (viewPortSize - rect.y > -50) {
+          $(".elem").eq(i).animate({ opacity: 1 }, 1200);
+          for (eleInc; eleInc < i; eleInc++) {
+            $(".elem").eq(eleInc).animate({ opacity: 1 }, 1200);
+            eleArr[eleInc] = 0;
           }
         }
       }
-      $(document).ready(function () {
-        //adds a 1 to the array for each elemement in the elem class
-        for (var i = 0; i < $(".elem").length; i++) {
-          eleArr.push(1);
-          checkEle(i);
-        }
-      });
+    }
+    $(document).ready(function () {
+      //adds a 1 to the array for each elemement in the elem class
+      for (var i = 0; i < $(".elem").length; i++) {
+        eleArr.push(1);
+        checkEle(i);
+      }
+    });
 
-      $(window).scroll(function () {
-        const elem = $(".elem");
-        var viewPortSize = $(window).height();
-        checkEle(eleInc, 0);
+    $(window).scroll(function () {
+      const elem = $(".elem");
+      var viewPortSize = $(window).height();
+      checkEle(eleInc, 0);
 
-        for (var i = eleInc; i < $(".elem").length; i++) {
-          checkEle(i);
-        }
-
-        if (eleInc >= elem.length) {
-          $(window).off("scroll");
-        }
-      });
-    </script>
-    <style>
-      .header-container {
-        background-image: url(resources/forestFog3.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: top center;
+      for (var i = eleInc; i < $(".elem").length; i++) {
+        checkEle(i);
       }
 
-      .main-contact {
-        background-image: url(resources/norwayGray.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: top center;
+      if (eleInc >= elem.length) {
+        $(window).off("scroll");
       }
+    });
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJ7FKCCJ6J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-      body {
-        background-image: url(resources/back.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: top center;
-        background-attachment: fixed;
-      }
-    </style>
-  </head>
+    gtag('config', 'G-WJ7FKCCJ6J');
+  </script>
+  <style>
+    .header-container {
+      background-image: url(resources/forestFog3.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: top center;
+    }
 
-  <body>
-    <div id="background-img">
+    .main-contact {
+      background-image: url(resources/norwayGray.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: top center;
+    }
+
+    body {
+      background-image: url(resources/back.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: top center;
+      background-attachment: fixed;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="background-img">
     <div id="wrap">
       <header>
         <!-- Widescreen Header -->
@@ -93,32 +103,16 @@
               <a href="projects.html">Projects</a>&nbsp;
               <a href="about.html">About</a>&nbsp;
               <a href="career.html">Career</a>&nbsp;
-              <a href="contact.html"><u>Contact</u></a
-              >&nbsp;
+              <a href="contact.html"><u>Contact</u></a>&nbsp;
             </div>
             <div class="headerImages">
               <figure>
-                <a
-                  href="https://www.linkedin.com/in/logan-gillett-941797327/"
-                  target="_blank"
-                >
-                  <img
-                    src="resources/linkedin.png"
-                    alt="LinkedIn"
-                    title="LinkedIn"
-                    width="25"
-                    height="25"
-                  />
+                <a href="https://www.linkedin.com/in/logan-gillett-941797327/" target="_blank">
+                  <img src="resources/linkedin.png" alt="LinkedIn" title="LinkedIn" width="25" height="25" />
                 </a>
                 &nbsp;
                 <a href="https://github.com/LogaGill489" target="_blank">
-                  <img
-                    src="resources/github.png"
-                    alt="GitHub"
-                    title="GitHub"
-                    width="25"
-                    height="25"
-                  />
+                  <img src="resources/github.png" alt="GitHub" title="GitHub" width="25" height="25" />
                 </a>
               </figure>
             </div>
@@ -130,38 +124,17 @@
             </div>
             <div class="header-mobile-images">
               <div class="mobile-header-link">
-                <a
-                  href="https://www.linkedin.com/in/logan-gillett-941797327/"
-                  target="_blank"
-                >
-                  <img
-                    src="resources/linkedin.png"
-                    alt="LinkedIn"
-                    title="LinkedIn"
-                    width="25"
-                    height="25"
-                  />
+                <a href="https://www.linkedin.com/in/logan-gillett-941797327/" target="_blank">
+                  <img src="resources/linkedin.png" alt="LinkedIn" title="LinkedIn" width="25" height="25" />
                 </a>
                 &nbsp;
                 <a href="https://github.com/LogaGill489" target="_blank">
-                  <img
-                    src="resources/github.png"
-                    alt="GitHub"
-                    title="GitHub"
-                    width="25"
-                    height="25"
-                  />
+                  <img src="resources/github.png" alt="GitHub" title="GitHub" width="25" height="25" />
                 </a>
               </div>
               <div class="header-dropbar">
-                <img
-                  src="resources/dropDownImg.png"
-                  alt="Links"
-                  title="Links"
-                  width="25"
-                  height="25"
-                  class="dropDownImg"
-                />
+                <img src="resources/dropDownImg.png" alt="Links" title="Links" width="25" height="25"
+                  class="dropDownImg" />
                 <div class="dropdown-links">
                   <a href="projects.html">Projects</a>
                   <a href="about.html">About</a>
@@ -182,28 +155,15 @@
             <br />
             <h2>Let's Create Something Together</h2>
           </div>
-          <form
-            class="main-contact-form"
-            action="https://api.web3forms.com/submit"
-            method="POST"
-          >
-            <input
-              type="hidden"
-              name="access_key"
-              value="3cffb038-0f16-4caf-9677-ff9d5d4e9976"
-            />
+          <form class="main-contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="3cffb038-0f16-4caf-9677-ff9d5d4e9976" />
             <div class="contact-form">
               <span class="elem">Name</span>
               <span class="elem info-required">(required)</span>
               <div class="name-input">
                 <p class="elem">
                   <label for="first-name">First Name</label><br />
-                  <input
-                    type="text"
-                    name="first-name"
-                    id="first-name"
-                    required
-                  />
+                  <input type="text" name="first-name" id="first-name" required />
                 </p>
                 <p class="elem">
                   <label for="last-name">Last Name</label><br />
@@ -212,52 +172,31 @@
               </div>
               <div class="email-input">
                 <p class="elem">
-                  <label for="email"
-                    >Email <span class="info-required">(required)</span></label
-                  ><br />
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    autocomplete="email"
-                    required
-                  />
+                  <label for="email">Email <span class="info-required">(required)</span></label><br />
+                  <input type="email" name="email" id="email" autocomplete="email" required />
                 </p>
               </div>
               <div class="subject-input">
                 <p class="elem">
-                  <label for="subject"
-                    >Subject
-                    <span class="info-required">(required)</span></label
-                  ><br />
+                  <label for="subject">Subject
+                    <span class="info-required">(required)</span></label><br />
                   <input type="text" name="subject" id="subject" required />
                 </p>
               </div>
               <div class="message-input">
                 <p class="elem">
-                  <label for="message"
-                    >Message
-                    <span class="info-required">(required)</span></label
-                  ><br />
+                  <label for="message">Message
+                    <span class="info-required">(required)</span></label><br />
                   <textarea name="message" id="message" required></textarea>
                 </p>
               </div>
             </div>
             <!-- Honeypot Spam Protection -->
-            <input
-              type="checkbox"
-              name="botcheck"
-              class="hidden"
-              style="display: none"
-            />
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none" />
             <div class="submit-button">
               <p class="elem">
                 <button>Send</button>
-                <button
-                  type="button"
-                  onclick="clearFields();"
-                  style="margin-left: 0px"
-                >
+                <button type="button" onclick="clearFields();" style="margin-left: 0px">
                   Clear
                 </button>
               </p>
@@ -281,13 +220,8 @@
               <div class="elem footer-title">
                 <a href="index.html">Logan Gillett</a>
                 <a href="https://uwaterloo.ca/engineering/" target="_blank">
-                  <img
-                    class="footer-waterloo"
-                    src="resources/waterlooEng.png"
-                    alt="UWaterloo-Logo"
-                    title="I'm a Computer Engineer at UWaterloo!"
-                    loading="lazy"
-                  />
+                  <img class="footer-waterloo" src="resources/waterlooEng.png" alt="UWaterloo-Logo"
+                    title="I'm a Computer Engineer at UWaterloo!" loading="lazy" />
                 </a>
               </div>
               <div class="footer-links">
@@ -295,18 +229,9 @@
                   <a href="projects.html">Projects</a>
                   <a href="about.html">About</a>
                   <figure>
-                    <a
-                      href="https://www.linkedin.com/in/logan-gillett-941797327/"
-                      target="_blank"
-                    >
-                      <img
-                        src="resources/linkedin.png"
-                        alt="LinkedIn"
-                        title="LinkedIn"
-                        width="25"
-                        height="25"
-                        loading="lazy"
-                      />
+                    <a href="https://www.linkedin.com/in/logan-gillett-941797327/" target="_blank">
+                      <img src="resources/linkedin.png" alt="LinkedIn" title="LinkedIn" width="25" height="25"
+                        loading="lazy" />
                     </a>
                   </figure>
                 </div>
@@ -315,14 +240,8 @@
                   <a href="contact.html">Contact</a>
                   <figure>
                     <a href="https://github.com/LogaGill489" target="_blank">
-                      <img
-                        src="resources/github.png"
-                        alt="GitHub"
-                        title="GitHub"
-                        width="25"
-                        height="25"
-                        loading="lazy"
-                      />
+                      <img src="resources/github.png" alt="GitHub" title="GitHub" width="25" height="25"
+                        loading="lazy" />
                     </a>
                   </figure>
                 </div>
@@ -340,5 +259,6 @@
       </footer>
     </div>
   </div>
-  </body>
+</body>
+
 </html>
